@@ -1,0 +1,72 @@
+.collection__section {
+	padding: 0 2rem;
+   margin: 0rem 0 2rem;
+
+	header {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		padding-left: 2rem;
+
+		div {
+			display: flex;
+			align-items: center;
+			gap: 0.3rem;
+
+			h2 {
+				font-family: 'krona';
+			}
+		}
+
+		a {
+			display: flex;
+			justify-content: flex-end;
+			align-items: center;
+			gap: 0.4rem;
+		}
+
+		img {
+			filter: invert(1) brightness(200);
+		}
+
+		.collection__icon {
+			width: 1.9rem;
+		}
+		.arrow__icon {
+			width: 1.4rem;
+		}
+	}
+
+	.carousel {
+		display: flex;
+		align-items: center;
+		height: 22rem;
+		gap: .4rem;
+      justify-content: space-between;
+
+		& > button {
+			width: 2.2rem;
+			height: 100%;
+			background-color: #202020;
+			border: none;
+
+			img {
+				filter: invert(1) brightness(200);
+				width: 100%;
+			}
+		}
+
+		.cards__container {
+			overflow: hidden;
+         flex: 1;
+			height: 100%;
+		}
+		
+		.cards__wrapper {
+			display: flex;
+			align-items: center;
+			width: fit-content;
+			height: 100%;
+		}
+	}
+}

@@ -1,0 +1,82 @@
+.skin__card {
+   width: 16rem;
+   height: 100%;
+   padding: 1.3rem;
+   position: relative;
+   background-color: #202020;
+   color: white;
+   margin-right: .4rem;
+
+   .trade {
+      display: flex;
+      align-items: center;
+
+      img {
+         width: 1.4rem;
+      }
+
+      p {
+         font-size: .9rem;
+         color: #69bf7e;
+      }
+   }
+
+   .skin__img {
+      height: 5rem;
+      margin: 1.5rem auto;
+   }
+
+   .price {
+      display: flex;
+      align-items: center;
+      gap: .7rem;
+      
+      h2 {
+         font-family: "krona";
+         font-weight: 500;
+
+      }
+
+      span {
+         background: linear-gradient(135deg,#0073d5,#fa490a);
+         border-radius: 3px;
+         position: relative;
+         padding: .1rem .7rem;
+         font-size: .8rem;
+         transform: skewX(-15deg);
+         font-weight: bold;
+      }
+   }
+
+   .suggested__price {
+      font-size: .9rem;
+      color: gray;
+      margin: .3rem 0 ;
+   }
+
+   .category {
+      color: #3598ea;
+      font-size: .9rem;
+      margin: .8rem 0 .2rem;
+   }
+   
+   & >h2 {
+      font-family: "krona";
+      text-transform: capitalize;
+      font-size: 1.1rem;
+      color: #e8e8e8f6;
+   }
+
+   button {
+      position: absolute;
+      bottom: 0rem;
+      padding: .9rem 0;
+      width: 100%;
+      font-size: .7rem;
+      font-weight: bold;
+      background-color: #5881c3;
+      color: white;
+      border: none;
+      left: 0;
+   }
+}

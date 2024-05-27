@@ -1,0 +1,54 @@
+$main-color: #4c4c4c;
+
+.auth__buttons {
+	width: 100%;
+	margin-top: 2.3rem;
+	display: flex;
+	justify-content: space-between;
+
+	& button {
+		cursor: pointer;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: .5rem;
+		transition: background 0.3s ease;
+		letter-spacing: 1px;
+		font-size: 0.75rem;
+		font-weight: bolder;
+		color: aliceblue;
+		font-family: "Montserrat";
+		border-radius: 0.5rem;
+		border: 0;
+		background-color: $main-color;
+		height: 2.7rem + 0.2rem;
+		box-shadow: 0px 5px 10px rgba(19, 17, 17, 0.445);
+
+      img {
+         width: 1.2rem;
+      }
+
+		&:active {
+			background-color: darken($main-color, 0.5);
+		}
+      &:disabled {
+         filter: opacity(0.55);
+         cursor: not-allowed;
+      }
+	}
+
+	& .auth__submit__btn {
+		width: 80%;
+	}
+
+	& .auth__goggle__btn {
+		width: 15%;
+		display: grid;
+		place-items: center;
+
+		& img {
+			height: 1.4rem;
+			margin: 0 auto;
+		}
+	}
+}

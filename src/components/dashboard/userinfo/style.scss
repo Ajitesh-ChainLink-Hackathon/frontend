@@ -1,0 +1,76 @@
+.user__options__modal {
+	position: absolute;
+	right: calc(5% + 3.3rem);
+	width: 19rem;
+	max-height: 80vh;
+	height: auto;
+	overflow-y: auto;
+	top: 10vh;
+	background-color: white;
+	border-radius: 0.2rem;
+
+	box-shadow: 0 1rem 1.5rem #4040403d;
+
+	a {
+		text-decoration: none;
+	}
+
+	.label {
+		text-decoration: none;
+		color: #484848;
+		font-size: 0.9rem;
+
+		// font-weight: 600;
+	}
+
+	img {
+		width: 1.2rem;
+	}
+
+	.block__option {
+		padding: 0.8rem 1rem;
+		gap: 0.8rem;
+	}
+
+	.user__details {
+		display: flex;
+		justify-content: flex-start;
+		align-items: center;
+		gap: 1rem;
+		border-bottom: 1px solid #e4e3e35f;
+
+		.user__name {
+			font-weight: 700;
+			font-size: 0.9rem;
+			color: #606060;
+		}
+
+		.user__email {
+			color: grey;
+		}
+
+		span {
+			$size: 2.2rem;
+			background-color: #fbcfe8;
+			color: #9d174d;
+			font-weight: 500;
+			border-radius: 50%;
+			width: $size;
+			height: $size;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+		}
+	}
+
+	.log__out {
+		border-top: 1px solid #b0b0b052;
+		p{
+      color: red;
+   }
+		img {
+			filter: invert(23%) sepia(96%) saturate(7435%) hue-rotate(358deg)
+				brightness(106%) contrast(111%);
+		}
+	}
+}

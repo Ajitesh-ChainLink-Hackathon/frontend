@@ -1,0 +1,54 @@
+.hero__section {
+   height: 100vh;
+   position: relative;
+
+   &::before {
+      position: absolute;
+      content: "";
+      width: 100%;
+      height: 100%;
+      z-index: 1;
+      background: linear-gradient(to right, #202020d8, #3f3f3f2a);
+   }
+
+   img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+      filter: brightness(.8);
+   }
+
+   & > div {
+      position: absolute;
+      top: 50%;
+      left: 2rem;
+      transform: translate(0%, -50%);
+      z-index: 2;
+
+      h1 {
+         font-family: "berani";
+         font-size: 5.5rem;
+         font-weight: lighter;
+         color: #f8f8f8;
+      }
+
+      p {
+         width: 47%;
+         color: white;
+         font-size: .93rem;
+      }
+
+      button {
+         padding: 1rem 5rem;
+         font-weight: bold;
+         background-color: #5881c3;
+         color: white;
+         border: none;
+         margin: 1.6rem 0 0;
+
+      }
+   }
+}

@@ -1,0 +1,38 @@
+* {
+   margin: 0;
+   padding: 0;
+   box-sizing: border-box;
+   font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+   img {
+      display: block;
+   }
+
+   button {
+      display: block;
+   }
+}
+
+body {
+   background-color: #101010;
+}
+
+@font-face {
+   font-family: "night";
+   src: url("/fonts/night.ttf");
+}
+
+@font-face {
+   font-family: "empire";
+   src: url("/fonts/empire.otf");
+}
+
+@font-face {
+   font-family: "krona";
+   src: url("/fonts/krona.ttf");
+}
+
+@font-face {
+   font-family: "berani";
+   src: url("/fonts/Berani.otf");
+}

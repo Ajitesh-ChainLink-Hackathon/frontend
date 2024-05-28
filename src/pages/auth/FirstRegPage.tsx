@@ -39,7 +39,7 @@ function FirstRegPage({handleNext, handleChange, newUser}:PageProps) {
 				Continue
 			</AuthButtons>
 			<label className="auth__label">
-				Already have an account ?<Link to="/auth">Log in</Link>
+				Already have an account ?<Link to="/login">Log in</Link>
 			</label>
 		</form>
 	);

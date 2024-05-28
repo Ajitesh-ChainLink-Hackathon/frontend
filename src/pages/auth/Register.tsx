@@ -23,7 +23,7 @@ function Register() {
 
 	const moveToNextPage = (e: React.FormEvent<HTMLFormElement>) => {
 		e.preventDefault();
-		navigate("/auth/register/second");
+		navigate("/register/second");
 		setSearchParam({
 			...searchParam,
 			name: newUser.name,
@@ -77,7 +77,7 @@ function Register() {
 								handleSubmit={createNewUser}
 								newUser={newUser}
                         isLoading={isLoading}
-							/> : <Navigate replace to={"/auth/register"} />
+							/> : <Navigate replace to={"/register"} />
 						}
 					/>
 				</Routes>

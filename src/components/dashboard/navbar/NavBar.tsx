@@ -8,11 +8,11 @@ function NavBar() {
 	const [showDetails, setShowDetails] = useState(false);
 	const elementRef = useRef<HTMLImageElement>(null);
 
-	const handleClickOutside = (event: MouseEvent) => {
+	const handleClickOutside = (event?: React.MouseEvent<HTMLDivElement> | MouseEvent) => {
 		// Check if the target element is not within the desired component
 		if (
-			event.target instanceof Node &&
-			!elementRef.current?.contains(event.target)
+			event!.target instanceof Node &&
+			!elementRef.current?.contains(event!.target)
 		) {
 			setShowDetails(false);
 		} else {
@@ -37,7 +37,7 @@ function NavBar() {
 			<p className="heading">SELL</p>
 
 			<div>
-				<div className="user">
+				<div onClick={handleClickOutside} className="user">
 					<img ref={elementRef} src="/icons/user.svg" alt="" />
 
 					{showDetails && <UserOptions />}

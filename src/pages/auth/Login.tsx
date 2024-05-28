@@ -46,7 +46,7 @@ function Login() {
 
 	return (
 		<div className="auth__form__content">
-			<h1>Login 🎯</h1>
+			<h1>Login 🎒</h1>
 			<form onSubmit={logUserIn}>
 				<FormInput
 					name="email"

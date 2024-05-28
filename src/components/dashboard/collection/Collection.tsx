@@ -28,7 +28,7 @@ function Collection({ icon, title, link, skins }: CollectionProps) {
 				</Link>
 			</header>
 			<div className="carousel">
-				<button>
+				<button className='left__btn'>
 					<img src="/icons/arrow-right.svg" alt="" />
 				</button>
 				<div className="cards__container">

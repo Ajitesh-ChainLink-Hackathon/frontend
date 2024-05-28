@@ -1,0 +1,33 @@
+.footer__section {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	margin-top: 1.5rem;
+
+	img {
+		width: 2rem;
+		filter: invert(1) brightness(200);
+	}
+
+	.socials {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		gap: 1rem;
+		font-size: 0.8rem;
+		margin: 1rem 0 1rem;
+    p {
+      color: #9f9f9f;
+
+    }
+	}
+
+	.copyright {
+		color: #9f9f9f;
+		padding: 1.1rem 0;
+		border-top: 1px solid #272727;
+		text-align: center;
+		width: 100%;
+		font-size: 0.8rem;
+	}
+}

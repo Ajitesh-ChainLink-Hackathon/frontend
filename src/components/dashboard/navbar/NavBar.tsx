@@ -7,6 +7,7 @@ function NavBar() {
 	const cartItemsCount = useCartItems((state) => state.cartItems.length);
 	const [showDetails, setShowDetails] = useState(false);
 	const elementRef = useRef<HTMLImageElement>(null);
+	const navElementRef = useRef<HTMLElement>(null)
 
 	const handleClickOutside = (event?: React.MouseEvent<HTMLDivElement> | MouseEvent) => {
 		// Check if the target element is not within the desired component
@@ -21,15 +22,34 @@ function NavBar() {
 	};
 
 	useEffect(() => {
+		const handleScroll = () => {
+			const element = navElementRef.current!;
+			const triggerElement = document.getElementById("home");
+
+			if (triggerElement) {
+				const triggerElementRect = triggerElement.getBoundingClientRect();
+				const triggerElementTop =
+					triggerElementRect.bottom + window.scrollY;
+
+				if (window.scrollY >= triggerElementTop) {
+					element.classList.add('scrolled');
+				} else {
+					element.classList.remove('scrolled');
+				}
+			}
+		};
+
+		window.addEventListener('scroll', handleScroll);
 		document.addEventListener('click', handleClickOutside);
 
 		return () => {
 			document.removeEventListener('click', handleClickOutside);
+			window.removeEventListener('scroll', handleScroll);
 		};
 	}, []);
 
 	return (
-		<nav className="top__nav">
+		<nav className="top__nav" ref={navElementRef}>
 			<div className="logo__container">
 				<img src="/logo.svg" alt="" />
 				<p>SkinSwap</p>

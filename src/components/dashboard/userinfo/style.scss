@@ -103,3 +103,9 @@
 
 
 }
+
+@media screen and (max-width:900px) {
+	.user__options__modal {
+		right: unset;
+	}
+}

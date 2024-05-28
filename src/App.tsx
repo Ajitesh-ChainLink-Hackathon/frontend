@@ -7,6 +7,7 @@ import Register from './pages/auth/Register';
 import Sell from './pages/sell/Sell';
 import CollectionOverview from './pages/dashboard/CollectionOverview';
 import CollectionCategory from './pages/dashboard/CollectionCategory';
+import Cart from './pages/cart/Cart';
 
 const router = createBrowserRouter([
 	{
@@ -37,8 +38,18 @@ const router = createBrowserRouter([
 		],
 	},
 	{
-		path: '/sell',
-		element: <Sell />,
+		
+		children: [
+			{
+				path: '/sell',
+				element: <Sell />,
+			},
+			{
+				path: '/cart',
+				element: <Cart />,
+			}
+		]
+
 	},
 ]);
 

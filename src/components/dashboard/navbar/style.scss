@@ -9,8 +9,11 @@
 	z-index: 3;
 	height: 10vh;
 	padding: 0 2rem;
-	// background-color: #171717;
-	// box-shadow: 0 .7rem 1rem #171717ce;
+
+	&.scrolled {
+		background-color: #2c2c2c;
+		box-shadow: 0 .7rem 1rem #1c1c1ca9;
+	}
 	// backdrop-filter: blur(10px);
 	// border-bottom: 1px solid #24242478;
 
@@ -112,4 +115,27 @@
 			}
 		}
 	}
+}
+
+@media screen and (max-width: 900px) {
+	.top__nav {
+		padding: 0 1rem;
+
+		.heading {
+
+			display: none;
+		}
+
+		.logo__container {
+			img {
+				filter: invert(1) brightness(200);
+				// width: 1.7rem;
+			}
+			p{
+				color: white;
+				// font-size: 1.1rem;
+			}
+		}
+	}
+
 }

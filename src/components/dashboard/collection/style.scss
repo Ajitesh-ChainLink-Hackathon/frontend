@@ -1,6 +1,6 @@
 .collection__section {
 	padding: 0 2rem;
-   margin: 0rem 0 4rem;
+	margin: 0rem 0 4rem;
 
 	header {
 		display: flex;
@@ -8,7 +8,6 @@
 		align-items: center;
 		padding-left: 2.8rem;
 		margin-bottom: 1rem;
-		
 
 		div {
 			display: flex;
@@ -20,7 +19,6 @@
 				font-size: 1.2rem;
 				text-transform: uppercase;
 				color: whitesmoke;
-
 			}
 		}
 
@@ -35,7 +33,6 @@
 
 		img {
 			filter: invert(1) brightness(200);
-			width: 1.2rem;
 		}
 
 		.collection__icon {
@@ -50,15 +47,14 @@
 		display: flex;
 		align-items: center;
 		height: 22rem;
-		gap: .4rem;
-      justify-content: space-between;
+		gap: 0.4rem;
+		justify-content: space-between;
 
 		& > button {
 			width: 2.2rem;
 			height: 100%;
 			background-color: #2b2f30;
 			border: none;
-			
 
 			&.left__btn {
 				transform: rotate(-180deg);
@@ -67,22 +63,57 @@
 			}
 
 			img {
-				filter: invert(.6);
+				filter: invert(0.6);
 				width: 100%;
 			}
 		}
 
 		.cards__container {
 			overflow: hidden;
-         flex: 1;
+			flex: 1;
 			height: 100%;
 		}
-		
+
 		.cards__wrapper {
 			display: flex;
 			align-items: center;
 			width: fit-content;
 			height: 100%;
+		}
+	}
+}
+
+@media screen and (max-width: 900px) {
+	.collection__section {
+		padding: 0 1rem;
+
+
+		header {
+			padding-left: 1rem;
+			div {
+				h2 {
+					font-size: 0.9rem;
+				}
+			}
+
+			a {
+				font-weight: 400;
+				font-size: 0.8rem;
+			}
+			.collection__icon {
+				width: 1.5rem;
+			}
+		}
+		.carousel {
+			& > button {
+				display: none;
+			}
+			.cards__container {
+				overflow-x: scroll;
+			}
+			.cards__wrapper {
+			  padding-left: 1rem;
+			}
 		}
 	}
 }

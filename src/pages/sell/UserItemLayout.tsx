@@ -1,13 +1,11 @@
 import NavBar from "../../components/dashboard/navbar/NavBar"
 
-function Cart() {
+function ItemLayout() {
   return (
-    <section>
+    <div>
       <NavBar />
-      <div>
-
-      </div>
-    </section>
+      
+    </div>
   )
 }
-export default Cart
+export default ItemLayout

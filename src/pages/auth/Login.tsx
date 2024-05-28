@@ -70,7 +70,7 @@ function Login() {
 				<AuthButtons handleGoogleAuth={handleGoogleAuth} isLoading={isLoading}  goggleAuth>Login</AuthButtons>
 				<label className="auth__label">
 					Don&apos;t have an account?
-					<Link to="/auth/register"> Sign Up</Link>
+					<Link to="/register"> Sign Up</Link>
 				</label>
 			</form>
 		</div>

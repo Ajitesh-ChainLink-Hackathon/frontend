@@ -2,12 +2,18 @@ import './style.scss';
 import useCartItems from '../../../hooks/useCartItems.zustand';
 import UserOptions from '../userinfo/UserOptions';
 import { useEffect, useRef, useState } from 'react';
-
+import { Link, useNavigate } from 'react-router-dom';
 function NavBar() {
 	const cartItemsCount = useCartItems((state) => state.cartItems.length);
 	const [showDetails, setShowDetails] = useState(false);
 	const elementRef = useRef<HTMLImageElement>(null);
 	const navElementRef = useRef<HTMLElement>(null)
+	const navigate = useNavigate();
+
+	const navigateToCart = ()=> {
+		navigate("/cart")
+	}
+
 
 	const handleClickOutside = (event?: React.MouseEvent<HTMLDivElement> | MouseEvent) => {
 		// Check if the target element is not within the desired component
@@ -50,10 +56,10 @@ function NavBar() {
 
 	return (
 		<nav className="top__nav" ref={navElementRef}>
-			<div className="logo__container">
+			<Link to="/" className="logo__container">
 				<img src="/logo.svg" alt="" />
 				<p>SkinSwap</p>
-			</div>
+			</Link>
 			<p className="heading">SELL</p>
 
 			<div>
@@ -62,7 +68,7 @@ function NavBar() {
 
 					{showDetails && <UserOptions />}
 				</div>
-				<div className="cart">
+				<div onClick={navigateToCart} className="cart">
 					<img src="/icons/cart.svg" alt="" />
 					<p>{cartItemsCount}</p>
 				</div>

@@ -1,0 +1,47 @@
+.cart__summary {
+	background-color: #2b2f30;
+	height: fit-content;
+	position: sticky;
+	top: 13vh;
+	& > h2 {
+		font-family: 'krona';
+		font-size: 1.1rem;
+		color: whitesmoke;
+		padding: 1.1rem 0.8rem;
+		margin-bottom: 1rem;
+		border-bottom: 1px solid #454545;
+		background-color: #2c2c2c;
+	}
+	div {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		font-size: 1.1rem;
+		color: white;
+		padding: 0.4rem 0.8rem;
+		p {
+			font-size: 0.95rem;
+		}
+	}
+
+	.totals {
+		background-color: #3e3e3e;
+		padding: 1.2rem 0.8rem;
+		margin-top: 2rem;
+		h2 {
+			font-family: 'krona';
+			font-weight: 500;
+			font-size: 1rem;
+		}
+	}
+
+	button {
+		padding: 1rem 4.3rem;
+      width: 100%;
+		font-weight: bold;
+		background-color: #5881c3;
+		color: white;
+		border: none;
+		margin: 1.6rem 0 0;
+	}
+}

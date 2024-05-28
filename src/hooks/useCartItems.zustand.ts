@@ -1,5 +1,5 @@
 import { create } from 'zustand';
-
+import skinData from "../utils/skins.products.json";
 export type CartItem = {
 	id: string;
 	name: string;
@@ -16,7 +16,7 @@ interface CartItemState {
 }
 
 const initialState = {
-	cartItems: [],
+	cartItems: skinData["key"],
 };
 
 const useCartItems = create<CartItemState>()((set) => ({

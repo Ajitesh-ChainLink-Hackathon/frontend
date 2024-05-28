@@ -1,0 +1,90 @@
+.cart__item {
+	display: grid;
+	grid-template-columns: 35% 20% 30% 15%;
+	height: 6.5rem;
+   align-items: center;
+	width: 100%;
+   column-gap: .2rem;
+	padding: 0.2rem 0.5rem;
+	margin-bottom: 0.1rem;
+   background-color: #2b2f30;
+
+
+	.skin {
+		height: 100%;
+		display: flex;
+		align-items: center;
+		gap: 1rem;
+		width: 100%;
+      padding: .4rem 0;
+
+		& > img {
+			height: 4.4rem;
+			object-fit: contain;
+		}
+		& > div {
+         h2 {
+            font-family: "krona";
+            font-size: 1rem;
+            color: whitesmoke;
+         }
+			& > div {
+            display: flex;
+				align-items: center;
+            margin-top: .4rem;
+            
+				img {
+               width: 1.4rem;
+				}
+
+				p {
+					font-size: 0.9rem;
+					color: #69bf7e;
+				}
+			}
+		}
+	}
+   .category {
+     font-family: "krona";
+     text-transform: uppercase;
+     color: whitesmoke;
+   }
+   .price {
+      h2 {
+         font-family: "krona";
+         font-size: 1.2rem;
+         color: white;
+         font-weight: 500;
+      }
+      span {
+         background: linear-gradient(135deg,#0073d5,#fa490a);
+         border-radius: 3px;
+         display: inline-block;
+         position: relative;
+         bottom: .2rem;
+         left: .4rem;
+         padding: .1rem .7rem .2rem;
+         font-size: .7rem;
+         transform: skewX(-15deg);
+         color: white;
+      }
+      p {
+         font-size: .9rem;
+
+      }
+   }
+
+   button {
+      $size: 2rem;
+      width: $size;
+      height: $size;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: .15rem;
+      img {
+         width: 100%;
+      }
+   }
+}

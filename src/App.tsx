@@ -4,7 +4,7 @@ import Dashboard from './pages/dashboard/Dashboard';
 import AuthLayout from './pages/auth/AuthLayout';
 import Login from './pages/auth/Login';
 import Register from './pages/auth/Register';
-import Sell from './pages/sell/Sell';
+import Orders from './pages/orders/Orders';
 import CollectionOverview from './pages/dashboard/CollectionOverview';
 import CollectionCategory from './pages/dashboard/CollectionCategory';
 import Cart from './pages/cart/Cart';
@@ -16,13 +16,13 @@ const router = createBrowserRouter([
 		children: [
 			{
 				index: true,
-				element: <CollectionOverview />
+				element: <CollectionOverview />,
 			},
 			{
-				path: "/dashboard/:category",
-				element: <CollectionCategory />
-			}
-		]
+				path: '/dashboard/:category',
+				element: <CollectionCategory />,
+			},
+		],
 	},
 	{
 		element: <AuthLayout />,
@@ -38,18 +38,12 @@ const router = createBrowserRouter([
 		],
 	},
 	{
-		
-		children: [
-			{
-				path: '/sell',
-				element: <Sell />,
-			},
-			{
-				path: '/cart',
-				element: <Cart />,
-			}
-		]
-
+		path: '/cart',
+		element: <Cart />,
+	},
+	{
+		path: '/orders',
+		element: <Orders />,
 	},
 ]);
 

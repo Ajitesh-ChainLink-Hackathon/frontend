@@ -1,0 +1,22 @@
+.cart__item__wrapper {
+	display: grid;
+	grid-template-columns: 75% 25%;
+	padding: 0 1rem;
+	margin: 2rem 0;
+	column-gap: 0.4rem;
+
+	.cart__item__header {
+		display: grid;
+		grid-template-columns: 35% 20% 30% 15%;
+
+		padding: 0.8rem 0.5rem;
+		margin-bottom: 0.2rem;
+		background-color: #2b2f30;
+
+		h3 {
+			font-size: 0.9rem;
+			color: whitesmoke;
+			font-weight: 600;
+		}
+	}
+}

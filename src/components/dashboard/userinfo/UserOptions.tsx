@@ -18,6 +18,14 @@ function UserOptions() {
 				</div>
 			</div>
 			<div onClick={handleSignOutUser} className='option'>
+				<img src="/icons/selling.svg" alt="" />
+				<p>Selling</p>
+			</div>
+			<div onClick={handleSignOutUser} className='option'>
+				<img src="/icons/order.svg" alt="" />
+				<p>Orders</p>
+			</div>
+			<div onClick={handleSignOutUser} className='option logout'>
 				<img src="/icons/logout.svg" alt="" />
 				<p>Log out</p>
 			</div>

@@ -1,8 +1,11 @@
 import "./style.scss";
 import Collection from '../../components/dashboard/collection/Collection';
 import skinProducts from '../../utils/skins.products.json';
+
+
 function CollectionOverview() {
 	const skinCategories = Object.keys(skinProducts);
+	
 
 	return (
 		<div className='collection__overview'>

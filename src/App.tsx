@@ -8,6 +8,8 @@ import Orders from './pages/orders/Orders';
 import CollectionOverview from './pages/dashboard/CollectionOverview';
 import CollectionCategory from './pages/dashboard/CollectionCategory';
 import Cart from './pages/cart/Cart';
+import { Fragment } from 'react/jsx-runtime';
+import { Toaster } from 'react-hot-toast';
 
 const router = createBrowserRouter([
 	{
@@ -48,7 +50,12 @@ const router = createBrowserRouter([
 ]);
 
 function App() {
-	return <RouterProvider router={router} />;
+	return (
+		<Fragment>
+			<Toaster />
+			<RouterProvider router={router} />
+		</Fragment>
+	);
 }
 
 export default App;

@@ -29,6 +29,11 @@
 			gap: 0.2rem;
 			color: #278cff;
 			font-weight: 600;
+			font-size: .8rem;
+
+			img {
+				filter: invert(48%) sepia(72%) saturate(3688%) hue-rotate(196deg) brightness(101%) contrast(101%);
+			}
 		}
 
 		img {
@@ -58,8 +63,8 @@
 
 			&.left__btn {
 				transform: rotate(-180deg);
-				opacity: 0;
-				pointer-events: none;
+				// opacity: 0;
+				// pointer-events: none;
 			}
 
 			img {
@@ -79,6 +84,7 @@
 			align-items: center;
 			width: fit-content;
 			height: 100%;
+			transition: transform .5s ease ;
 		}
 	}
 }

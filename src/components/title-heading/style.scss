@@ -34,3 +34,13 @@
       text-align: center;
    }
 }
+
+@media screen and (max-width: 900px) {
+   .title__heading {
+      height: 50vh;
+     h1 {
+      font-size: 5rem;
+      color: hsl(0, 0%, 79%);
+     }
+   }
+}

@@ -1,9 +1,21 @@
 import './style.scss';
-import { CartItem } from '../../../hooks/useCartItems.zustand';
+import useCartItems, { CartItem } from '../../../hooks/useCartItems.zustand';
+import { forwardRef, LegacyRef } from 'react';
+import { calculateDiscountedPrice } from '../../../utils/utils';
+import showToast from '../../../utils/showToast';
 
-function SkinCard(props: Omit<CartItem, 'id'>) {
+
+const SkinCard = forwardRef((props: CartItem, ref: LegacyRef<HTMLDivElement>)=> {
+	const addToCart = useCartItems(state => state.addCartItem)
+	const discountedPrice = calculateDiscountedPrice(props.price, props.discount);
+
+	const addSkinToCart = ()=> {
+		addToCart({...props})
+		showToast.success("Added To Cart")
+	}
+
 	return (
-		<article className="skin__card">
+		<article className="skin__card" ref={ref}>
 			<div className='trade'>
 				<img src="/icons/trade.svg" alt="" />
 				<p>Tradable</p>
@@ -11,13 +23,13 @@ function SkinCard(props: Omit<CartItem, 'id'>) {
 			<img className='skin__img' src={props.img_url} alt="" />
 			<div className='price'>
 				<h2>${props.price}</h2>
-				<span> -{props.discount}</span>
+				<span> -{props.discount}%</span>
 			</div>
-			<p className='suggested__price'>Suggested price ${props.price}</p>
+			<p className='suggested__price'>Suggested price ${discountedPrice}</p>
 			<p className='category'>{props.category}</p>
 			<h2>{props.name}</h2>
-			<button>ADD TO CART</button>
+			<button onClick={addSkinToCart}>ADD TO CART</button>
 		</article>
 	);
-}
+})
 export default SkinCard;

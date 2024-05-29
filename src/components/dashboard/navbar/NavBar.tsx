@@ -7,11 +7,16 @@ function NavBar() {
 	const cartItemsCount = useCartItems((state) => state.cartItems.length);
 	const [showDetails, setShowDetails] = useState(false);
 	const elementRef = useRef<HTMLImageElement>(null);
-	const navElementRef = useRef<HTMLElement>(null)
+	const navElementRef = useRef<HTMLElement>(null);
+	
 	const navigate = useNavigate();
 
 	const navigateToCart = ()=> {
 		navigate("/cart")
+	}
+
+	const handleShowOptions =()=> {
+		setShowDetails(true);
 	}
 
 
@@ -22,8 +27,6 @@ function NavBar() {
 			!elementRef.current?.contains(event!.target)
 		) {
 			setShowDetails(false);
-		} else {
-			setShowDetails(true);
 		}
 	};
 
@@ -63,7 +66,7 @@ function NavBar() {
 			<p className="heading">SELL</p>
 
 			<div>
-				<div onClick={handleClickOutside} className="user">
+				<div onClick={handleShowOptions} className="user">
 					<img ref={elementRef} src="/icons/user.svg" alt="" />
 
 					{showDetails && <UserOptions />}

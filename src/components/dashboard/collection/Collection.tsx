@@ -2,15 +2,31 @@ import './style.scss';
 import { Link } from 'react-router-dom';
 import { CartItem } from '../../../hooks/useCartItems.zustand';
 import SkinCard from '../skin-card/SkinCard';
+import { useState, useRef } from "react";
 
 type CollectionProps = {
 	icon: string;
 	title: string;
 	link: string;
-	skins: Omit<CartItem, 'id'>[];
+	skins: CartItem[];
 };
 
 function Collection({ icon, title, link, skins }: CollectionProps) {
+	const [position, setPosition] = useState(0);
+	const elementRef = useRef<HTMLDivElement>(null);
+	const reviewContainer = useRef<HTMLDivElement>(null);
+
+	const movePositionLeft =()=> {
+		const reviewElementWidth = elementRef.current!.offsetWidth;
+		setPosition(prev => prev >= 0  ? prev : prev + reviewElementWidth)
+	}
+
+	
+	const movePositionRight =() => {
+		const reviewElementWidth = elementRef.current!.offsetWidth;
+		const reviewContainerWidth = reviewContainer.current!.offsetWidth + 8;
+		setPosition(prev => prev <= (-reviewContainerWidth + window.innerWidth) ? prev :  prev - reviewElementWidth)
+	}
 	return (
 		<section className="collection__section">
 			<header>
@@ -28,24 +44,26 @@ function Collection({ icon, title, link, skins }: CollectionProps) {
 				</Link>
 			</header>
 			<div className="carousel">
-				<button className='left__btn'>
+				<button className='left__btn' onClick={movePositionLeft} style={{opacity: position == 0? 0: 1}}>
 					<img src="/icons/arrow-right.svg" alt="" />
 				</button>
 				<div className="cards__container">
-					<div className="cards__wrapper">
+					<div className="cards__wrapper" ref={reviewContainer} style={{transform: `translateX(${position}px)`}}>
 						{skins.map((product, index) => (
 							<SkinCard
 								key={index}
+								id={product.id}
 								name={product.name}
 								img_url={product.img_url}
 								category={product.category}
 								price={product.price}
 								discount={product.discount}
+								ref={elementRef}
 							/>
 						))}
 					</div>
 				</div>
-				<button>
+				<button onClick={movePositionRight}>
 					<img src="/icons/arrow-right.svg" alt="" />
 				</button>
 			</div>

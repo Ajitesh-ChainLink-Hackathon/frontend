@@ -11,7 +11,7 @@
         },
         {
             "name": "fearless",
-            "id": "1",
+            "id": "2",
             "price": 3.52,
             "discount": 10,
             "category": "knife",
@@ -20,7 +20,7 @@
         },
         {
             "name": "trivecta",
-            "id": "1",
+            "id": "3",
             "price": 3.69,
             "discount": 83,
             "category": "knife",
@@ -30,7 +30,7 @@
         },
         {
             "name": "Excalibur",
-            "id": "1",
+            "id": "4",
             "price": 2.5,
             "discount": 34,
             "category": "knife",
@@ -39,7 +39,7 @@
         },
         {
             "name": "Shadowfang",
-            "id": "1",
+            "id": "5",
             "price": 17.23,
             "discount": 12,
             "category": "knife",
@@ -48,7 +48,7 @@
         },
         {
             "name": "Valkyrie",
-            "id": "1",
+            "id": "6",
             "price": 7.89,
             "discount": 12,
             "category": "knife",
@@ -57,7 +57,7 @@
         },
         {
             "name": "MoonBlade",
-            "id": "1",
+            "id": "7",
             "price": 42.89,
             "discount": 62,
             "category": "knife",
@@ -70,7 +70,7 @@
     [
             {
                 "name": "Gripmaster",
-                "id": "1",
+                "id": "8",
                 "price": 34.65,
                 "discount": 64,
                 "category": "gloves",
@@ -79,7 +79,7 @@
             },           
             {
                 "name": "RapidFire",
-                "id": "1",
+                "id": "9",
                 "price": 93.55,
                 "discount": 39,
                 "category": "gloves",
@@ -88,7 +88,7 @@
             },
             {
                 "name": "Edge",
-                "id": "1",
+                "id": "10",
                 "price": 10.54,
                 "discount": 10,
                 "category": "gloves",
@@ -97,7 +97,7 @@
             },
             {
                 "name": "Silhouette",
-                "id": "1",
+                "id": "11",
                 "price": 20.94,
                 "discount": 93,
                 "category": "gloves",
@@ -106,7 +106,7 @@
             },
             {
                 "name": "Shadowstrike",
-                "id": "1",
+                "id": "12",
                 "price": 59.53,
                 "discount": 20,
                 "category": "gloves",
@@ -115,7 +115,7 @@
             },
             {
                 "name": "Phantom",
-                "id": "1",
+                "id": "13",
                 "price": 85.86,
                 "discount": 56,
                 "category": "gloves",
@@ -124,7 +124,7 @@
             },
             {
                 "name": "Elfshadow",
-                "id": "1",
+                "id": "14",
                 "price": 84.10,
                 "discount": 45,
                 "category": "gloves",
@@ -136,7 +136,7 @@
     [
         {
             "name": "IronHold",
-            "id": "1",
+            "id": "15",
             "price": 3.98,
             "discount": 94,
             "category": "container",
@@ -145,7 +145,7 @@
         },
         {
             "name": "SteelCrate",
-            "id": "1",
+            "id": "17",
             "price": 17.43,
             "discount": 28,
             "category": "container",
@@ -154,7 +154,7 @@
         },
         {
             "name": "TitanBox",
-            "id": "1",
+            "id": "18",
             "price": 23.96,
             "discount": 23,
             "category": "container",
@@ -163,7 +163,7 @@
         },
         {
             "name": "HeavyDuty",
-            "id": "1",
+            "id": "19",
             "price": 37.43,
             "discount": 63,
             "category": "container",
@@ -172,7 +172,7 @@
         },
         {
             "name": "RuggedStore",
-            "id": "1",
+            "id": "20",
             "price": 29.43,
             "discount": 72,
             "category": "container",
@@ -181,7 +181,7 @@
         },
         {
             "name": "CargoVault",
-            "id": "1",
+            "id": "22",
             "price": 34.54,
             "discount": 85,
             "category": "container",
@@ -190,7 +190,7 @@
         },
         {
             "name": "GritBin",
-            "id": "1",
+            "id": "23",
             "price": 23.54,
             "discount": 85,
             "category": "container",
@@ -204,7 +204,7 @@
     [
         {
             "name": "CyberKey",
-            "id": "1",
+            "id": "24",
             "price": 4.45,
             "discount": 26,
             "category": "key",
@@ -212,7 +212,7 @@
         },
         {
             "name": "NanoKey",
-            "id": "1",
+            "id": "25",
             "price": 37.25,
             "discount": 72,
             "category": "key",
@@ -220,7 +220,7 @@
         },
         {
             "name": "QuantumKey",
-            "id": "1",
+            "id": "26",
             "price": 29.43,
             "discount": 65,
             "category": "key",
@@ -228,7 +228,7 @@
         },
         {
             "name": "HoloKey",
-            "id": "1",
+            "id": "27",
             "price": 73.54,
             "discount": 34,
             "category": "key",
@@ -236,7 +236,7 @@
         },
         {
             "name": "MatrixKey",
-            "id": "1",
+            "id": "28",
             "price": 184.56,
             "discount": 72,
             "category": "key",
@@ -244,7 +244,7 @@
         },
         {
             "name": "DataKey",
-            "id": "1",
+            "id": "29",
             "price": 29.43,
             "discount": 72,
             "category": "key",
@@ -252,7 +252,7 @@
         },
         {
             "name": "TechKey",
-            "id": "1",
+            "id": "30",
             "price": 64.27,
             "discount": 38,
             "category": "key",
@@ -264,7 +264,7 @@
     [
         {
             "name": "Commando",
-            "id": "1",
+            "id": "31",
             "price": 64.27,
             "discount": 38,
             "category": "pistol",
@@ -272,7 +272,7 @@
         },
         {
             "name": "Reaper",
-            "id": "1",
+            "id": "32",
             "price": 72.95,
             "discount": 72,
             "category": "pistol",
@@ -280,7 +280,7 @@
         },
         {
             "name": "Striker",
-            "id": "1",
+            "id": "33",
             "price": 45.73,
             "discount": 27,
             "category": "pistol",
@@ -288,7 +288,7 @@
         },
         {
             "name": "Predator",
-            "id": "1",
+            "id": "34",
             "price": 48.39,
             "discount": 47,
             "category": "pistol",
@@ -296,7 +296,7 @@
         },
         {
             "name": "Recon",
-            "id": "1",
+            "id": "35",
             "price": 28.45,
             "discount": 35,
             "category": "pistol",
@@ -304,7 +304,7 @@
         },
         {
             "name": "Phantom",
-            "id": "1",
+            "id": "36",
             "price": 19.04,
             "discount": 48,
             "category": "pistol",
@@ -312,7 +312,7 @@
         },
         {
             "name": "Operator",
-            "id": "1",
+            "id": "37",
             "price": 38.45,
             "discount": 49,
             "category": "pistol",
@@ -324,7 +324,7 @@
     [
         {
             "name": "sticker1",
-            "id": "1",
+            "id": "38",
             "price": 38.45,
             "discount": 49,
             "category": "sticker",
@@ -332,7 +332,7 @@
         },
         {
             "name": "sticker2",
-            "id": "1",
+            "id": "39",
             "price": 45.65,
             "discount": 26,
             "category": "sticker",
@@ -340,7 +340,7 @@
         },
         {
             "name": "sticker3",
-            "id": "1",
+            "id": "40",
             "price": 93.56,
             "discount": 95,
             "category": "sticker",
@@ -348,7 +348,7 @@
         },
         {
             "name": "sticker4",
-            "id": "1",
+            "id": "41",
             "price": 29.54,
             "discount": 39,
             "category": "sticker",
@@ -356,7 +356,7 @@
         },
         {
             "name": "sticker5",
-            "id": "1",
+            "id": "42",
             "price": 76.58,
             "discount": 69,
             "category": "sticker",
@@ -364,7 +364,7 @@
         },
         {
             "name": "sticker6",
-            "id": "1",
+            "id": "43",
             "price": 76.47,
             "discount": 51,
             "category": "sticker",
@@ -372,7 +372,7 @@
         },
         {
             "name": "sticker7",
-            "id": "1",
+            "id": "44",
             "price": 73.54,
             "discount": 57,
             "category": "sticker",
@@ -383,7 +383,7 @@
     [
         {
             "name": "Sentinel",
-            "id": "1",
+            "id": "45",
             "price": 36.45,
             "discount": 54,
             "category": "smg",
@@ -391,7 +391,7 @@
         },
         {
             "name": "Enforcer",
-            "id": "1",
+            "id": "46",
             "price": 73.54,
             "discount": 18,
             "category": "smg",
@@ -399,7 +399,7 @@
         },
         {
             "name": "Guardian",
-            "id": "1",
+            "id": "47",
             "price": 85.37,
             "discount": 28,
             "category": "smg",
@@ -407,7 +407,7 @@
         },
         {
             "name": "Patrol",
-            "id": "1",
+            "id": "48",
             "price": 43.23,
             "discount": 48,
             "category": "smg",
@@ -415,7 +415,7 @@
         },
         {
             "name": "Tracker",
-            "id": "1",
+            "id": "49",
             "price": 48.34,
             "discount": 22,
             "category": "smg",
@@ -423,7 +423,7 @@
         },
         {
             "name": "Recon",
-            "id": "1",
+            "id": "50",
             "price": 47.34,
             "discount": 57,
             "category": "smg",
@@ -431,7 +431,7 @@
         },
         {
             "name": "Warden",
-            "id": "1",
+            "id": "51",
             "price": 37.45,
             "discount": 96,
             "category": "smg",

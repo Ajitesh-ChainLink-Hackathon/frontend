@@ -1,7 +1,8 @@
 import './style.scss';
+import useCartItems from '../../../hooks/useCartItems.zustand';
 
 type CartItemProps = {
-	id: string | number;
+	id: string;
 	image: string;
 	name: string;
 	category: string;
@@ -11,6 +12,11 @@ type CartItemProps = {
 };
 
 function CartItem(props: CartItemProps) {
+	const removeFromCart = useCartItems(state => state.removeCartItem);
+
+	const deleteFromCart = ()=> {
+		removeFromCart(props.id)
+	}
 	return (
 		<article className="cart__item">
 			<div className="skin">
@@ -31,7 +37,7 @@ function CartItem(props: CartItemProps) {
 				<p>Market Price: ${props.price}</p>
 			</div>
 			<div>
-				<button>
+				<button onClick={deleteFromCart}>
 					<img src="/icons/cancel.svg" alt="" />
 				</button>
 			</div>

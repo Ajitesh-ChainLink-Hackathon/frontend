@@ -1,0 +1,444 @@
+{
+    "knife": 
+    [
+        {   
+            "name": "braveheart",
+            "id": "1",
+            "price": 2.19,
+            "discount": 20,
+            "category": "knife",
+            "img_url": "https://res.cloudinary.com/duepebytx/image/upload/v1716734241/knife/yjj89audytmrsni5pzlc.avif"
+        },
+        {
+            "name": "fearless",
+            "id": "2",
+            "price": 3.52,
+            "discount": 10,
+            "category": "knife",
+            "img_url": "https://res.cloudinary.com/duepebytx/image/upload/v1716734240/knife/dwvnuuz6glvbdjrcyguo.avif"
+
+        },
+        {
+            "name": "trivecta",
+            "id": "3",
+            "price": 3.69,
+            "discount": 83,
+            "category": "knife",
+            "img_url": "https://res.cloudinary.com/duepebytx/image/upload/v1716734240/knife/gpcuekfjgyr6d71ejpte.avif"
+
+            
+        },
+        {
+            "name": "Excalibur",
+            "id": "4",
+            "price": 2.5,
+            "discount": 34,
+            "category": "knife",
+            "img_url": "https://res.cloudinary.com/duepebytx/image/upload/v1716734240/knife/ut2rzimqowkgmippyhl4.avif"
+
+        },
+        {
+            "name": "Shadowfang",
+            "id": "5",
+            "price": 17.23,
+            "discount": 12,
+            "category": "knife",
+            "img_url": "https://res.cloudinary.com/duepebytx/image/upload/v1716734240/knife/t4skiycspxo2ympdds2o.avif"
+
+        },
+        {
+            "name": "Valkyrie",
+            "id": "6",
+            "price": 7.89,
+            "discount": 12,
+            "category": "knife",
+            "img_url": "https://res.cloudinary.com/duepebytx/image/upload/v1716734240/knife/n2hrhsy3gzu5ktrxa1ix.avif"
+
+        },
+        {
+            "name": "MoonBlade",
+            "id": "7",
+            "price": 42.89,
+            "discount": 62,
+            "category": "knife",
+            "img_url": "https://res.cloudinary.com/duepebytx/image/upload/v1716734240/knife/zduwdj9dkxuyonebkbnv.avif"
+
+        }
+        
+    ],
+    "gloves":
+    [
+            {
+                "name": "Gripmaster",
+                "id": "8",
+                "price": 34.65,
+                "discount": 64,
+                "category": "gloves",
+                "img_url": "https://res.cloudinary.com/duepebytx/image/upload/v1716735696/gloves/r7yrw4h5ca16c3xpsk5c.avif"
+
+            },           
+            {
+                "name": "RapidFire",
+                "id": "9",
+                "price": 93.55,
+                "discount": 39,
+                "category": "gloves",
+                "img_url": "https://res.cloudinary.com/duepebytx/image/upload/v1716735696/gloves/r7yrw4h5ca16c3xpsk5c.avif"
+    
+            },
+            {
+                "name": "Edge",
+                "id": "10",
+                "price": 10.54,
+                "discount": 10,
+                "category": "gloves",
+                "img_url": "https://res.cloudinary.com/duepebytx/image/upload/v1716735695/gloves/ceghtmafqkhwzqsdyy1x.avif"
+    
+            },
+            {
+                "name": "Silhouette",
+                "id": "11",
+                "price": 20.94,
+                "discount": 93,
+                "category": "gloves",
+                "img_url": "https://res.cloudinary.com/duepebytx/image/upload/v1716735695/gloves/nwtbf1l3xom2qtglrzpn.avif"
+    
+            },
+            {
+                "name": "Shadowstrike",
+                "id": "12",
+                "price": 59.53,
+                "discount": 20,
+                "category": "gloves",
+                "img_url": "https://res.cloudinary.com/duepebytx/image/upload/v1716735695/gloves/yngwhmfaxnbw94dcgutf.avif"
+    
+            },
+            {
+                "name": "Phantom",
+                "id": "13",
+                "price": 85.86,
+                "discount": 56,
+                "category": "gloves",
+                "img_url": "https://res.cloudinary.com/duepebytx/image/upload/v1716735695/gloves/q5l4v7hja6wuylwhltkr.avif"
+    
+            },
+            {
+                "name": "Elfshadow",
+                "id": "14",
+                "price": 84.10,
+                "discount": 45,
+                "category": "gloves",
+                "img_url": "https://res.cloudinary.com/duepebytx/image/upload/v1716735694/gloves/xc93rgiiljfeaxpm16ch.avif"
+    
+            }
+    ],
+    "container":
+    [
+        {
+            "name": "IronHold",
+            "id": "15",
+            "price": 3.98,
+            "discount": 94,
+            "category": "container",
+            "img_url": "https://res.cloudinary.com/duepebytx/image/upload/v1716734258/container/b7w1egjwyhxkvxd54cdw.png"
+
+        },
+        {
+            "name": "SteelCrate",
+            "id": "17",
+            "price": 17.43,
+            "discount": 28,
+            "category": "container",
+            "img_url": "https://res.cloudinary.com/duepebytx/image/upload/v1716734258/container/yy4pwk7srlcpgggr0mb2.png"
+
+        },
+        {
+            "name": "TitanBox",
+            "id": "18",
+            "price": 23.96,
+            "discount": 23,
+            "category": "container",
+            "img_url": "https://res.cloudinary.com/duepebytx/image/upload/v1716734258/container/y8anzuwxg2hma6rr5kgr.png"
+
+        },
+        {
+            "name": "HeavyDuty",
+            "id": "19",
+            "price": 37.43,
+            "discount": 63,
+            "category": "container",
+            "img_url": "https://res.cloudinary.com/duepebytx/image/upload/v1716734258/container/ohdjxwaolkoyhrzjjdzw.png"
+
+        },
+        {
+            "name": "RuggedStore",
+            "id": "20",
+            "price": 29.43,
+            "discount": 72,
+            "category": "container",
+            "img_url": "https://res.cloudinary.com/duepebytx/image/upload/v1716734258/container/ugd7fdpjtnifj3xqov6a.png"
+
+        },
+        {
+            "name": "CargoVault",
+            "id": "22",
+            "price": 34.54,
+            "discount": 85,
+            "category": "container",
+            "img_url": "https://res.cloudinary.com/duepebytx/image/upload/v1716734258/container/zllemck3axo9k32xwrsu.png"
+
+        },
+        {
+            "name": "GritBin",
+            "id": "23",
+            "price": 23.54,
+            "discount": 85,
+            "category": "container",
+            "img_url": "https://res.cloudinary.com/duepebytx/image/upload/v1716734258/container/zllemck3axo9k32xwrsu.png"
+
+        }
+        
+    
+    ],
+    "key":
+    [
+        {
+            "name": "CyberKey",
+            "id": "24",
+            "price": 4.45,
+            "discount": 26,
+            "category": "key",
+            "img_url": "https://res.cloudinary.com/duepebytx/image/upload/v1716734281/key/l9ri2ofgswddovfnajq4.png"
+        },
+        {
+            "name": "NanoKey",
+            "id": "25",
+            "price": 37.25,
+            "discount": 72,
+            "category": "key",
+            "img_url": "https://res.cloudinary.com/duepebytx/image/upload/v1716734280/key/lhdkqrdafxchkfm3nz7s.png"
+        },
+        {
+            "name": "QuantumKey",
+            "id": "26",
+            "price": 29.43,
+            "discount": 65,
+            "category": "key",
+            "img_url": "https://res.cloudinary.com/duepebytx/image/upload/v1716734258/container/ugd7fdpjtnifj3xqov6a.png"
+        },
+        {
+            "name": "HoloKey",
+            "id": "27",
+            "price": 73.54,
+            "discount": 34,
+            "category": "key",
+            "img_url": "https://res.cloudinary.com/duepebytx/image/upload/v1716734280/key/ikedbz9vj8afygyoetfc.png"
+        },
+        {
+            "name": "MatrixKey",
+            "id": "28",
+            "price": 184.56,
+            "discount": 72,
+            "category": "key",
+            "img_url": "https://res.cloudinary.com/duepebytx/image/upload/v1716734280/key/phievafzr45aitnalvfb.png"
+        },
+        {
+            "name": "DataKey",
+            "id": "29",
+            "price": 29.43,
+            "discount": 72,
+            "category": "key",
+            "img_url": "https://res.cloudinary.com/duepebytx/image/upload/v1716734280/key/opuezmpe98cv4frf0djy.png"
+        },
+        {
+            "name": "TechKey",
+            "id": "30",
+            "price": 64.27,
+            "discount": 38,
+            "category": "key",
+            "img_url": "https://res.cloudinary.com/duepebytx/image/upload/v1716734280/key/acbfnberhn8iow848xdg.png"
+        }
+
+    ],
+    "pistol":
+    [
+        {
+            "name": "Commando",
+            "id": "31",
+            "price": 64.27,
+            "discount": 38,
+            "category": "pistol",
+            "img_url": "https://res.cloudinary.com/duepebytx/image/upload/v1716734348/pistol/o0qopufsz7aboi7jrxva.png"
+        },
+        {
+            "name": "Reaper",
+            "id": "32",
+            "price": 72.95,
+            "discount": 72,
+            "category": "pistol",
+            "img_url": "https://res.cloudinary.com/duepebytx/image/upload/v1716734348/pistol/oairaak60vqshfax6mfb.avif"
+        },
+        {
+            "name": "Striker",
+            "id": "33",
+            "price": 45.73,
+            "discount": 27,
+            "category": "pistol",
+            "img_url": "https://res.cloudinary.com/duepebytx/image/upload/v1716734348/pistol/r3zmtqkfhj24l3o4aeof.avif"
+        },
+        {
+            "name": "Predator",
+            "id": "34",
+            "price": 48.39,
+            "discount": 47,
+            "category": "pistol",
+            "img_url": "https://res.cloudinary.com/duepebytx/image/upload/v1716734348/pistol/l0o5v8umr3np17uvznj7.avif"
+        },
+        {
+            "name": "Recon",
+            "id": "35",
+            "price": 28.45,
+            "discount": 35,
+            "category": "pistol",
+            "img_url": "https://res.cloudinary.com/duepebytx/image/upload/v1716734348/pistol/zgo0jvoxjsgas3lvyob6.avif"
+        },
+        {
+            "name": "Phantom",
+            "id": "36",
+            "price": 19.04,
+            "discount": 48,
+            "category": "pistol",
+            "img_url": "https://res.cloudinary.com/duepebytx/image/upload/v1716734348/pistol/kkiaxkedirdwl56edzdv.avif"
+        },
+        {
+            "name": "Operator",
+            "id": "37",
+            "price": 38.45,
+            "discount": 49,
+            "category": "pistol",
+            "img_url": "https://res.cloudinary.com/duepebytx/image/upload/v1716734348/pistol/oairaak60vqshfax6mfb.avif"
+        }
+        
+    ],
+    "sticker":
+    [
+        {
+            "name": "sticker1",
+            "id": "38",
+            "price": 38.45,
+            "discount": 49,
+            "category": "sticker",
+            "img_url": "https://res.cloudinary.com/duepebytx/image/upload/v1716734396/stiks/whusfg4dag5aj7dz1k0a.png"
+        },
+        {
+            "name": "sticker2",
+            "id": "39",
+            "price": 45.65,
+            "discount": 26,
+            "category": "sticker",
+            "img_url": "https://res.cloudinary.com/duepebytx/image/upload/v1716734396/stiks/zjyj2dodkzpisj71synk.png"
+        },
+        {
+            "name": "sticker3",
+            "id": "40",
+            "price": 93.56,
+            "discount": 95,
+            "category": "sticker",
+            "img_url": "https://res.cloudinary.com/duepebytx/image/upload/v1716734396/stiks/vrugshz3beopapbecqra.png"
+        },
+        {
+            "name": "sticker4",
+            "id": "41",
+            "price": 29.54,
+            "discount": 39,
+            "category": "sticker",
+            "img_url": "https://res.cloudinary.com/duepebytx/image/upload/v1716734396/stiks/mroh8dddsm3wybavsrqs.png"
+        },
+        {
+            "name": "sticker5",
+            "id": "42",
+            "price": 76.58,
+            "discount": 69,
+            "category": "sticker",
+            "img_url": "https://res.cloudinary.com/duepebytx/image/upload/v1716734395/stiks/k37lfv7hfq9tagon4qvn.png"
+        },
+        {
+            "name": "sticker6",
+            "id": "43",
+            "price": 76.47,
+            "discount": 51,
+            "category": "sticker",
+            "img_url": "https://res.cloudinary.com/duepebytx/image/upload/v1716734395/stiks/muwnrbewkhfgizhgvkfk.png"
+        },
+        {
+            "name": "sticker7",
+            "id": "44",
+            "price": 73.54,
+            "discount": 57,
+            "category": "sticker",
+            "img_url": "https://res.cloudinary.com/duepebytx/image/upload/v1716734395/stiks/itngaodswwalyn8czxeo.png"
+        }
+    ],
+    "smg":
+    [
+        {
+            "name": "Sentinel",
+            "id": "45",
+            "price": 36.45,
+            "discount": 54,
+            "category": "smg",
+            "img_url": "https://res.cloudinary.com/duepebytx/image/upload/v1716734373/smg/yxhfzoc7dkhvcvnykocn.png"
+        },
+        {
+            "name": "Enforcer",
+            "id": "46",
+            "price": 73.54,
+            "discount": 18,
+            "category": "smg",
+            "img_url": "https://res.cloudinary.com/duepebytx/image/upload/v1716734373/smg/g3xyrthgvnnrrsso6hgw.png"
+        },
+        {
+            "name": "Guardian",
+            "id": "47",
+            "price": 85.37,
+            "discount": 28,
+            "category": "smg",
+            "img_url": "https://res.cloudinary.com/duepebytx/image/upload/v1716734373/smg/g9pyy3wkvyqg6gyzvkug.png"
+        },
+        {
+            "name": "Patrol",
+            "id": "48",
+            "price": 43.23,
+            "discount": 48,
+            "category": "smg",
+            "img_url": "https://res.cloudinary.com/duepebytx/image/upload/v1716734372/smg/hsarkgqgszf8griszvyp.png"
+        },
+        {
+            "name": "Tracker",
+            "id": "49",
+            "price": 48.34,
+            "discount": 22,
+            "category": "smg",
+            "img_url": "https://res.cloudinary.com/duepebytx/image/upload/v1716734372/smg/jrrgeauhm1xdfw28kfuh.png"
+        },
+        {
+            "name": "Recon",
+            "id": "50",
+            "price": 47.34,
+            "discount": 57,
+            "category": "smg",
+            "img_url": "https://res.cloudinary.com/duepebytx/image/upload/v1716734373/smg/g9pyy3wkvyqg6gyzvkug.png"
+        },
+        {
+            "name": "Warden",
+            "id": "51",
+            "price": 37.45,
+            "discount": 96,
+            "category": "smg",
+            "img_url": "https://res.cloudinary.com/duepebytx/image/upload/v1716734372/smg/sivefr8w2ifl7codher0.png"
+        } 
+    ]
+}
+
+
+

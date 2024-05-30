@@ -23,13 +23,7 @@ function Cart() {
 					{userCartItems.map((skin, index) => (
 						<CartItem
 							key={index}
-							id={skin.id}
-							name={skin.name}
-							image={skin.img_url}
-							price={skin.price}
-							market_price={skin.price}
-							discount={skin.discount}
-							category={skin.category}
+							{...skin}
 						/>
 					))}
 				</div>

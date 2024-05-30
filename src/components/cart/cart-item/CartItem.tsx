@@ -1,21 +1,29 @@
 import './style.scss';
 import useCartItems from '../../../hooks/useCartItems.zustand';
 
+type Seller = { 
+	id: string
+	username: string;
+	gameCompany: string;
+	price: number;
+	walletAddress: string;
+}
 type CartItemProps = {
-	id: string;
+	idx: string;
 	image: string;
 	name: string;
 	category: string;
-	price: number;
 	market_price: number;
 	discount: number;
+	seller: Seller
 };
+
 
 function CartItem(props: CartItemProps) {
 	const removeFromCart = useCartItems(state => state.removeCartItem);
 
 	const deleteFromCart = ()=> {
-		removeFromCart(props.id)
+		removeFromCart(props.idx)
 	}
 	return (
 		<article className="cart__item">
@@ -32,9 +40,9 @@ function CartItem(props: CartItemProps) {
 			<p className="category">{props.category}</p>
 			<div className="price">
 				<h2>
-					${props.price} <span>-{props.discount}%</span>
+					${props.seller.price} <span>-{props.discount}%</span>
 				</h2>
-				<p>Market Price: ${props.price}</p>
+				<p>{props.seller.username}</p>
 			</div>
 			<div>
 				<button onClick={deleteFromCart}>

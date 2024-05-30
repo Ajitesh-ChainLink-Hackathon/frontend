@@ -15,7 +15,7 @@ function CollectionOverview() {
                link={`/dashboard/${categories}`}
 					icon={`/icons/${categories}.svg`}
 					title={categories}
-					skins={skinProducts[categories as keyof typeof skinProducts].slice(0, )}
+					skins={skinProducts[categories as keyof typeof skinProducts].slice(0, 5)}
 					key={index}
 				/>
 			))}

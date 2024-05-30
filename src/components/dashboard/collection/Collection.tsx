@@ -52,11 +52,7 @@ function Collection({ icon, title, link, skins }: CollectionProps) {
 						{skins.map((product, index) => (
 							<SkinCard
 								key={index}
-								id={product.id}
-								name={product.name}
-								img_url={product.img_url}
-								category={product.category}
-								price={product.price}
+								{...product}
 								discount={product.discount}
 								ref={elementRef}
 							/>

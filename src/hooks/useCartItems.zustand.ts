@@ -1,14 +1,21 @@
 import { create } from 'zustand';
 
-export type CartItem = {
+type Seller = { 
 	id: string;
-	name: string;
+	username: string;
+	gameCompany: string;
 	price: number;
-	img_url: string;
-	discount: number;
+	walletAddress: string;
+}
+export type CartItem = {
+	idx: string;
+	image: string;
+	name: string;
 	category: string;
+	market_price: number;
+	discount: number;
+	seller: Seller
 };
-
 interface CartItemState {
 	cartItems: CartItem[];
 	addCartItem: (item: CartItem) => void;
@@ -25,7 +32,7 @@ const useCartItems = create<CartItemState>()((set) => ({
 		set((state) => ({ cartItems: [...state.cartItems, item] })),
 	removeCartItem: (id) =>
 		set((state) => {
-			const newItems = state.cartItems.filter((item) => item.id !== id);
+			const newItems = state.cartItems.filter((item) => item.idx !== id);
 			return {
 				cartItems: newItems,
 			};

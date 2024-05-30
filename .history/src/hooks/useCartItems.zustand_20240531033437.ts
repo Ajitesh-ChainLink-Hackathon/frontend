@@ -32,7 +32,7 @@ const useCartItems = create<CartItemState>()((set) => ({
 		set((state) => ({ cartItems: [...state.cartItems, item] })),
 	removeCartItem: (id) =>
 		set((state) => {
-			const newItems = state.cartItems.filter((item) => item.idx !== id);
+			const newItems = state.cartItems.filter((item) => item.id !== id);
 			return {
 				cartItems: newItems,
 			};

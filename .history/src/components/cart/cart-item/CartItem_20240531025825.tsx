@@ -38,9 +38,9 @@ function CartItem(props: CartItemProps) {
 			<p className="category">{props.category}</p>
 			<div className="price">
 				<h2>
-					${props.seller.price} <span>-{props.discount}%</span>
+					${props.price} <span>-{props.discount}%</span>
 				</h2>
-				<p>Market Price: ${props.seller.price}</p>
+				<p>Market Price: ${props.price}</p>
 			</div>
 			<div>
 				<button onClick={deleteFromCart}>

@@ -51,13 +51,12 @@ const CollectionOverview: React.FC = () => {
 	
 				// Loop through sellersOfSkin array and create seller objects
 				for (const seller of sellersOfSkin) {
-					console.log("ID :",seller[0].toString(),"\nuserNAme: ",seller[1]);
 					const sellerObj = {
 						id: seller[0].toString(), // Assuming id is the first element
-						username: seller[1].toString(), // Assuming username is the second element
-						walletAddress: seller[2].toString(), // Assuming wallet address is the third element
+						username: seller[1], // Assuming username is the second element
+						walletAddress: seller[2], // Assuming wallet address is the third element
 						price: parseFloat(seller[3].toString()), // Assuming price is the fourth element
-						gameCompany: seller[4].toString(), // Assuming game company is the fifth element
+						gameCompany: seller[4], // Assuming game company is the fifth element
 					};
 	
 					skinData[category].push({

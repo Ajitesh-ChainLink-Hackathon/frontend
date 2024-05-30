@@ -34,49 +34,83 @@ const CollectionOverview: React.FC = () => {
     const skinMarketAdd = "0x0DedDe527e2B24a6c2B3bF5F3E7488517E37F3AD"; // Address from .env file
     const web3 = new Web3(Web3.givenProvider || "http://127.0.0.1:7545"); // Ganache
 
-	async function ShowAllSkins() {
+    async function ShowAllSkins() {
 		const skinMarket = new web3.eth.Contract(skinMarketABI, skinMarketAdd);
 		try {
-			const skinIds: string[] = await skinMarket.methods.getAllSkins().call();
-	
-			const skinData: SkinsByCategory = {};
-			for (const id of skinIds) {
-				const sellersOfSkin :Seller[][]= await skinMarket.methods.getSellers(id).call();
-	
-				const category = "knife"; // Replace with actual logic to determine the category
-	
-				if (!skinData[category]) {
-					skinData[category] = [];
-				}
-	
-				// Loop through sellersOfSkin array and create seller objects
-				for (const seller of sellersOfSkin) {
-					console.log("ID :",seller[0].toString(),"\nuserNAme: ",seller[1]);
-					const sellerObj = {
-						id: seller[0].toString(), // Assuming id is the first element
-						username: seller[1].toString(), // Assuming username is the second element
-						walletAddress: seller[2].toString(), // Assuming wallet address is the third element
-						price: parseFloat(seller[3].toString()), // Assuming price is the fourth element
-						gameCompany: seller[4].toString(), // Assuming game company is the fifth element
-					};
-	
-					skinData[category].push({
-						idx: id,
-						image: "https://res.cloudinary.com/duepebytx/image/upload/v1716734241/knife/yjj89audytmrsni5pzlc.avif",
-						name: "braveheart",
-						category: category,
-						market_price: 2.19,
-						discount: 20,
-						seller: sellerObj,
-					});
-				}
+		  const skinIds: string[] = await skinMarket.methods.getAllSkins().call();
+
+		  const skinData: SkinsByCategory = {};
+		  for (const id of skinIds) {
+			console.log("skinId:",id);
+			const sellersOfSkin= await skinMarket.methods.getSellers(id).call();
+			//you will get sellerOfskin like this 
+//			0
+// : 
+// 2n
+// 1
+// : 
+// "Shritesh"
+// 2
+// : 
+// "0x32d5b48C7598Eb09fA460d9039A1c7d6b0145e8C"
+// 3
+// : 
+// 1000000000000000000n
+// 4
+// : 
+// "0x352Bc435D5a787A58Bf3F0943C461cFff1B48f04"
+// gameCompany
+// : 
+// "0x352Bc435D5a787A58Bf3F0943C461cFff1B48f04"
+// id
+// : 
+// 2n
+// price
+// : 
+// 1000000000000000000n
+// userName
+// : 
+// "Shritesh"
+// walletAddress
+// : 
+// "0x32d5b48C7598Eb09fA460d9039A1c7d6b0145e8C"
+
+//run a loop this array
+
+
+
+
+
+
+
+			const category = "knife"; // Replace with actual logic to determine the category
+	  
+			if (!skinData[category]) {
+			  skinData[category] = [];
 			}
-			setSkins(skinData);
+	  
+			skinData[category].push({
+			  idx: id,
+			  image: "https://res.cloudinary.com/duepebytx/image/upload/v1716734241/knife/yjj89audytmrsni5pzlc.avif",
+			  name: "braveheart",
+			  category: category,
+			  market_price: 2.19,
+			  discount: 20,
+			  seller: {
+				id: sellersOfSkin[0].id, // Assuming each skin has only one seller
+				username: sellersOfSkin[0].username,
+				gameCompany: sellersOfSkin[0].gameCompany,
+				price: sellersOfSkin[0].price,
+				walletAddress: sellersOfSkin[0].walletAddress,
+			  },
+			});
+		  }
+		  setSkins(skinData);
 		} catch (error) {
-			console.error("Error fetching skins:", error);
+		  console.error("Error fetching skins:", error);
 		}
-	}
-	
+	  }
+	  
 
     useEffect(() => {
         ShowAllSkins();

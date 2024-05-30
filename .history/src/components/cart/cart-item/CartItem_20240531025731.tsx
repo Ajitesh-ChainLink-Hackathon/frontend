@@ -1,20 +1,14 @@
 import './style.scss';
 import useCartItems from '../../../hooks/useCartItems.zustand';
 
-type Seller = { 
-	username: string;
-	gameCompany: string;
-	price: number;
-	walletAddress: string;
-}
 type CartItemProps = {
 	id: string;
 	image: string;
 	name: string;
 	category: string;
+	price: number;
 	market_price: number;
 	discount: number;
-	seller: Seller
 };
 
 function CartItem(props: CartItemProps) {
@@ -38,9 +32,9 @@ function CartItem(props: CartItemProps) {
 			<p className="category">{props.category}</p>
 			<div className="price">
 				<h2>
-					${props.seller.price} <span>-{props.discount}%</span>
+					${props.price} <span>-{props.discount}%</span>
 				</h2>
-				<p>Market Price: ${props.seller.price}</p>
+				<p>Market Price: ${props.price}</p>
 			</div>
 			<div>
 				<button onClick={deleteFromCart}>

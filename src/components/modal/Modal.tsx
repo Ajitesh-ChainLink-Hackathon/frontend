@@ -3,6 +3,7 @@ import useCurrentUser from '../../hooks/useCurrentUser.zustand';
 import './style.scss';
 import { useNavigate } from 'react-router-dom';
 
+
 function Modal() {
 	const { loginModal, setLoginModal } = useCurrentUser((state) => state);
 

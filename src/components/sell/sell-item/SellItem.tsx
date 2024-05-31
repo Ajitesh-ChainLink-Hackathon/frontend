@@ -1,5 +1,5 @@
 import './style.scss';
-import useCartItems from '../../../hooks/useCartItems.zustand';
+import useSellingItems from '../../../hooks/useSellingItems.zustand';
 
 type Seller = { 
 	id: string
@@ -19,8 +19,8 @@ type CartItemProps = {
 };
 
 
-function CartItem(props: CartItemProps) {
-	const removeFromCart = useCartItems(state => state.removeCartItem);
+function SellItem(props: CartItemProps) {
+	const removeFromCart = useSellingItems(state => state.removeSellingItem);
 
 	const deleteFromCart = ()=> {
 		removeFromCart(props.idx)
@@ -45,11 +45,11 @@ function CartItem(props: CartItemProps) {
 				<p>{props.seller.username}</p>
 			</div>
 			<div>
-				<button className='delete__btn' onClick={deleteFromCart}>
+				<button onClick={deleteFromCart}>
 					<img src="/icons/cancel.svg" alt="" />
 				</button>
 			</div>
 		</article>
 	);
 }
-export default CartItem;
+export default SellItem;

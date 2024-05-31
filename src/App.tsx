@@ -10,6 +10,7 @@ import CollectionCategory from './pages/dashboard/CollectionCategory';
 import Cart from './pages/cart/Cart';
 import { Fragment } from 'react/jsx-runtime';
 import { Toaster } from 'react-hot-toast';
+import Selling from './pages/selling/Selling';
 
 const router = createBrowserRouter([
 	{
@@ -47,6 +48,10 @@ const router = createBrowserRouter([
 		path: '/orders',
 		element: <Orders />,
 	},
+	{
+		path: "/selling",
+		element: <Selling />
+	}
 ]);
 
 function App() {

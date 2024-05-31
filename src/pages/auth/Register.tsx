@@ -1,29 +1,26 @@
-import { Fragment, useState } from "react";
-import {
-	Route,
-	Routes,
-	useNavigate,
-   Navigate
-} from "react-router-dom";
+import { Fragment, useState } from 'react';
+import { Route, Routes, useNavigate, Navigate } from 'react-router-dom';
 
-import { useSearchParams } from "react-router-dom";
-import FirstRegPage from "./FirstRegPage";
-import SecondRegPage from "./SecondRegPage";
+import { useSearchParams } from 'react-router-dom';
+import FirstRegPage from './FirstRegPage';
+import SecondRegPage from './SecondRegPage';
+import useCurrentUser from '../../hooks/useCurrentUser.zustand';
 
 function Register() {
 	const [searchParam, setSearchParam] = useSearchParams();
 	const [newUser, setNewUser] = useState({
 		name: searchParam.get('name') ?? '',
 		email: searchParam.get('email') ?? '',
-		password: "",
-      confirm_password: ""
+		password: '',
+		confirm_password: '',
 	});
-	const [isLoading] = useState(false);
+	const [isLoading, setIsLoading] = useState(false);
 	const navigate = useNavigate();
+	const { setCurrentUser, setLoginModal } = useCurrentUser((state) => state);
 
 	const moveToNextPage = (e: React.FormEvent<HTMLFormElement>) => {
 		e.preventDefault();
-		navigate("/register/second");
+		navigate('/register/second');
 		setSearchParam({
 			...searchParam,
 			name: newUser.name,
@@ -39,7 +36,7 @@ function Register() {
 			...newUserData,
 			[name]: value,
 		}));
-		if (name !== "password") {
+		if (name !== 'password') {
 			setSearchParam({
 				...searchParam,
 				name: newUser.name,
@@ -50,7 +47,17 @@ function Register() {
 	};
 
 	const createNewUser = async () => {
+		try {
+			setIsLoading(true);
+			setCurrentUser({ name: newUser.name, email: newUser.email });
+			setLoginModal(false)
+			navigate('/');
 
+		} catch {
+			setIsLoading(false);
+		} finally {
+			setIsLoading(false);
+		}
 	};
 
 	return (
@@ -59,7 +66,7 @@ function Register() {
 				<h1>Sign up 🎯</h1>
 				<Routes>
 					<Route
-						index 
+						index
 						element={
 							<FirstRegPage
 								newUser={newUser}
@@ -71,13 +78,16 @@ function Register() {
 					<Route
 						path="/second"
 						element={
-                     newUser.name && newUser.email ?
-							<SecondRegPage
-								handleChange={handleChange}
-								handleSubmit={createNewUser}
-								newUser={newUser}
-                        isLoading={isLoading}
-							/> : <Navigate replace to={"/register"} />
+							newUser.name && newUser.email ? (
+								<SecondRegPage
+									handleChange={handleChange}
+									handleSubmit={createNewUser}
+									newUser={newUser}
+									isLoading={isLoading}
+								/>
+							) : (
+								<Navigate replace to={'/register'} />
+							)
 						}
 					/>
 				</Routes>

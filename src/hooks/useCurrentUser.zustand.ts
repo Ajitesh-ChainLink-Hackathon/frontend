@@ -9,7 +9,7 @@ export type UserProps = {
 
 interface CurrentUserState {
   currentUser: Partial<UserProps> | null
-  setCurrentUser: (user: UserProps) => void,
+  setCurrentUser: (user: Omit<UserProps, "password">) => void,
   setSideBar: (value: boolean)=>void,
   setLoginModal: (value:boolean)=> void,
   sideBar: boolean;

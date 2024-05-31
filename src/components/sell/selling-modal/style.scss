@@ -1,0 +1,117 @@
+.modal__overlay {
+   background-color: #1d1d1dad;
+}
+
+
+.selling__modal {
+   width: 32%;
+   background-color: #fff;
+   border-radius: 1rem;
+   z-index: 52;
+   position: fixed;
+   top: 50%;
+   left: 50%;
+   transform: translate(-50%, -50%);
+   border-radius: .7rem;
+   padding: 1.2rem 1.2rem .7rem;
+   box-shadow: 0 .5rem 1rem rgb(25, 25, 25);
+
+   .cancel {
+      $size: 2.3rem;
+      width: $size;
+      height: $size;
+      border-radius: 50%;
+      background-color: #d1d1d1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-left: auto;
+      cursor: pointer;
+
+      &:hover {
+         opacity: .7;
+      }
+
+      img {
+         width: 100%;
+         filter: invert(1) brightness(200);
+      }
+   }
+   .modal__img {
+      height: 8rem;
+      margin: 0 auto;
+   }
+
+   h2 {
+      text-align: center;
+      font-size: 1.1rem;
+      font-family: "krona";
+      color: #4c4c4c;
+   }
+
+   .status {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: .4rem auto .4rem;
+      
+      img {
+         width: 1.4rem;
+      }
+
+      p {
+         font-size: 0.9rem;
+         color: #69bf7e;
+      }
+   }
+
+   .input__price {
+      margin: .9rem 0 1.2rem;
+      label {
+         display: block;
+         font-size: .9rem;
+         color: gray;
+         margin-bottom: .6rem;
+      }
+      input {
+         height: 2.4rem;
+         width: 100%;
+         border: 1px solid gray;
+         border-radius: .3rem;
+         text-indent: .8rem;
+         color: gray;
+
+         &::placeholder {
+            color: #b7b7b7;
+         }
+      }
+   }
+   .details {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      span {
+         font-size: .9rem;
+         color: gray;
+
+      }
+
+      p{
+         font-size: 1rem;
+         margin-top: .3rem;
+         font-family: "krona";
+         color: #5f5f5f;
+      }
+   }
+   .confirm__btn {
+      background-color: #5881c3;
+      width: 100%;
+      font-weight: bold;
+      border: none;
+      padding: .8rem 0;
+      color: white;
+      margin: 1.8rem 0 .5rem;
+      border-radius: .5rem;
+   }
+}

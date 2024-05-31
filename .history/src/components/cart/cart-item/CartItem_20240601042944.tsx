@@ -8,7 +8,7 @@ type Seller = {
 	walletAddress: string;
 }
 type CartItemProps = {
-	idx: string;
+	id: string;
 	image: string;
 	name: string;
 	category: string;
@@ -21,9 +21,9 @@ function CartItem(props: CartItemProps) {
 	const removeFromCart = useCartItems(state => state.removeCartItem);
 
 	const deleteFromCart = ()=> {
-		removeFromCart(props.idx)
+		removeFromCart(props.id)
 	}
-
+	
 	return (
 		<article className="cart__item">
 			<div className="skin">

@@ -73,6 +73,7 @@ const CollectionOverview: React.FC = () => {
             
             setSkins(skinData);
             setLoading(false);
+            console.log('Updated skins state:', skinData);
         } catch (error) {
             console.error("Error fetching skins:", error);
             setLoading(false);

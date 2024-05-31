@@ -17,6 +17,7 @@ function Collection({ icon, title, link, skins }: CollectionProps) {
 	const reviewContainer = useRef<HTMLDivElement>(null);
 
 	const movePositionLeft = () => {
+		console.log("eft");
 		const reviewElementWidth = elementRef.current!.offsetWidth;
 		setPosition(prev => (prev >= 0 ? prev : prev + reviewElementWidth));
 	};
@@ -26,7 +27,6 @@ function Collection({ icon, title, link, skins }: CollectionProps) {
 		const reviewContainerWidth = reviewContainer.current!.offsetWidth + 8;
 		setPosition(prev => (prev <= (-reviewContainerWidth + window.innerWidth) ? prev : prev - reviewElementWidth));
 	};
-
 
 
 	return (
@@ -61,6 +61,7 @@ function Collection({ icon, title, link, skins }: CollectionProps) {
 								category={product.category}
 								discount={product.discount}
 								seller={product.seller}
+
 								ref={elementRef}
 							/>
 						))}

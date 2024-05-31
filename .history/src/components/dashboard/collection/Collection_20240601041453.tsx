@@ -28,7 +28,6 @@ function Collection({ icon, title, link, skins }: CollectionProps) {
 	};
 
 
-
 	return (
 		<section className="collection__section">
 			<header>

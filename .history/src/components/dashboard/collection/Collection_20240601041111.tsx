@@ -28,7 +28,6 @@ function Collection({ icon, title, link, skins }: CollectionProps) {
 	};
 
 
-
 	return (
 		<section className="collection__section">
 			<header>
@@ -61,6 +60,7 @@ function Collection({ icon, title, link, skins }: CollectionProps) {
 								category={product.category}
 								discount={product.discount}
 								seller={product.seller}
+
 								ref={elementRef}
 							/>
 						))}

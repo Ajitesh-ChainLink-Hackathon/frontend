@@ -16,13 +16,13 @@ export function calculateDiscountedPrice(
 export const addZero = (value: number) => (value < 10 ? `0${value}` : value);
 
 export const totalPriceWithoutDiscount = (item: CartItem[]) => {
-	return item.reduce((total, item) => total + item.seller.price, 0).toFixed(2);
+	return item.reduce((total, item) => total + item.price, 0).toFixed(2);
 };
 
 export const totalDiscountedPrice = (item: CartItem[]) => {
 	return item
 		.reduce((total, item) => {
-			const discountAmount = item.seller.price * (item.discount / 100);
+			const discountAmount = item.price * (item.discount / 100);
 
 			return total + discountAmount;
 		}, 0)
@@ -32,8 +32,8 @@ export const totalDiscountedPrice = (item: CartItem[]) => {
 export const totalPriceWithDiscount = (item: CartItem[]) => {
 	return item
 		.reduce((total, item) => {
-			const discountAmount = item.seller.price * (item.discount / 100);
-			const discountedPrice = item.seller.price - discountAmount;
+			const discountAmount = item.price * (item.discount / 100);
+			const discountedPrice = item.price - discountAmount;
 
 			return total + discountedPrice;
 		}, 0)

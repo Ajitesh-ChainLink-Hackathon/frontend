@@ -26,7 +26,7 @@ function Collection({ icon, title, link, skins }: CollectionProps) {
 		const reviewContainerWidth = reviewContainer.current!.offsetWidth + 8;
 		setPosition(prev => (prev <= (-reviewContainerWidth + window.innerWidth) ? prev : prev - reviewElementWidth));
 	};
-
+	console.log("skins me skins :",skins);
 
 
 	return (

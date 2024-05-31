@@ -32,53 +32,47 @@ function CartSummary() {
         // Use the skinMarket contract to buy the skin
         // Use the skinOwner contract to transfer the skin to the buyer
 		console.log("Buy skin with id ",skin);     
-		const skinMarket = new web3.eth.Contract(skinMarketABI, skinMarketAdd);
-		await connectWallet(); 
-
-		//`run loop
-
-		for(let i =0;i<skin.length;i++){
-			const amountInWei = skin[i].seller.price;
-			const gasPrice = await web3.eth.getGasPrice();
-			const gasLimit = await skinMarket.methods
-				.buySkin(skin[i].seller.username,skin[i].idx,skin[i].seller.id)
-				.estimateGas({
-				from: connectedAccount,
-				value: amountInWei.toString(),
-				
-			});
-
+		// const skinMarket = new web3.eth.Contract(skinMarketABI, skinMarketAdd);
+        // await connectWallet(); 
+        // const amountInWei = seller.price;
+		// const gasPrice = await web3.eth.getGasPrice();
+		// const gasLimit = await skinMarket.methods
+		// 	.buySkin(seller.username,seller.id,seller[0])
+		// 	.estimateGas({
+		// 	from: connectedAccount,
+		// 	value: amountInWei,
 			
-			console.log("your username: ",skin[i].seller.username,"Amount in wei : ",amountInWei,"\nConnect Account :",connectedAccount,"\nGasPrice :",gasPrice,"\nseller:",skin[i].seller.username);  
-			// Display a confirmation dialog
-			const confirmed = window.confirm(`Are you sure you want to buy the skin from ${skin[0].seller.username}  for   ${amountInWei.toString()} wei?`);
-			
-			if (!confirmed) {
-				return; // Exit the function if not confirmed
-			}
+		// });
 		
-		//   try {
-		//       console.log(userName,skinId,id);
-		//       await skinMarket.methods
-		//            .buySkin(userName,skinId,id)
-		//            .send({
-		//            from: connectedAccount,
-		//            value: amountInWei,
-		//            gas: gasLimit,
-		//            gasPrice: gasPrice,
-		//           })
-		//         .on("receipt", (receipt) => {
-		//           console.log("Transaction receipt:", receipt);
-		//           console.log("Transaction hash:", receipt.transactionHash);
-		//         })
-		//         .on("error", (error) => {
-		//           console.error("Transaction error:", error);
-		//         });
-		//       console.log("Buying skin from:", seller);
-		//     } catch (error) {
-		//       console.error("Error buying skin:", error);
-		//     }
-	       }
+        // console.log("your username: ",userName,"Amount in wei : ",amountInWei,"\nConnect Account :",connectedAccount,"\nGasPrice :",gasPrice,"\nseller:",seller[2]);  
+    //     // Display a confirmation dialog
+    //     const confirmed = window.confirm(`Are you sure you want to buy the skin from ${seller[1]}  for   ${seller[3]} wei?`);
+          
+    //       if (!confirmed) {
+    //         return; // Exit the function if not confirmed
+    //       }
+    
+    //     try {
+    //       console.log(userName,skinId,id);
+    //       await skinMarket.methods
+    //            .buySkin(userName,skinId,id)
+    //            .send({
+    //            from: connectedAccount,
+    //            value: amountInWei,
+    //            gas: gasLimit,
+    //            gasPrice: gasPrice,
+    //           })
+    //         .on("receipt", (receipt) => {
+    //           console.log("Transaction receipt:", receipt);
+    //           console.log("Transaction hash:", receipt.transactionHash);
+    //         })
+    //         .on("error", (error) => {
+    //           console.error("Transaction error:", error);
+    //         });
+    //       console.log("Buying skin from:", seller);
+    //     } catch (error) {
+    //       console.error("Error buying skin:", error);
+    //     }
       }
 
 

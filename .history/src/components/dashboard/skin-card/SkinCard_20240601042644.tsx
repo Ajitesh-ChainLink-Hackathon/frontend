@@ -25,7 +25,7 @@ const SkinCard = forwardRef((props: CartItem, ref: LegacyRef<HTMLDivElement>)=> 
 				<h2>${props.seller.price}</h2>
 				<span> -{props.discount}%</span>
 			</div>
-			<p className='suggested__price'>By Player <br></br>{props.seller.username}</p>
+			<p className='suggested__price'>By Player{props.seller.username}</p>
 			<p className='category'>{props.category}</p>
 			<h2>{props.name}</h2>
 			<button onClick={addSkinToCart}>ADD TO CART</button>

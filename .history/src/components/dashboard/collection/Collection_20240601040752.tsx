@@ -27,8 +27,6 @@ function Collection({ icon, title, link, skins }: CollectionProps) {
 		setPosition(prev => (prev <= (-reviewContainerWidth + window.innerWidth) ? prev : prev - reviewElementWidth));
 	};
 
-
-
 	return (
 		<section className="collection__section">
 			<header>
@@ -56,11 +54,12 @@ function Collection({ icon, title, link, skins }: CollectionProps) {
 								key={index}
 								idx={product.idx}
 								name={product.name}
-								market_price={product.market_price}
+								market_price={product.seller.price}
 								image={product.image}
 								category={product.category}
 								discount={product.discount}
 								seller={product.seller}
+
 								ref={elementRef}
 							/>
 						))}

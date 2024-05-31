@@ -5,26 +5,26 @@ import skinProducts from '../../utils/skins.products.json';
 import Web3 from "web3";
 import skinMarketABI from '../../abis/skinMarketABI.json';
 
-type Seller = { 
-	id: string;
-	username: string;
-	gameCompany: string;
-	price: number;
-	walletAddress: string;
+interface Seller {
+    id: string;
+    username: string;
+    gameCompany: string;
+    price: number;
+    walletAddress: string;
 }
-type CartItem = {
-	idx: string;
-	image: string;
-	name: string;
-	category: string;
-	market_price: number;
-	discount: number;
-	seller: Seller
-};
 
+interface Skin {
+    idx: string;
+    image: string;
+    name: string;
+    category: string;
+    market_price: number;
+    discount: number;
+    seller: Seller;
+}
 
 interface SkinsByCategory {
-    [category: string]: CartItem[];
+    [category: string]: Skin[];
 }
 
 const CollectionOverview: React.FC = () => {

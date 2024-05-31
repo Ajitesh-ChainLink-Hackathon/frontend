@@ -1,9 +1,17 @@
-import useCartItems, { CartItem } from '../../../hooks/useCartItems.zustand';
+import useCartItems from '../../../hooks/useCartItems.zustand';
 import { addZero, totalDiscountedPrice, totalPriceWithDiscount, totalPriceWithoutDiscount } from '../../../utils/utils';
 import './style.scss';
 import Web3 from "web3";
 import skinMarketABI from '../../../abis/skinMarketABI.json';
+import { useParams } from 'react-router-dom';
 
+interface Seller {
+    id: string;
+    username: string;
+    gameCompany: string;
+    price: number;
+    walletAddress: string;
+}
 
 function CartSummary() {
 	const cartItems = useCartItems(state => state.cartItems);
@@ -24,24 +32,23 @@ function CartSummary() {
 		  console.error("Error connecting wallet:", error);
 		}
 	  }
-	async function BuySkin(skin:CartItem) {
+	async function BuySkin(seller:Seller) {
         // Buy the skin
         // Use the skinMarket contract to buy the skin
         // Use the skinOwner contract to transfer the skin to the buyer
-		console.log("Buy skin with id ",skin);     
-		// const skinMarket = new web3.eth.Contract(skinMarketABI, skinMarketAdd);
-        // await connectWallet(); 
-        // const amountInWei = seller.price;
-		// const gasPrice = await web3.eth.getGasPrice();
-		// const gasLimit = await skinMarket.methods
-		// 	.buySkin(seller.username,seller.id,seller[0])
-		// 	.estimateGas({
-		// 	from: connectedAccount,
-		// 	value: amountInWei,
+		console.log("Buy skin with id ",seller);     
+		const skinMarket = new web3.eth.Contract(skinMarketABI, skinMarketAdd);
+        await connectWallet(); 
+        const amountInWei = seller.price;
+		const gasPrice = await web3.eth.getGasPrice();
+		const gasLimit = await skinMarket.methods
+			.buySkin(seller.username,seller.id,seller[0])
+			.estimateGas({
+			from: connectedAccount,
+			value: amountInWei,
 			
-		// });
-		
-        // console.log("your username: ",userName,"Amount in wei : ",amountInWei,"\nConnect Account :",connectedAccount,"\nGasPrice :",gasPrice,"\nseller:",seller[2]);  
+			});
+    //     console.log("your username: ",userName,"Amount in wei : ",amountInWei,"\nConnect Account :",connectedAccount,"\nGasPrice :",gasPrice,"\nseller:",seller[2]);  
     //     // Display a confirmation dialog
     //     const confirmed = window.confirm(`Are you sure you want to buy the skin from ${seller[1]}  for   ${seller[3]} wei?`);
           

@@ -1,9 +1,16 @@
-import useCartItems, { CartItem } from '../../../hooks/useCartItems.zustand';
+import useCartItems from '../../../hooks/useCartItems.zustand';
 import { addZero, totalDiscountedPrice, totalPriceWithDiscount, totalPriceWithoutDiscount } from '../../../utils/utils';
 import './style.scss';
 import Web3 from "web3";
 import skinMarketABI from '../../../abis/skinMarketABI.json';
 
+interface Seller {
+    id: string;
+    username: string;
+    gameCompany: string;
+    price: number;
+    walletAddress: string;
+}
 
 function CartSummary() {
 	const cartItems = useCartItems(state => state.cartItems);
@@ -24,11 +31,11 @@ function CartSummary() {
 		  console.error("Error connecting wallet:", error);
 		}
 	  }
-	async function BuySkin(skin:CartItem) {
+	async function BuySkin(seller:Seller) {
         // Buy the skin
         // Use the skinMarket contract to buy the skin
         // Use the skinOwner contract to transfer the skin to the buyer
-		console.log("Buy skin with id ",skin);     
+		console.log("Buy skin with id ",seller);     
 		// const skinMarket = new web3.eth.Contract(skinMarketABI, skinMarketAdd);
         // await connectWallet(); 
         // const amountInWei = seller.price;

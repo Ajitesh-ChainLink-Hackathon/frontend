@@ -1,20 +1,27 @@
-import useCartItems, { CartItem } from '../../../hooks/useCartItems.zustand';
+import useCartItems from '../../../hooks/useCartItems.zustand';
 import { addZero, totalDiscountedPrice, totalPriceWithDiscount, totalPriceWithoutDiscount } from '../../../utils/utils';
 import './style.scss';
 import Web3 from "web3";
 import skinMarketABI from '../../../abis/skinMarketABI.json';
+import { useParams } from 'react-router-dom';
 
-
+interface Seller {
+    id: string;
+    username: string;
+    gameCompany: string;
+    price: number;
+    walletAddress: string;
+}
 function CartSummary() {
+
+	let skins;
+	let connectedAccount;
+	const skinMarketAdd = "0x0DedDe527e2B24a6c2B3bF5F3E7488517E37F3AD"; // Ganache address
+	const web3 = new Web3(new Web3.providers.HttpProvider("http://127.0.0.1:7545")); // Ganache
 	const cartItems = useCartItems(state => state.cartItems);
 	const actualPrice = totalPriceWithDiscount(cartItems);
 	const totalPrice = totalPriceWithoutDiscount(cartItems);
 	const totalDiscount = totalDiscountedPrice(cartItems);
-	
-	let connectedAccount:string;
-	const skinMarketAdd = "0x0DedDe527e2B24a6c2B3bF5F3E7488517E37F3AD"; // Ganache address
-	const web3 = new Web3(new Web3.providers.HttpProvider("http://127.0.0.1:7545")); // Ganache
-
 	async function connectWallet() {
 		try {
 		  const accounts = await web3.eth.getAccounts();
@@ -24,24 +31,24 @@ function CartSummary() {
 		  console.error("Error connecting wallet:", error);
 		}
 	  }
-	async function BuySkin(skin:CartItem) {
-        // Buy the skin
-        // Use the skinMarket contract to buy the skin
-        // Use the skinOwner contract to transfer the skin to the buyer
-		console.log("Buy skin with id ",skin);     
-		// const skinMarket = new web3.eth.Contract(skinMarketABI, skinMarketAdd);
-        // await connectWallet(); 
-        // const amountInWei = seller.price;
-		// const gasPrice = await web3.eth.getGasPrice();
-		// const gasLimit = await skinMarket.methods
-		// 	.buySkin(seller.username,seller.id,seller[0])
-		// 	.estimateGas({
-		// 	from: connectedAccount,
-		// 	value: amountInWei,
-			
-		// });
-		
-        // console.log("your username: ",userName,"Amount in wei : ",amountInWei,"\nConnect Account :",connectedAccount,"\nGasPrice :",gasPrice,"\nseller:",seller[2]);  
+	 async function BuySkin(id:Seller) {
+    //     // Buy the skin
+    //     // Use the skinMarket contract to buy the skin
+    //     // Use the skinOwner contract to transfer the skin to the buyer
+         console.log("Buy skin with id ",id);
+    //     
+    //     const skinMarket = new web3.eth.Contract(skinMarketABI, skinMarketAdd);
+    //     await connectWallet(); 
+    //     const amountInWei = seller[3];
+    //     const gasPrice = await web3.eth.getGasPrice();
+    //     const gasLimit = await skinMarket.methods
+    //       .buySkin(userName,skinId,seller[0])
+    //       .estimateGas({
+    //         from: connectedAccount,
+    //         value: amountInWei,
+            
+    //       });
+    //     console.log("your username: ",userName,"Amount in wei : ",amountInWei,"\nConnect Account :",connectedAccount,"\nGasPrice :",gasPrice,"\nseller:",seller[2]);  
     //     // Display a confirmation dialog
     //     const confirmed = window.confirm(`Are you sure you want to buy the skin from ${seller[1]}  for   ${seller[3]} wei?`);
           

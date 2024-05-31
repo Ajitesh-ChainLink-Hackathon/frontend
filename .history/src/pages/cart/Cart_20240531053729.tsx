@@ -29,7 +29,7 @@ function Cart() {
 					))}
 				</div>
 
-				<CartSummary />
+				<CartSummary username="Ajitesh"/>
 			</div>
 			<Footer />
 		</section>

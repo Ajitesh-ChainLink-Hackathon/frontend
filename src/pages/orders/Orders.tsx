@@ -24,7 +24,7 @@ function Orders() {
 					{userOrderItems.map((skin, index) => (
 						<OrderItem
 							key={index}
-              price={23}
+              price={skin.seller.price}
 							{...skin}
 						/>
 					))}

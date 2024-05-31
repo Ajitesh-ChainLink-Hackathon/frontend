@@ -8,7 +8,6 @@ import Footer from '../../components/dashboard/footer/Footer';
 
 function Cart() {
 	const userCartItems = useCartItems((state) => state.cartItems);
-	console.log(userCartItems)
 	
 	return (
 		<section>

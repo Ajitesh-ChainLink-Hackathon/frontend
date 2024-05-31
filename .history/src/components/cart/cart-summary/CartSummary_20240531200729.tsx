@@ -4,6 +4,13 @@ import './style.scss';
 import Web3 from "web3";
 import skinMarketABI from '../../../abis/skinMarketABI.json';
 
+interface Seller {
+    id: string;
+    username: string;
+    gameCompany: string;
+    price: number;
+    walletAddress: string;
+}
 
 function CartSummary() {
 	const cartItems = useCartItems(state => state.cartItems);

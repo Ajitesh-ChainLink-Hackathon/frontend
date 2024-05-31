@@ -1,48 +1,54 @@
-import FormInput from "../../components/authentication/form-input/FormInput";
-import AuthButtons from "../../components/authentication/auth-buttons/AuthButtons";
-import { Link, useNavigate } from "react-router-dom";
+import FormInput from '../../components/authentication/form-input/FormInput';
+import AuthButtons from '../../components/authentication/auth-buttons/AuthButtons';
+import { Link, useNavigate } from 'react-router-dom';
 
-import { useState} from "react";
+import { useState } from 'react';
 
-import { useSearchParams } from "react-router-dom";
+import { useSearchParams } from 'react-router-dom';
+// import useCurrentUser from '../../hooks/useCurrentUser.zustand';
 
 function Login() {
-   const [searchParam, setSearchParam] = useSearchParams();
+	// const setCurrentUser = useCurrentUser((state) => state.setCurrentUser);
+	const [searchParam, setSearchParam] = useSearchParams();
 
-   const [isLoading, setIsLoading] = useState(false);
-   const navigate = useNavigate();
+	const [isLoading, setIsLoading] = useState(false);
+	const navigate = useNavigate();
 
-      
-   const [formalUser, setFormalUser] = useState({
-      email: searchParam.get('email') ??'',
-      password: ""
-   })
+	const [formalUser, setFormalUser] = useState({
+		email: searchParam.get('email') ?? '',
+		password: '',
+	});
 
 	const handleChange = (
 		e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
 	) => {
-      const {name, value} = e.target;
-      setFormalUser(userData => ({
-         ...userData,
-         [name]: value
-      }))
-      if (name === "email") {
-         setSearchParam({...searchParam, [name]: value})
-      }
+		const { name, value } = e.target;
+		setFormalUser((userData) => ({
+			...userData,
+			[name]: value,
+		}));
+		if (name === 'email') {
+			setSearchParam({ ...searchParam, [name]: value });
+		}
 	};
 
-   const handleGoogleAuth =async() => {
-      setIsLoading(true);
-		navigate("/dashboard")
+	const handleGoogleAuth = async () => {
+		setIsLoading(true);
 
+		navigate('/dashboard');
+	};
 
-   }
-
-   const logUserIn = async(e: React.FormEvent<HTMLFormElement>) => {
-      e.preventDefault();
-      setIsLoading(true)
-
-   }
+	const logUserIn = async (e: React.FormEvent<HTMLFormElement>) => {
+		e.preventDefault();
+		setIsLoading(true);
+		try {
+			// setCurrentUser({})
+		} catch {
+			setIsLoading(false);
+		} finally {
+			setIsLoading(false);
+		}
+	};
 
 	return (
 		<div className="auth__form__content">
@@ -67,7 +73,13 @@ function Login() {
 					value={formalUser.password}
 					required
 				/>
-				<AuthButtons handleGoogleAuth={handleGoogleAuth} isLoading={isLoading}  goggleAuth>Login</AuthButtons>
+				<AuthButtons
+					handleGoogleAuth={handleGoogleAuth}
+					isLoading={isLoading}
+					goggleAuth
+				>
+					Login
+				</AuthButtons>
 				<label className="auth__label">
 					Don&apos;t have an account?
 					<Link to="/register"> Sign Up</Link>

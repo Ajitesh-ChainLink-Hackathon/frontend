@@ -74,7 +74,7 @@
       }
    }
 
-   button {
+   .delete__btn {
       $size: 2rem;
       width: $size;
       height: $size;
@@ -134,7 +134,7 @@
         }
       }
       
-      button {
+      .delete__btn {
          margin-left: auto;
       }
    }

@@ -3,15 +3,20 @@ import useCartItems from '../../../hooks/useCartItems.zustand';
 import UserOptions from '../userinfo/UserOptions';
 import { useEffect, useRef, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+import useCurrentUser from '../../../hooks/useCurrentUser.zustand';
 function NavBar() {
 	const cartItemsCount = useCartItems((state) => state.cartItems.length);
 	const [showDetails, setShowDetails] = useState(false);
 	const elementRef = useRef<HTMLImageElement>(null);
 	const navElementRef = useRef<HTMLElement>(null);
+	const {currentUser, setLoginModal} = useCurrentUser(state => state)
 	
 	const navigate = useNavigate();
 
 	const navigateToCart = ()=> {
+		if(!currentUser){
+			return setLoginModal(true)
+		}
 		navigate("/cart")
 	}
 
@@ -66,11 +71,11 @@ function NavBar() {
 			<p className="heading">SELL</p>
 
 			<div>
-				<div onClick={handleShowOptions} className="user">
+				{currentUser && <div onClick={handleShowOptions} className="user">
 					<img ref={elementRef} src="/icons/user.svg" alt="" />
 
 					{showDetails && <UserOptions />}
-				</div>
+				</div>}
 				<div onClick={navigateToCart} className="cart">
 					<img src="/icons/cart.svg" alt="" />
 					<p>{cartItemsCount}</p>

@@ -1,7 +1,9 @@
 
-import { useNavigate } from 'react-router-dom';
 import './style.scss';
+import { useNavigate } from 'react-router-dom';
 import useCurrentUser from '../../../hooks/useCurrentUser.zustand';
+import { Link } from 'react-router-dom';
+
 
 function UserOptions() {
 	const currentUser = useCurrentUser(state => state.currentUser)
@@ -19,14 +21,14 @@ function UserOptions() {
 					<p className="user__email">{currentUser?.email}</p>
 				</div>
 			</div>
-			<div onClick={handleSignOutUser} className='option'>
+			<Link to="/selling" className='option'>
 				<img src="/icons/selling.svg" alt="" />
 				<p>Selling</p>
-			</div>
-			<div onClick={handleSignOutUser} className='option'>
+			</Link>
+			<Link to="/orders" onClick={handleSignOutUser} className='option'>
 				<img src="/icons/order.svg" alt="" />
 				<p>Orders</p>
-			</div>
+			</Link>
 			<div onClick={handleSignOutUser} className='option logout'>
 				<img src="/icons/logout.svg" alt="" />
 				<p>Log out</p>

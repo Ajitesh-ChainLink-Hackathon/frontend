@@ -1,6 +1,4 @@
 [
-<<<<<<< Updated upstream
-=======
 	{
 		"idx": "1",
 		"image": "https://res.cloudinary.com/duepebytx/image/upload/v1716734241/knife/yjj89audytmrsni5pzlc.avif",
@@ -16,7 +14,6 @@
 			"walletAddress": "0x1234567890abcdef"
 		}
 	},
->>>>>>> Stashed changes
     {
         "idx": "1",
         "image": "https://res.cloudinary.com/duepebytx/image/upload/v1716734241/knife/yjj89audytmrsni5pzlc.avif",

@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from "react";
 import "./style.scss";
 import Collection from '../../components/dashboard/collection/Collection';
 import skinProducts from '../../utils/skins.products.json';
+<<<<<<< Updated upstream
 import Web3 from "web3";
 import skinMarketABI from '../../abis/skinMarketABI.json';
 
@@ -97,4 +97,27 @@ const CollectionOverview: React.FC = () => {
     );
 }
 
+=======
+
+
+function CollectionOverview() {
+	const skinCategories = Object.keys(skinProducts);
+	
+
+	return (
+		<div className='collection__overview'>
+			<h1>Skin Collections</h1>
+			{skinCategories.map((categories, index) => (
+				<Collection
+               link={`/dashboard/${categories}`}
+					icon={`/icons/${categories}.svg`}
+					title={categories}
+					skins={skinProducts[categories as keyof typeof skinProducts]}
+					key={index}
+				/>
+			))}
+		</div>
+	);
+}
+>>>>>>> Stashed changes
 export default CollectionOverview;

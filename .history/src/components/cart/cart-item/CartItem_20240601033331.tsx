@@ -1,34 +1,28 @@
-import './style.scss';
-import useCartItems from '../../../hooks/useCartItems.zustand';
+import "./style.scss";
+import useCartItems from "../../../hooks/useCartItems.zustand";
 
-type Seller = { 
+type Seller = {
 	username: string;
 	gameCompany: string;
 	price: number;
 	walletAddress: string;
-}
+};
 type CartItemProps = {
-	id: string;
+	idx: string;
 	image: string;
 	name: string;
 	category: string;
 	market_price: number;
 	discount: number;
-	seller: Seller
+	seller: Seller;
 };
 
 function CartItem(props: CartItemProps) {
-	const removeFromCart = useCartItems(state => state.removeCartItem);
+	const removeFromCart = useCartItems((state) => state.removeCartItem);
 
-<<<<<<< Updated upstream
-	const deleteFromCart = ()=> {
-		removeFromCart(props.id)
-	}
-=======
 	const deleteFromCart = () => {
 		removeFromCart(props.idx);
 	};
->>>>>>> Stashed changes
 	return (
 		<article className="cart__item">
 			<div className="skin">
@@ -44,7 +38,8 @@ function CartItem(props: CartItemProps) {
 			<p className="category">{props.category}</p>
 			<div className="price">
 				<h2>
-					${props.seller.price} <span>-{props.discount}%</span>
+					${props.seller.price} <span>-{props.discount}%</span>$
+					{props.seller.price} <span>-{props.discount}%</span>
 				</h2>
 				<p>Market Price: ${props.seller.price}</p>
 			</div>

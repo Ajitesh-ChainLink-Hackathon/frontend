@@ -449,7 +449,7 @@ function SellingModal() {
          console.error("Error fetching average price:", error);
          }
       }
-   }
+    }
 
 	return (
 		newSellingItem && (

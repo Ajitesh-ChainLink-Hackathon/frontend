@@ -3,7 +3,6 @@ import React,{ useState } from 'react';
 import './style.scss';
 import useSellingItems from '../../../hooks/useSellingItems.zustand';
 import Web3 from "web3";
-import { CartItem } from '../../../hooks/useCartItems.zustand';
 
 export type SellingItem = {
    idx: string;
@@ -364,8 +363,7 @@ function SellingModal() {
    const newSellingItem:SellingItem | null = useSellingItems((state) => state.newSellingItem);
    const setNewSellingItem = useSellingItems((state) => state.setNewSellingItem);
    let connectedAccount:string;
-   //const [averagePrice, setAveragePrice] = useState(0);
-   let averagePrice=useState<number>();
+   const [averagePrice, setAveragePrice] = useState(0);
    const handlePriceChange = (event: React.ChangeEvent<HTMLInputElement>) => {
       setPriceInput(Number(event.target.value));
     };
@@ -434,23 +432,58 @@ function SellingModal() {
       const skinMarket = new web3.eth.Contract(skinMarketABI, skinMarketAddress);
       if(newSellingItem){
          try {
-         const sellers:CartItem[] = await skinMarket.methods.getSellers(newSellingItem.idx).call();
+         const sellers:SellingItem[] = await skinMarket.methods.getSellers(newSellingItem.idx).call();
          console.log("sellers",sellers);
-         
 
-         if (sellers && sellers.length > 0) {
-            const totalPrices = sellers.reduce((total, seller) => total + parseFloat(web3.utils.fromWei(seller.seller.price, 'ether')), 0);
-            const average = totalPrices / sellers.length;
-            
+         if (sellers.length > 0) {
+            // const totalPrices = sellers.reduce((total, seller) => total + parseFloat(web3.utils.fromWei(seller.price.toString(), 'ether')), 0);
+            // const average = totalPrices / sellers.length;
+            setAveragePrice(100);
             return 100;
-
          }
          } catch (error) {
          console.error("Error fetching average price:", error);
          }
       }
-   }
-
+    }
+	// async function sellSkin() {
+	// 	const skinMarket = new web3.eth.Contract(skinMarketABI, skinMarketAddress);
+	// 	try {
+	// 	  const amountInWei = web3.utils.toWei(price, 'ether');
+	// 	  console.log("userName:", userName, "\nconnectedAccount:", connectedAccount, "\nPrice:", amountInWei);
+	
+	// 	  // Estimate gas limit
+	// 	  const gasLimit = await skinMarket.methods.sellSkin(
+	// 		skinId,
+	// 		userName,
+	// 		connectedAccount,
+	// 		amountInWei
+	// 	  ).estimateGas({ from: connectedAccount });
+	
+	// 	  console.log("userName:", userName);
+	// 	  console.log("connectedAccount:", connectedAccount);
+	// 	  console.log("gasLimit:", gasLimit);
+	// 	  console.log("price:", amountInWei);
+	// 	  console.log("gas price:", await web3.eth.getGasPrice());
+	
+	// 	  // Send the transaction
+	// 	  await skinMarket.methods.sellSkin(
+	// 		skinId,
+	// 		userName,
+	// 		connectedAccount,
+	// 		amountInWei
+	// 	  ).send({
+	// 		from: connectedAccount,
+	// 		gas: gasLimit,
+	// 		gasPrice: await web3.eth.getGasPrice()
+	// 	  });
+	
+	// 	  // Navigate to the user dashboard
+	// 	  navigate(`/${userName}/Sell`);
+	// 	} catch (error) {
+	// 	  console.error("Error selling skin:", error);
+	// 	}
+	//   }
 	return (
 		newSellingItem && (
 			<Fragment>
@@ -482,7 +515,7 @@ function SellingModal() {
                <div >
                 <span>Average price</span>
                   {/* <p>${newSellingItem.p}</p> */}
-                  {/* <p>${averagePrice}</p> */}
+                  <p>${averagePrice}</p>
                </div>
 
                </div>

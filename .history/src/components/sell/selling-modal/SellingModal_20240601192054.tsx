@@ -449,8 +449,45 @@ function SellingModal() {
          console.error("Error fetching average price:", error);
          }
       }
-   }
-
+    }
+	// async function sellSkin() {
+	// 	const skinMarket = new web3.eth.Contract(skinMarketABI, skinMarketAddress);
+	// 	try {
+	// 	  const amountInWei = web3.utils.toWei(price, 'ether');
+	// 	  console.log("userName:", userName, "\nconnectedAccount:", connectedAccount, "\nPrice:", amountInWei);
+	
+	// 	  // Estimate gas limit
+	// 	  const gasLimit = await skinMarket.methods.sellSkin(
+	// 		skinId,
+	// 		userName,
+	// 		connectedAccount,
+	// 		amountInWei
+	// 	  ).estimateGas({ from: connectedAccount });
+	
+	// 	  console.log("userName:", userName);
+	// 	  console.log("connectedAccount:", connectedAccount);
+	// 	  console.log("gasLimit:", gasLimit);
+	// 	  console.log("price:", amountInWei);
+	// 	  console.log("gas price:", await web3.eth.getGasPrice());
+	
+	// 	  // Send the transaction
+	// 	  await skinMarket.methods.sellSkin(
+	// 		skinId,
+	// 		userName,
+	// 		connectedAccount,
+	// 		amountInWei
+	// 	  ).send({
+	// 		from: connectedAccount,
+	// 		gas: gasLimit,
+	// 		gasPrice: await web3.eth.getGasPrice()
+	// 	  });
+	
+	// 	  // Navigate to the user dashboard
+	// 	  navigate(`/${userName}/Sell`);
+	// 	} catch (error) {
+	// 	  console.error("Error selling skin:", error);
+	// 	}
+	//   }
 	return (
 		newSellingItem && (
 			<Fragment>

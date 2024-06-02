@@ -416,7 +416,7 @@ function CartSummary() {
 			        .on("error", (error) => {
 			          console.error("Transaction error:", error);
 			        });
-			    //   console.log("Buying skin from:", seller);
+			      console.log("Buying skin from:", seller);
 				} catch (error) {
 				console.error("Error buying skin:", error);
 				}

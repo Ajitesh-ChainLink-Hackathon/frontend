@@ -12,11 +12,10 @@ const SkinCard = forwardRef((props: CartItem, ref: LegacyRef<HTMLDivElement>)=> 
 	let usdPrice;
 
 	async function getPrice(){
-		console.log("Get price");
+		 
 		usdPrice=await convertWeiToUSD( props.seller.price.toString());
+
 	}
-	
-	
 
 	const addSkinToCart = ()=> {
 		addToCart({...props})

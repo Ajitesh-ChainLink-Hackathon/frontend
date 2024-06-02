@@ -400,14 +400,14 @@ function CartSummary() {
 				if (!confirmed) {
 					return; // Exit the function if not confirmed
 				}
-			      console.log(userName,skin[i].idx,skin[i].seller.id);
+			      console.log(userName,skinId,id);
 			      await skinMarket.methods
-			           .buySkin(userName,skin[i].idx,skin[i].seller.id)
+			           .buySkin(userName,skinId,id)
 			           .send({
 			           from: connectedAccount,
-			           value: amountInWei.toString(),
-			           gas: gasLimit.toString(),
-			           gasPrice: gasPrice.toString(),
+			           value: amountInWei,
+			           gas: gasLimit,
+			           gasPrice: gasPrice,
 			          })
 			        .on("receipt", (receipt) => {
 			          console.log("Transaction receipt:", receipt);
@@ -416,7 +416,7 @@ function CartSummary() {
 			        .on("error", (error) => {
 			          console.error("Transaction error:", error);
 			        });
-			    //   console.log("Buying skin from:", seller);
+			      console.log("Buying skin from:", seller);
 				} catch (error) {
 				console.error("Error buying skin:", error);
 				}

@@ -16,7 +16,11 @@ const SkinCard = forwardRef((props: CartItem, ref: LegacyRef<HTMLDivElement>)=> 
 		usdPrice=await convertWeiToUSD( props.seller.price.toString());
 	}
 	
-	
+	//call get price only once
+	if(!usdPrice){
+		getPrice();
+	}
+
 
 	const addSkinToCart = ()=> {
 		addToCart({...props})

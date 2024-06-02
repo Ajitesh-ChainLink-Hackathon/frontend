@@ -13,7 +13,7 @@ export const getEthPriceInUSD = async (): Promise<number | null> => {
       }
     });
 
-    const ethPriceInUSD = response.data.USD;
+    const ethPriceInUSD = response.data.ethereum.usd;
     return ethPriceInUSD;
   } catch (error) {
     console.error('Error fetching Ethereum price:', error);
@@ -22,10 +22,19 @@ export const getEthPriceInUSD = async (): Promise<number | null> => {
 };
 
 
-export const convertWeiToUSD = (wei: string): string => {  
+export const convertWeiToUSD = async (wei: string): Promise<number | null> => {
+    try {
+      const ethPriceInUSD = await getEthPriceInUSD();
+      if (!ethPriceInUSD) {
+        throw new Error('Failed to fetch Ethereum price');
+      }
   
       const etherValue = web3.utils.fromWei(wei, 'ether');
-      return etherValue;
-    
-    
+      const usdValue = parseFloat(etherValue) * ethPriceInUSD;
+  
+      return usdValue;
+    } catch(e){
+        console.log(e);
+        return null;
+    }
 }

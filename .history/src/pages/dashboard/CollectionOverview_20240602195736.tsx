@@ -92,6 +92,9 @@ const CollectionOverview: React.FC = () => {
 
 
             }
+			
+			
+			
             
             setSkins(skinData);
             setLoading(false);

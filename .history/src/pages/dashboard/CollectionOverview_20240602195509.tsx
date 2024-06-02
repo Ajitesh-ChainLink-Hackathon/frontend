@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "./style.scss";
 import Collection from '../../components/dashboard/collection/Collection';
+import skinMarketABI from "../../components/abis/skinMarketABI.json"
 import { skinMarket } from "../../utils/web3.ts";
 
 import Web3 from "web3";
@@ -30,18 +31,18 @@ const CollectionOverview: React.FC = () => {
     const [skins, setSkins] = useState<SkinsByCategory>({});
     const [loading, setLoading] = useState(true);
     const skinCategories = Object.keys(skins); // Dynamically get categories from fetched data
-	
-  
+
+    const skinMarketAdd = "0x69Bce34c7Ac7A22A383b32f33e725921b60Dd6dB"; // Address from .env file
+    const web3 = new Web3(Web3.givenProvider || "http://127.0.0.1:7545"); // Ganache
 
     async function ShowAllSkins() {
-		const skinMarketCon=await skinMarket();
-        
+        const skinMarket = new web3.eth.Contract(skinMarketABI, skinMarketAdd);
         try {
-            const skinIds: string[] = await skinMarketCon.methods.getAllSkins().call();
+            const skinIds: string[] = await skinMarket.methods.getAllSkins().call();
     
             const skinData: SkinsByCategory = {};
             for (const id of skinIds) {
-                const sellersOfSkin: Seller[][] = await skinMarketCon.methods.getSellers(id).call();
+                const sellersOfSkin: Seller[][] = await skinMarket.methods.getSellers(id).call();
                 const category = "knife"; // Replace with actual logic to determine the category
     
                 if (!skinData[category]) {
@@ -71,7 +72,7 @@ const CollectionOverview: React.FC = () => {
                 }
 
 				//add game skins 
-				const gamePrice=await skinMarketCon.methods.getSkinPriceFromGame(id).call();
+				const gamePrice=await skinMarket.methods.getSkinPriceFromGame(id).call();
 				const sellerObj: Seller = {
 					id: "0",
 					username: "Game",
@@ -92,6 +93,9 @@ const CollectionOverview: React.FC = () => {
 
 
             }
+			
+			
+			
             
             setSkins(skinData);
             setLoading(false);

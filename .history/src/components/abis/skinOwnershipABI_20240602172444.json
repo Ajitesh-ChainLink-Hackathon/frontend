@@ -12,24 +12,6 @@
 				"type": "string"
 			},
 			{
-				"internalType": "uint256[]",
-				"name": "_skinIds",
-				"type": "uint256[]"
-			}
-		],
-		"name": "addMultipleSkinsToUser",
-		"outputs": [],
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "string",
-				"name": "_username",
-				"type": "string"
-			},
-			{
 				"internalType": "uint256",
 				"name": "_skinId",
 				"type": "uint256"

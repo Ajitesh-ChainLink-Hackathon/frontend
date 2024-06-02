@@ -41,7 +41,7 @@ const CollectionOverview: React.FC = () => {
     
             const skinData: SkinsByCategory = {};
             for (const id of skinIds) {
-                const sellersOfSkin: Seller[][] = await skinMarketCon.methods.getSellers(id).call();
+                const sellersOfSkin: Seller[][] = await skinMarket.methods.getSellers(id).call();
                 const category = "knife"; // Replace with actual logic to determine the category
     
                 if (!skinData[category]) {
@@ -71,7 +71,7 @@ const CollectionOverview: React.FC = () => {
                 }
 
 				//add game skins 
-				const gamePrice=await skinMarketCon.methods.getSkinPriceFromGame(id).call();
+				const gamePrice=await skinMarket.methods.getSkinPriceFromGame(id).call();
 				const sellerObj: Seller = {
 					id: "0",
 					username: "Game",
@@ -92,6 +92,9 @@ const CollectionOverview: React.FC = () => {
 
 
             }
+			
+			
+			
             
             setSkins(skinData);
             setLoading(false);

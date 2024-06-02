@@ -20,7 +20,7 @@ export function Utils(){
 	
 	if(window.ethereum){
 		const web3=new Web3(window.ethereum);
-		return web3;
+		return web3.utils;
 	}
 }
 export const getAccounts = async () => {

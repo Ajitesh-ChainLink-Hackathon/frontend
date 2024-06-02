@@ -32,9 +32,7 @@ const CollectionOverview: React.FC = () => {
 	
   
 
-
     async function ShowAllSkins() {
-		console.log("Show all skins");
 		const skinMarketCon=await skinMarket();
 
         

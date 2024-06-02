@@ -9,17 +9,13 @@ function NavBar() {
 	const [showDetails, setShowDetails] = useState(false);
 	const elementRef = useRef<HTMLImageElement>(null);
 	const navElementRef = useRef<HTMLElement>(null);
-	const {currentUser, setLoginModal,setCurrentUser} = useCurrentUser(state => state)
+	const {currentUser, setLoginModal} = useCurrentUser(state => state)
 	
 	const navigate = useNavigate();
 
 	const navigateToCart = ()=> {
 		if(!currentUser){
-			//return setLoginModal(true)
-			setCurrentUser({
-				name: "Ajitesh",
-				email: "ajitesh.jam@gmail.com",
-			 });
+			return setLoginModal(true)
 		}
 		navigate("/cart")
 	}

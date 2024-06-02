@@ -32,11 +32,8 @@ const CollectionOverview: React.FC = () => {
 	
   
 
-
     async function ShowAllSkins() {
-		console.log("Show all skins");
 		const skinMarketCon=await skinMarket();
-
         
         try {
             const skinIds: string[] = await skinMarketCon.methods.getAllSkins().call();
@@ -70,7 +67,6 @@ const CollectionOverview: React.FC = () => {
                     };
 
                     skinData[category].push(card);
-					console.log("SkinData : ",skinData);
                 }
 
 				//add game skins 

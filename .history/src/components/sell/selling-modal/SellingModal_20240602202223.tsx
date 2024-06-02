@@ -1,6 +1,7 @@
 import { Fragment } from 'react/jsx-runtime';
 import React,{ useState } from 'react';
 import './style.scss';
+import Web3 from 'web3';
 import useSellingItems from '../../../hooks/useSellingItems.zustand';
 import { CartItem } from '../../../hooks/useCartItems.zustand';
 import { skinMarket,getAccounts,Utils } from '../../../utils/web3';

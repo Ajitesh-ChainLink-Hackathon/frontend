@@ -8,34 +8,33 @@ import useSellingItems from "../../hooks/useSellingItems.zustand";
 import SellingModal from "../../components/sell/selling-modal/SellingModal";
 
 function Selling() {
-   const userSellingItems = useSellingItems(state => state.sellingItems)
-  return (
-   <Fragment>
-    <div>
-      <NavBar />
-      <TitleHeading title="MarketPlace" image="/images/selling.jpeg" />
-      <div className="cart__item__wrapper">
-				<div>
-					<div className="cart__item__header">
-						<h3>Skin</h3>
-						<h3 className='category'>Category</h3>
-						<h3 className='price'>Price</h3>
+	const userSellingItems = useSellingItems((state) => state.sellingItems);
+	return (
+		<Fragment>
+			<div>
+				<NavBar />
+				<TitleHeading
+					title="MarketPlace"
+					image="/images/selling.jpeg"
+				/>
+				<div className="cart__item__wrapper">
+					<div>
+						<div className="cart__item__header">
+							<h3>Skin</h3>
+							<h3 className="category">Category</h3>
+							<h3 className="price">Price</h3>
+						</div>
+						{userSellingItems.map((skin, index) => (
+							<SellItem key={index} {...skin} />
+						))}
 					</div>
-					{userSellingItems.map((skin, index) => (
-						<SellItem
-							key={index}
-							{...skin}
-						/>
-					))}
+
+					<SellingSummary />
 				</div>
-
-				<SellingSummary />
+				<Footer />
 			</div>
-			<Footer />
-    </div>
-    <SellingModal />
-
-   </Fragment>
-  )
+			<SellingModal />
+		</Fragment>
+	);
 }
 export default Selling;

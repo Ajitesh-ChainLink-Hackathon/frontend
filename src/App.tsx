@@ -1,20 +1,23 @@
-import './App.scss';
-import { createBrowserRouter, RouterProvider } from 'react-router-dom';
-import Dashboard from './pages/dashboard/Dashboard';
-import AuthLayout from './pages/auth/AuthLayout';
-import Login from './pages/auth/Login';
-import Register from './pages/auth/Register';
-import Orders from './pages/orders/Orders';
-import CollectionOverview from './pages/dashboard/CollectionOverview';
-import CollectionCategory from './pages/dashboard/CollectionCategory';
-import Cart from './pages/cart/Cart';
-import { Fragment } from 'react/jsx-runtime';
-import { Toaster } from 'react-hot-toast';
-import Selling from './pages/selling/Selling';
+import React, { useState, useEffect } from "react";
+import "./App.scss";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import Dashboard from "./pages/dashboard/Dashboard";
+import AuthLayout from "./pages/auth/AuthLayout";
+import Login from "./pages/auth/Login";
+import Register from "./pages/auth/Register";
+import Orders from "./pages/orders/Orders";
+import CollectionOverview from "./pages/dashboard/CollectionOverview";
+import CollectionCategory from "./pages/dashboard/CollectionCategory";
+import Cart from "./pages/cart/Cart";
+import { Fragment } from "react/jsx-runtime";
+import { Toaster } from "react-hot-toast";
+import Selling from "./pages/selling/Selling";
+import MetaMaskModal from "./components/metamaskmodal/Metamaskmodal";
+import useCurrentAccount from "./hooks/useCurrentAccount.zustand";
 
 const router = createBrowserRouter([
 	{
-		path: '/',
+		path: "/",
 		element: <Dashboard />,
 		children: [
 			{
@@ -22,7 +25,7 @@ const router = createBrowserRouter([
 				element: <CollectionOverview />,
 			},
 			{
-				path: '/dashboard/:category',
+				path: "/dashboard/:category",
 				element: <CollectionCategory />,
 			},
 		],
@@ -31,34 +34,42 @@ const router = createBrowserRouter([
 		element: <AuthLayout />,
 		children: [
 			{
-				path: '/login',
+				path: "/login",
 				element: <Login />,
 			},
 			{
-				path: '/register/*',
+				path: "/register/*",
 				element: <Register />,
 			},
 		],
 	},
 	{
-		path: '/cart',
+		path: "/cart",
 		element: <Cart />,
 	},
 	{
-		path: '/orders',
+		path: "/orders",
 		element: <Orders />,
 	},
 	{
 		path: "/selling",
-		element: <Selling />
-	}
+		element: <Selling />,
+	},
 ]);
 
 function App() {
+	const { account } = useCurrentAccount((state) => state);
+	const [modalIsOpen, setModalIsOpen] = useState(account == null);
+
+	useEffect(() => {
+		if (account != null) setModalIsOpen(false);
+	}, [account]);
+
 	return (
 		<Fragment>
 			<Toaster />
 			<RouterProvider router={router} />
+			modalIsOpen && (<MetaMaskModal />)
 		</Fragment>
 	);
 }

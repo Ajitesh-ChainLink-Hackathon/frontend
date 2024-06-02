@@ -368,8 +368,7 @@ function CartSummary() {
 		}
 	  }
 	async function BuySkin(skin:CartItem[]) {
-		const username="Ajitesh";//to change -_________________-
-       // Buy the skin
+        // Buy the skin
         // Use the skinMarket contract to buy the skin
         // Use the skinOwner contract to transfer the skin to the buyer
 		console.log("Buy skin with id ",skin);     
@@ -386,7 +385,7 @@ function CartSummary() {
 			try {
 				const gasPrice = await web3.eth.getGasPrice();
 				const gasLimit = await skinMarket.methods
-					.buySkin(username,skin[i].idx,skin[i].seller.id)
+					.buySkin(skin[i].seller.username,skin[i].idx,skin[i].seller.id)
 					.estimateGas({
 					from: connectedAccount,
 					value: amountInWei.toString(),
@@ -423,19 +422,12 @@ function CartSummary() {
 			else{
 				console.log("Buy from game");
 				const gasPrice = await web3.eth.getGasPrice();
-				console.log(skin[i].idx);
 				const gasLimit = await skinMarket.methods
-				.buyFromGame( skin[i].idx,username)
+				.buyFromGame(Number(skin[i].idx))
 				.estimateGas({
 				from: connectedAccount,
-				value: amountInWei.toString(),
+				value: amountInWei.toString(),	
 			});
-			console.log("your username: ",skin[i].seller.username,"Amount in wei : ",amountInWei,"\nConnect Account :",connectedAccount,"\nGasPrice :",gasPrice,"\nseller:",skin[i].seller.username);
-			const transaction=await skinMarket.methods
-			.buyFromGame( skin[i].idx,username).send({from:connectedAccount,value:amountInWei.toString()});
-			console.log(transaction.transactionHash);
-
-
 			
 		   }
 		}

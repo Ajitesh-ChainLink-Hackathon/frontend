@@ -428,14 +428,8 @@ function CartSummary() {
 				.buyFromGame( skin[i].idx,username)
 				.estimateGas({
 				from: connectedAccount,
-				value: amountInWei.toString(),
+				value: amountInWei.toString(),	
 			});
-			console.log("your username: ",skin[i].seller.username,"Amount in wei : ",amountInWei,"\nConnect Account :",connectedAccount,"\nGasPrice :",gasPrice,"\nseller:",skin[i].seller.username);
-			const transaction=await skinMarket.methods
-			.buyFromGame( skin[i].idx,username).send({from:connectedAccount,value:amountInWei.toString()});
-			console.log(transaction.transactionHash);
-
-
 			
 		   }
 		}

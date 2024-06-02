@@ -425,17 +425,11 @@ function CartSummary() {
 				const gasPrice = await web3.eth.getGasPrice();
 				console.log(skin[i].idx);
 				const gasLimit = await skinMarket.methods
-				.buyFromGame( skin[i].idx,username)
+				.buyFromGame(username, skin[i].idx,)
 				.estimateGas({
 				from: connectedAccount,
-				value: amountInWei.toString(),
+				value: amountInWei.toString(),	
 			});
-			console.log("your username: ",skin[i].seller.username,"Amount in wei : ",amountInWei,"\nConnect Account :",connectedAccount,"\nGasPrice :",gasPrice,"\nseller:",skin[i].seller.username);
-			const transaction=await skinMarket.methods
-			.buyFromGame( skin[i].idx,username).send({from:connectedAccount,value:amountInWei.toString()});
-			console.log(transaction.transactionHash);
-
-
 			
 		   }
 		}

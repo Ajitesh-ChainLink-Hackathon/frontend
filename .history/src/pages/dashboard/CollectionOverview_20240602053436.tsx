@@ -1,8 +1,8 @@
-import useCartItems, { CartItem } from '../../../hooks/useCartItems.zustand';
-import { addZero, totalDiscountedPrice, totalPriceWithDiscount, totalPriceWithoutDiscount } from '../../../utils/utils';
-import './style.scss';
-import Web3 from "web3";
-const skinMarketABI1=[
+import React, { useState, useEffect } from "react";
+import "./style.scss";
+import Collection from '../../components/dashboard/collection/Collection';
+
+const skinMarketABI=[
 	{
 		"inputs": [
 			{
@@ -345,124 +345,111 @@ const skinMarketABI1=[
 	}
 ]
 
+import Web3 from "web3";
+type Seller = { 
+    id: string;
+    username: string;
+    gameCompany: string;
+    price: number;
+    walletAddress: string;
+};
 
-function CartSummary() {
+type CartItem = {
+    idx: string;
+    image: string;
+    name: string;
+    category: string;
+    market_price: number;
+    discount: number;
+    seller: Seller;
+};
 
-	
-	const cartItems = useCartItems(state => state.cartItems);
-	const actualPrice = totalPriceWithDiscount(cartItems);
-	const totalPrice = totalPriceWithoutDiscount(cartItems);
-	const totalDiscount = totalDiscountedPrice(cartItems);
-	
-	let connectedAccount:string;
-	const skinMarketAdd = "0x0DedDe527e2B24a6c2B3bF5F3E7488517E37F3AD"; // Ganache address
-	const web3 = new Web3(new Web3.providers.HttpProvider("http://127.0.0.1:7545")); // Ganache
+interface SkinsByCategory {
+    [category: string]: CartItem[];
+}
 
-	async function connectWallet() {
-		try {
-		  const accounts = await web3.eth.getAccounts();
-		  connectedAccount=accounts[6];
-		  console.log("Connected account:", accounts[6]);
-		} catch (error) {
-		  console.error("Error connecting wallet:", error);
-		}
-	  }
-	async function BuySkin(skin:CartItem[]) {
-		const username="Ajitesh";//to change -_________________-
-       // Buy the skin
-        // Use the skinMarket contract to buy the skin
-        // Use the skinOwner contract to transfer the skin to the buyer
-		console.log("Buy skin with id ",skin);     
-		const skinMarket = new web3.eth.Contract(skinMarketABI1, skinMarketAdd);
-		await connectWallet(); 
+const CollectionOverview: React.FC = () => {
+    const [skins, setSkins] = useState<SkinsByCategory>({});
+    const [loading, setLoading] = useState(true);
+    const skinCategories = Object.keys(skins); // Dynamically get categories from fetched data
 
-		//`run loop
+    const skinMarketAdd = "0x0DedDe527e2B24a6c2B3bF5F3E7488517E37F3AD"; // Address from .env file
+    const web3 = new Web3(Web3.givenProvider || "http://127.0.0.1:7545"); // Ganache
 
-		for(let i =0;i<skin.length;i++){
-			const amountInWei = skin[i].seller.price;
-			
-			if(skin[i].seller.walletAddress!=="Game"){
-		
-			try {
-				const gasPrice = await web3.eth.getGasPrice();
-				const gasLimit = await skinMarket.methods
-					.buySkin(username,skin[i].idx,skin[i].seller.id)
-					.estimateGas({
-					from: connectedAccount,
-					value: amountInWei.toString(),
-					
-				});
-				console.log("your username: ",skin[i].seller.username,"Amount in wei : ",amountInWei,"\nConnect Account :",connectedAccount,"\nGasPrice :",gasPrice,"\nseller:",skin[i].seller.username);  
-				// Display a confirmation dialog
-				const confirmed = window.confirm(`Are you sure you want to buy the skin from ${skin[i].seller.username}  for   ${amountInWei.toString()} wei?`);
-				
-				if (!confirmed) {
-					return; // Exit the function if not confirmed
-				}
-			//       console.log(userName,skinId,id);
-			//       await skinMarket.methods
-			//            .buySkin(userName,skinId,id)
-			//            .send({
-			//            from: connectedAccount,
-			//            value: amountInWei,
-			//            gas: gasLimit,
-			//            gasPrice: gasPrice,
-			//           })
-			//         .on("receipt", (receipt) => {
-			//           console.log("Transaction receipt:", receipt);
-			//           console.log("Transaction hash:", receipt.transactionHash);
-			//         })
-			//         .on("error", (error) => {
-			//           console.error("Transaction error:", error);
-			//         });
-			//       console.log("Buying skin from:", seller);
-				} catch (error) {
-				console.error("Error buying skin:", error);
-				}
-			}
-			else{
-				console.log("Buy from game");
-				const gasPrice = await web3.eth.getGasPrice();
-				console.log(skin[i].idx);
-				const gasLimit = await skinMarket.methods
-				.buyFromGame( skin[i].idx,username)
-				.estimateGas({
-				from: connectedAccount,
-				value: amountInWei.toString(),
-			});
-			console.log("your username: ",skin[i].seller.username,"Amount in wei : ",amountInWei,"\nConnect Account :",connectedAccount,"\nGasPrice :",gasPrice,"\nseller:",skin[i].seller.username);
-			const transaction=await skinMarket.methods
-			.buyFromGame( skin[i].idx,username).send({from:connectedAccount,value:amountInWei.toString()});
-			console.log(transaction.transactionHash);
+    async function ShowAllSkins() {
+        const skinMarket = new web3.eth.Contract(skinMarketABI, skinMarketAdd);
+        try {
+            const skinIds: string[] = await skinMarket.methods.getAllSkins().call();
+    
+            const skinData: SkinsByCategory = {};
+            for (const id of skinIds) {
+                const sellersOfSkin: Seller[][] = await skinMarket.methods.getSellers(id).call();
+                const category = "knife"; // Replace with actual logic to determine the category
+    
+                if (!skinData[category]) {
+                    skinData[category] = [];
+                }
+
+                // Loop through sellersOfSkin array and create seller objects
+                for (const seller of sellersOfSkin) {
+                    const sellerObj: Seller = {
+                        id: seller[0].toString(),
+                        username: seller[1].toString(),
+                        walletAddress: seller[2].toString(),
+                        price: parseFloat(seller[3].toString()),
+                        gameCompany: seller[4].toString(),
+                    };
+                    const card: CartItem = {
+                        idx: id,
+                        image: "https://res.cloudinary.com/duepebytx/image/upload/v1716734241/knife/yjj89audytmrsni5pzlc.avif",
+                        name: "braveheart",
+                        category: category,
+                        market_price: 2.19,
+                        discount: 20,
+                        seller: sellerObj,
+                    };
+
+                    skinData[category].push(card);
+                }
+				//add game skins 
+				const skinIds: string[] = await skinMarket.methods.allSkins().call();
+				console.log(skinIds);
 
 
-			
-		   }
-		}
+
+
+            }
+            
+            setSkins(skinData);
+            setLoading(false);
+        } catch (error) {
+            console.error("Error fetching skins:", error);
+            setLoading(false);
+        }
     }
 
+    useEffect(() => {
+        ShowAllSkins();
+    }, []);
 
-	return (
-		<article className="cart__summary">
-			<h2>Cart Summary</h2>
-			<div>
-				<p>Total Skins</p>
-				<p>{addZero(cartItems.length)}</p>
-			</div>
-			<div>
-				<p>Subtotal</p>
-				<p>${totalPrice}</p>
-			</div>
-			<div className='discount'>
-				<p>Discount</p>
-				<p>${totalDiscount}</p>
-			</div>
-			<div className="totals">
-				<h2>Total</h2>
-				<h2>${actualPrice}</h2>
-			</div>
-      <button onClick={()=>{BuySkin(cartItems)}}>Checkout</button>
-		</article>
-	);
+    return (
+        <div className='collection__overview'>
+            <h1>Skin Collections</h1>
+            {loading ? (
+                <p>Loading...</p>
+            ) : (
+                skinCategories.map((category, index) => (
+                    <Collection
+                        link={`/dashboard/${category}`}
+                        icon={`/icons/${category}.svg`}
+                        title={category}
+                        skins={skins[category] || []}
+                        key={index}
+                    />
+                ))
+            )}
+        </div>
+    );
 }
-export default CartSummary;
+
+export default CollectionOverview;

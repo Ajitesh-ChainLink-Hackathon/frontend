@@ -9,7 +9,7 @@
     },
     {
       "idx": 2,
-      "image": "https://res.cloudinary.com/duepebytx/image/upload/v1716734241/knife/yjj89audytmrsni5pzlc.avif",
+      "image": "https://res.cloudinary.com/duepebytx/image/upload/v1716734348/pistol/oairaak60vqshfax6mfb.avif",
       "name": "quantum",
       "category": "pistol",
       "market_price": 4.99,
@@ -17,7 +17,7 @@
     },
     {
       "idx": 3,
-      "image": "https://res.cloudinary.com/duepebytx/image/upload/v1716734241/knife/yjj89audytmrsni5pzlc.avif",
+      "image": "https://res.cloudinary.com/duepebytx/image/upload/v1716734373/smg/yxhfzoc7dkhvcvnykocn.png",
       "name": "vortex",
       "category": "smg",
       "market_price": 7.89,
@@ -25,7 +25,7 @@
     },
     {
       "idx": 4,
-      "image": "https://res.cloudinary.com/duepebytx/image/upload/v1716734241/knife/yjj89audytmrsni5pzlc.avif",
+      "image": "https://res.cloudinary.com/duepebytx/image/upload/v1716734281/key/l9ri2ofgswddovfnajq4.png",
       "name": "enigma",
       "category": "key",
       "market_price": 1.29,
@@ -33,7 +33,7 @@
     },
     {
       "idx": 5,
-      "image": "https://res.cloudinary.com/duepebytx/image/upload/v1716734241/knife/yjj89audytmrsni5pzlc.avif",
+      "image": "https://res.cloudinary.com/duepebytx/image/upload/v1716734258/container/yy4pwk7srlcpgggr0mb2.png",
       "name": "vertigo",
       "category": "container",
       "market_price": 3.49,
@@ -49,7 +49,7 @@
     },
     {
       "idx": 7,
-      "image": "https://res.cloudinary.com/duepebytx/image/upload/v1716734241/knife/yjj89audytmrsni5pzlc.avif",
+      "image": "https://res.cloudinary.com/duepebytx/image/upload/v1716734348/pistol/r3zmtqkfhj24l3o4aeof.avif",
       "name": "cosmic",
       "category": "pistol",
       "market_price": 6.79,
@@ -57,7 +57,7 @@
     },
     {
       "idx": 8,
-      "image": "https://res.cloudinary.com/duepebytx/image/upload/v1716734241/knife/yjj89audytmrsni5pzlc.avif",
+      "image": "https://res.cloudinary.com/duepebytx/image/upload/v1716734373/smg/g3xyrthgvnnrrsso6hgw.png",
       "name": "nebula",
       "category": "smg",
       "market_price": 8.49,
@@ -65,7 +65,7 @@
     },
     {
       "idx": 9,
-      "image": "https://res.cloudinary.com/duepebytx/image/upload/v1716734241/knife/yjj89audytmrsni5pzlc.avif",
+      "image": "https://res.cloudinary.com/duepebytx/image/upload/v1716734280/key/ikedbz9vj8afygyoetfc.png",
       "name": "mirage",
       "category": "key",
       "market_price": 2.29,
@@ -73,7 +73,7 @@
     },
     {
       "idx": 10,
-      "image": "https://res.cloudinary.com/duepebytx/image/upload/v1716734241/knife/yjj89audytmrsni5pzlc.avif",
+      "image": "https://res.cloudinary.com/duepebytx/image/upload/v1716734258/container/ohdjxwaolkoyhrzjjdzw.png",
       "name": "odyssey",
       "category": "container",
       "market_price": 4.19,
@@ -89,7 +89,7 @@
     },
     {
       "idx": 12,
-      "image": "https://res.cloudinary.com/duepebytx/image/upload/v1716734241/knife/yjj89audytmrsni5pzlc.avif",
+      "image": "https://res.cloudinary.com/duepebytx/image/upload/v1716734348/pistol/zgo0jvoxjsgas3lvyob6.avif",
       "name": "titan",
       "category": "pistol",
       "market_price": 5.79,
@@ -97,7 +97,7 @@
     },
     {
       "idx": 13,
-      "image": "https://res.cloudinary.com/duepebytx/image/upload/v1716734241/knife/yjj89audytmrsni5pzlc.avif",
+      "image": "https://res.cloudinary.com/duepebytx/image/upload/v1716734373/smg/g9pyy3wkvyqg6gyzvkug.png",
       "name": "crimson",
       "category": "smg",
       "market_price": 7.19,

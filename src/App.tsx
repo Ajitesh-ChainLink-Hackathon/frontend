@@ -1,3 +1,4 @@
+import React, { useState, useEffect } from "react";
 import "./App.scss";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Dashboard from "./pages/dashboard/Dashboard";
@@ -12,6 +13,7 @@ import { Fragment } from "react/jsx-runtime";
 import { Toaster } from "react-hot-toast";
 import Selling from "./pages/selling/Selling";
 import MetaMaskModal from "./components/metamaskmodal/Metamaskmodal";
+import useCurrentAccount from "./hooks/useCurrentAccount.zustand";
 
 const router = createBrowserRouter([
 	{
@@ -56,11 +58,18 @@ const router = createBrowserRouter([
 ]);
 
 function App() {
+	const { account } = useCurrentAccount((state) => state);
+	const [modalIsOpen, setModalIsOpen] = useState(account == null);
+
+	useEffect(() => {
+		if (account != null) setModalIsOpen(false);
+	}, [account]);
+
 	return (
 		<Fragment>
 			<Toaster />
 			<RouterProvider router={router} />
-			<MetaMaskModal />
+			modalIsOpen && (<MetaMaskModal />)
 		</Fragment>
 	);
 }

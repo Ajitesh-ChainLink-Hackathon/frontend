@@ -1,9 +1,8 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./style.scss";
 import Collection from "../../components/dashboard/collection/Collection";
+import { skinMarket } from "../../utils/web3";
 import skinProducts from "../../utils/skins.products.json";
-
-import skinMarketABI from "../../abis/skinMarketABI.json";
 
 interface Seller {
 	id: string;
@@ -22,15 +21,15 @@ interface Skin {
 	discount: number;
 	seller: Seller;
 }
-// type CartItem = {
-// 	idx: string;
-// 	image: string;
-// 	name: string;
-// 	category: string;
-// 	market_price: number;
-// 	discount: number;
-// 	seller: Seller;
-// };
+type CartItem = {
+	idx: string;
+	image: string;
+	name: string;
+	category: string;
+	market_price: number;
+	discount: number;
+	seller: Seller;
+};
 
 interface SkinsByCategory {
 	[category: string]: Skin[];
@@ -98,14 +97,30 @@ const CollectionOverview: React.FC = () => {
 	// 	}
 	// }
 
-	// useEffect(() => {
-	// 	ShowAllSkins();
-	// }, []);
+	useEffect(() => {
+		// ShowAllSkins();
+		(async () => {
+			try {
+				const skinIdContract = skinMarket();
+				const skinIds: number[] = await skinIdContract.methods
+					.getAllSkins()
+					.call();
+				skinIds.forEach(async (skinId) => {
+					const t = await skinIdContract.methods
+						.getSellers(skinId)
+						.call();
+					console.log(t);
+				});
+			} catch (error) {
+				console.log(error);
+			}
+		})();
+	}, []);
 
 	return (
 		<div className="collection__overview">
-			{/* <h1>Skin Collections</h1>
-			{skinCategories.map((category, index) => (
+			<h1>Skin Collections</h1>
+			{/*{skinCategories.map((category, index) => (
 				<Collection
 					link={`/dashboard/${category}`}
 					icon={`/icons/${category}.svg`}

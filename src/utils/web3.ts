@@ -43,7 +43,7 @@ export const getAccounts = async () => {
 export const skinMarket = () => {
 	if (window.ethereum) {
 		const web3 = new Web3(window.ethereum);
-		const skinMarketAdd = "";
+		const skinMarketAdd = "0x9Eb105d2040DB208972fF50FC79d647Da5FA7d62";
 		return new web3.eth.Contract(skinMarketABI, skinMarketAdd);
 	} else {
 		throw new Error(

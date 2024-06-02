@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import "./style.scss";
 import { Fragment } from "react/jsx-runtime";
 import { getAccounts } from "../../utils/web3";
 import useCurrentAccount from "../../hooks/useCurrentAccount.zustand";
@@ -12,10 +13,6 @@ const MetaMaskModal: React.FC = () => {
 	useEffect(() => {
 		if (account != null) setModalIsOpen(false);
 	});
-
-	const openModal = () => {
-		setModalIsOpen(true);
-	};
 
 	const closeModal = () => {
 		setModalIsOpen(false);

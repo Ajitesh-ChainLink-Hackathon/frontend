@@ -1,0 +1,154 @@
+[
+    {
+      "idx": 1,
+      "image": "https://res.cloudinary.com/duepebytx/image/upload/v1716734241/knife/yjj89audytmrsni5pzlc.avif",
+      "name": "braveheart",
+      "category": "knife",
+      "market_price": 2.19,
+      "discount": 20
+    },
+    {
+      "idx": 2,
+      "image": "https://res.cloudinary.com/duepebytx/image/upload/v1716734241/knife/yjj89audytmrsni5pzlc.avif",
+      "name": "quantum",
+      "category": "pistol",
+      "market_price": 4.99,
+      "discount": 15
+    },
+    {
+      "idx": 3,
+      "image": "https://res.cloudinary.com/duepebytx/image/upload/v1716734241/knife/yjj89audytmrsni5pzlc.avif",
+      "name": "vortex",
+      "category": "smg",
+      "market_price": 7.89,
+      "discount": 25
+    },
+    {
+      "idx": 4,
+      "image": "https://res.cloudinary.com/duepebytx/image/upload/v1716734241/knife/yjj89audytmrsni5pzlc.avif",
+      "name": "enigma",
+      "category": "key",
+      "market_price": 1.29,
+      "discount": 10
+    },
+    {
+      "idx": 5,
+      "image": "https://res.cloudinary.com/duepebytx/image/upload/v1716734241/knife/yjj89audytmrsni5pzlc.avif",
+      "name": "vertigo",
+      "category": "container",
+      "market_price": 3.49,
+      "discount": 30
+    },
+    {
+      "idx": 6,
+      "image": "https://res.cloudinary.com/duepebytx/image/upload/v1716734241/knife/yjj89audytmrsni5pzlc.avif",
+      "name": "eclipse",
+      "category": "knife",
+      "market_price": 5.99,
+      "discount": 20
+    },
+    {
+      "idx": 7,
+      "image": "https://res.cloudinary.com/duepebytx/image/upload/v1716734241/knife/yjj89audytmrsni5pzlc.avif",
+      "name": "cosmic",
+      "category": "pistol",
+      "market_price": 6.79,
+      "discount": 18
+    },
+    {
+      "idx": 8,
+      "image": "https://res.cloudinary.com/duepebytx/image/upload/v1716734241/knife/yjj89audytmrsni5pzlc.avif",
+      "name": "nebula",
+      "category": "smg",
+      "market_price": 8.49,
+      "discount": 22
+    },
+    {
+      "idx": 9,
+      "image": "https://res.cloudinary.com/duepebytx/image/upload/v1716734241/knife/yjj89audytmrsni5pzlc.avif",
+      "name": "mirage",
+      "category": "key",
+      "market_price": 2.29,
+      "discount": 12
+    },
+    {
+      "idx": 10,
+      "image": "https://res.cloudinary.com/duepebytx/image/upload/v1716734241/knife/yjj89audytmrsni5pzlc.avif",
+      "name": "odyssey",
+      "category": "container",
+      "market_price": 4.19,
+      "discount": 25
+    },
+    {
+      "idx": 11,
+      "image": "https://res.cloudinary.com/duepebytx/image/upload/v1716734241/knife/yjj89audytmrsni5pzlc.avif",
+      "name": "phantom",
+      "category": "knife",
+      "market_price": 3.59,
+      "discount": 15
+    },
+    {
+      "idx": 12,
+      "image": "https://res.cloudinary.com/duepebytx/image/upload/v1716734241/knife/yjj89audytmrsni5pzlc.avif",
+      "name": "titan",
+      "category": "pistol",
+      "market_price": 5.79,
+      "discount": 20
+    },
+    {
+      "idx": 13,
+      "image": "https://res.cloudinary.com/duepebytx/image/upload/v1716734241/knife/yjj89audytmrsni5pzlc.avif",
+      "name": "crimson",
+      "category": "smg",
+      "market_price": 7.19,
+      "discount": 18
+    },
+    {
+      "idx": 14,
+      "image": "https://res.cloudinary.com/duepebytx/image/upload/v1716734241/knife/yjj89audytmrsni5pzlc.avif",
+      "name": "sapphire",
+      "category": "key",
+      "market_price": 2.79,
+      "discount": 12
+    },
+    {
+      "idx": 15,
+      "image": "https://res.cloudinary.com/duepebytx/image/upload/v1716734241/knife/yjj89audytmrsni5pzlc.avif",
+      "name": "emerald",
+      "category": "container",
+      "market_price": 4.99,
+      "discount": 28
+    },
+    {
+      "idx": 16,
+      "image": "https://res.cloudinary.com/duepebytx/image/upload/v1716734241/knife/yjj89audytmrsni5pzlc.avif",
+      "name": "zenith",
+      "category": "knife",
+      "market_price": 6.29,
+      "discount": 22
+    },
+    {
+      "idx": 17,
+      "image": "https://res.cloudinary.com/duepebytx/image/upload/v1716734241/knife/yjj89audytmrsni5pzlc.avif",
+      "name": "blaze",
+      "category": "pistol",
+      "market_price": 7.49,
+      "discount": 25
+    },
+    {
+      "idx": 18,
+      "image": "https://res.cloudinary.com/duepebytx/image/upload/v1716734241/knife/yjj89audytmrsni5pzlc.avif",
+      "name": "fusion",
+      "category": "smg",
+      "market_price": 8.99,
+      "discount": 20
+    },
+    {
+      "idx": 19,
+      "image": "https://res.cloudinary.com/duepebytx/image/upload/v1716734241/knife/yjj89audytmrsni5pzlc.avif",
+      "name": "radiance",
+      "category": "key",
+      "market_price": 3.49,
+      "discount": 15
+    }
+]

@@ -4,7 +4,7 @@ import './style.scss';
 import useSellingItems from '../../../hooks/useSellingItems.zustand';
 import Web3 from "web3";
 import { CartItem } from '../../../hooks/useCartItems.zustand';
-import { skinMarket,getAccounts } from '../../../utils/web3';
+import { skinMarket, skinMarket } from '../../../utils/web3';
 export type SellingItem = {
    idx: string;
    player_name: string;
@@ -31,10 +31,9 @@ function SellingModal() {
 
    const skinMarketCon =skinMarket();
    const [priceInput, setPriceInput] = useState<number>(0); // State for input value
-   
    async function connectWallet() {
       try {
-        const accounts = await getAccounts();
+        const accounts = await web3.eth.getAccounts();
         connectedAccount=accounts[0];
         console.log("connected account : ",connectedAccount)
       } catch (error) {

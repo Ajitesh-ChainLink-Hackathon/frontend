@@ -1,6 +1,6 @@
 import './style.scss';
 import useCartItems, { CartItem } from '../../../hooks/useCartItems.zustand';
-import { forwardRef, LegacyRef, useEffect } from 'react';
+import { forwardRef, LegacyRef } from 'react';
 import { calculateDiscountedPrice } from '../../../utils/utils';
 import showToast from '../../../utils/showToast';
 import { convertWeiToUSD} from '../../../utils/getEthUsd';
@@ -28,7 +28,7 @@ const SkinCard = forwardRef((props: CartItem, ref: LegacyRef<HTMLDivElement>)=> 
 			</div>
 			<img className='skin__img' src={props.image} alt="" />
 			<div className='price'>
-				<h2>${props.market_price*378.38/1000000000000000000}</h2>
+				<h2>${props.seller.price}</h2>
 				<span> -{props.discount}%</span>
 				
 			</div>

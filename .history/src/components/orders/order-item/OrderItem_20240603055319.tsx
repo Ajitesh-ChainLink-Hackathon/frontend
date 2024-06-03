@@ -1,6 +1,6 @@
 import './style.scss';
 import useSellingItems from '../../../hooks/useSellingItems.zustand';
-
+import img0 from "../../../assets/0.png";
 
 export type OrderItem = {
     idx: string;

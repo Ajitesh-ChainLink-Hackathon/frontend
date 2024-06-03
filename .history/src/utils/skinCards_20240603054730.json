@@ -3,18 +3,18 @@
     {
     "idx": "8",
     
-    "image": "https://res.cloudinary.com/duepebytx/image/upload/f_auto,q_auto/pj4zof4zydf8ifyvjd7f",
+    "image": "https://res.cloudinary.com/duepebytx/image/upload/v1716735696/gloves/r7yrw4h5ca16c3xpsk5c.avif",
     "name": "Gripmaster",
-    "category": "Character",
+    "category": "gloves",
     "game_price": 12.474,
     "game": "Acme Games"
     },
     {
     "idx": "9",
     
-    "image": "https://res.cloudinary.com/duepebytx/image/upload/v1717374906/cv6lch4jydg8pxdqxaxg.jpg",
+    "image": "https://res.cloudinary.com/duepebytx/image/upload/v1716735696/gloves/r7yrw4h5ca16c3xpsk5c.avif",
     "name": "RapidFire",
-    "category":"Character",
+    "category": "gloves",
     "game_price": 57.0655,
     "game": "Epic Games"
     },
@@ -76,7 +76,7 @@
     {
     "idx": "17",
     
-    "image": "https://res.cloudinary.com/duepebytx/image/upload/v1716734258/container/yy4pwk7srlcpgggr0mb2.png",
+    "image": "https://t.co/jSSyLvNaGz",
     "name": "SteelCrate",
     "category": "container",
     "game_price": 12.5496,

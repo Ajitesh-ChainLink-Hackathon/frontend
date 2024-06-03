@@ -3,18 +3,18 @@
     {
     "idx": "8",
     
-    "image": "https://res.cloudinary.com/duepebytx/image/upload/f_auto,q_auto/pj4zof4zydf8ifyvjd7f",
+    "image": "https://res.cloudinary.com/duepebytx/image/upload/v1716735696/gloves/r7yrw4h5ca16c3xpsk5c.avif",
     "name": "Gripmaster",
-    "category": "Character",
+    "category": "gloves",
     "game_price": 12.474,
     "game": "Acme Games"
     },
     {
     "idx": "9",
     
-    "image": "https://res.cloudinary.com/duepebytx/image/upload/v1717374906/cv6lch4jydg8pxdqxaxg.jpg",
+    "image": "https://res.cloudinary.com/duepebytx/image/upload/v1716735696/gloves/r7yrw4h5ca16c3xpsk5c.avif",
     "name": "RapidFire",
-    "category":"Character",
+    "category": "gloves",
     "game_price": 57.0655,
     "game": "Epic Games"
     },
@@ -30,7 +30,7 @@
     {
     "idx": "11",
     
-    "image": "https://res.cloudinary.com/duepebytx/image/upload/v1716735695/gloves/nwtbf1l3xom2qtglrzpn.avif",
+    "image": "https://t.co/DLIEME3OOK",
     "name": "Silhouette",
     "category": "gloves",
     "game_price": 1.4658,
@@ -39,7 +39,7 @@
     {
     "idx": "12",
     
-    "image": "https://res.cloudinary.com/duepebytx/image/upload/v1716735695/gloves/yngwhmfaxnbw94dcgutf.avif",
+    "image": "https://t.co/TJgdZUsASH",
     "name": "Shadowstrike",
     "category": "gloves",
     "game_price": 47.624,
@@ -48,7 +48,7 @@
     {
     "idx": "13",
     
-    "image": "https://res.cloudinary.com/duepebytx/image/upload/v1716735695/gloves/yngwhmfaxnbw94dcgutf.avif",
+    "image": "https://t.co/oWPfaOxDiN",
     "name": "Phantom",
     "category": "gloves",
     "game_price": 37.7784,
@@ -57,7 +57,7 @@
     {
     "idx": "14",
     
-    "image": "https://res.cloudinary.com/duepebytx/image/upload/v1716734280/key/phievafzr45aitnalvfb.png",
+    "image": "https://t.co/jT86aw51a8",
     "name": "Elfshadow",
     "category": "gloves",
     "game_price": 46.255,
@@ -67,7 +67,7 @@
     {
     "idx": "15",
     
-    "image": "https://res.cloudinary.com/duepebytx/image/upload/v1716735694/gloves/xc93rgiiljfeaxpm16ch.avif",
+    "image": "https://t.co/VPCxDaBdmI",
     "name": "IronHold",
     "category": "container",
     "game_price": 0.2388,
@@ -76,7 +76,7 @@
     {
     "idx": "17",
     
-    "image": "https://res.cloudinary.com/duepebytx/image/upload/v1716734258/container/yy4pwk7srlcpgggr0mb2.png",
+    "image": "https://t.co/jSSyLvNaGz",
     "name": "SteelCrate",
     "category": "container",
     "game_price": 12.5496,
@@ -85,7 +85,7 @@
     {
     "idx": "18",
     
-    "image": "https://res.cloudinary.com/duepebytx/image/upload/v1716734258/container/yy4pwk7srlcpgggr0mb2.png",
+    "image": "https://t.co/xeU1d8WHCN",
     "name": "TitanBox",
     "category": "container",
     "game_price": 18.4492,
@@ -94,7 +94,7 @@
     {
     "idx": "19",
     
-    "image": "https://res.cloudinary.com/duepebytx/image/upload/v1716734258/container/ohdjxwaolkoyhrzjjdzw.png",
+    "image": "https://t.co/BbGPxIPIyH",
     "name": "HeavyDuty",
     "category": "container",
     "game_price": 13.8491,
@@ -103,7 +103,7 @@
     {
     "idx": "20",
     
-    "image": "https://res.cloudinary.com/duepebytx/image/upload/v1716734258/container/ugd7fdpjtnifj3xqov6a.png",
+    "image": "https://t.co/mSztLTznHM",
     "name": "RuggedStore",
     "category": "container",
     "game_price": 8.2404,
@@ -112,7 +112,7 @@
     {
     "idx": "22",
     
-    "image": "https://res.cloudinary.com/duepebytx/image/upload/v1716734258/container/zllemck3axo9k32xwrsu.png",
+    "image": "https://t.co/sCSlKhD36o",
     "name": "CargoVault",
     "category": "container",
     "game_price": 5.181,
@@ -121,7 +121,7 @@
     {
     "idx": "23",
     
-    "image": "https://res.cloudinary.com/duepebytx/image/upload/v1716734258/container/zllemck3axo9k32xwrsu.png",
+    "image": "https://t.co/sCSlKhD36o",
     "name": "GritBin",
     "category": "container",
     "game_price": 3.531,
@@ -131,7 +131,7 @@
     {
     "idx": "24",
     
-    "image": "https://res.cloudinary.com/duepebytx/image/upload/v1716734281/key/l9ri2ofgswddovfnajq4.png",
+    "image": "https://t.co/0VXByhBit8",
     "name": "CyberKey",
     "category": "key",
     "game_price": 3.293,
@@ -140,7 +140,7 @@
     {
     "idx": "25",
     
-    "image": "https://res.cloudinary.com/duepebytx/image/upload/v1716734280/key/lhdkqrdafxchkfm3nz7s.png",
+    "image": "https://t.co/e44Ch1D6yB",
     "name": "NanoKey",
     "category": "key",
     "game_price": 10.43,
@@ -158,7 +158,7 @@
     {
     "idx": "27",
     
-    "image": "https://res.cloudinary.com/duepebytx/image/upload/v1716734258/container/ugd7fdpjtnifj3xqov6a.png",
+    "image": "https://t.co/mMxnoeYgVn",
     "name": "HoloKey",
     "category": "key",
     "game_price": 48.5364,
@@ -167,7 +167,7 @@
     {
     "idx": "28",
     
-    "image": "https://res.cloudinary.com/duepebytx/image/upload/v1716734280/key/phievafzr45aitnalvfb.png",
+    "image": "https://t.co/iHJuQSJB0p",
     "name": "MatrixKey",
     "category": "key",
     "game_price": 51.6768,
@@ -176,7 +176,7 @@
     {
     "idx": "29",
     
-    "image": "https://res.cloudinary.com/duepebytx/image/upload/v1716734280/key/opuezmpe98cv4frf0djy.png",
+    "image": "https://t.co/z3p8wWwxLT",
     "name": "DataKey",
     "category": "key",
     "game_price": 8.2404,
@@ -185,7 +185,7 @@
     {
     "idx": "30",
     
-    "image": "https://res.cloudinary.com/duepebytx/image/upload/v1716734280/key/acbfnberhn8iow848xdg.png",
+    "image": "https://t.co/Kr3ke7o1q5",
     "name": "TechKey",
     "category": "key",
     "game_price": 39.8474,

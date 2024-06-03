@@ -5,7 +5,7 @@ const example = [
     {
         "idx": "8",
         "player_name": "Ajitesh",
-        "image": "../../../assets/0.png",
+        "image": "../../",
         "name": "Gripmaster",
         "category": "gloves",
         "game_price": 12.474,
@@ -14,7 +14,7 @@ const example = [
         {
         "idx": "9",
         "player_name": "Ajitesh",
-        "image": "",
+        "image": "https://res.cloudinary.com/duepebytx/image/upload/v1716735696/gloves/r7yrw4h5ca16c3xpsk5c.avif",
         "name": "RapidFire",
         "category": "gloves",
         "game_price": 57.0655,

@@ -1,6 +1,6 @@
 import './style.scss';
 import useSellingItems from '../../../hooks/useSellingItems.zustand';
-
+import img0 from "../../../assets/0.png";
 
 export type OrderItem = {
     idx: string;
@@ -21,10 +21,11 @@ function OrderItem(props: OrderItem) {
     setNewSellingItem(props)
   }
 
+
 	return (
 		<article className="cart__item">
 			<div className="skin">
-				<img src={props.image} alt={props.name} />
+				<img src={img0} alt={props.name} />
 				<div>
 					<h2>{props.name}</h2>
 					<div>

@@ -51,15 +51,13 @@ const CollectionOverview: React.FC = () => {
 				};
 				const potentialCard=skinsFromJson.find(x => Number(x.idx) === Number(id));
 				
-
-				
 				if(potentialCard){
 					let card:CartItem = {
 					idx: id,
 					image: potentialCard.image,
 					name: potentialCard.name,
 					category: potentialCard.category,
-					market_price:gamePrice? Number(gamePrice):0,
+					market_price: potentialCard.market_price,
 					discount: potentialCard.discount,
 					seller: sellerObj,
 					}

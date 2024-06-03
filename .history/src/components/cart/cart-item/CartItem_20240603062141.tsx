@@ -39,7 +39,7 @@ function CartItem(props: CartItemProps) {
 			<p className="category">{props.category}</p>
 			<div className="price">
 				<h2>
-					${0.3838} <span>-{props.discount}%</span>
+					${props.seller.price} <span>-{props.discount}%</span>
 				</h2>
 				<p>Market Price: ${2}</p>
 			</div>

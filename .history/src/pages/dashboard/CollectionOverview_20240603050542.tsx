@@ -50,7 +50,6 @@ const CollectionOverview: React.FC = () => {
 					gameCompany: "Game",
 				};
 				const potentialCard=skinsFromJson.find(x => Number(x.idx) === Number(id));
-				
 
 				
 				if(potentialCard){

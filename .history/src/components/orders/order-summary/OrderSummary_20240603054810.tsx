@@ -14,23 +14,23 @@ function OrderSummary() {
 			<div>
 				<p>Total Skins</p>
 				{/* <p>{addZero(orderItems.length)}</p> */}
-				<p>10</p>
+				<p></p>
 			</div>
 			<div>
 				<p>Subtotal</p>
 				{/* <p>${totalPrice}</p> */}
-				<p>-</p>
+				<p>1000</p>
 			</div>
 			<div className='discount'>
 				<p>Discount</p>
 				{/* <p>${totalDiscount}</p> */}
-				<p>-</p>
+				<p>1000</p>
 				
 			</div>
 			<div className="totals">
 				<h2>Total</h2>
 				{/* <h2>${actualPrice}</h2> */}
-				<p>-</p>
+				<p>1000</p>
 			</div>
 		</article>
 	);

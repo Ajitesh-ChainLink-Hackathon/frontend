@@ -32,9 +32,7 @@ interface SkinsByCategory {
 const CollectionOverview: React.FC = () => {
     const [loading,setloading]=useState<boolean>(true);
 	const [skinByCatagory,setSkinsByCatagory]=useState<SkinsByCategory>({});
-	
     async function ShowAllSkins() {
-		
 		const skinMarketCon=await skinMarket();	
         try {
             const skinIds: string[] = await skinMarketCon.methods.getAllSkins().call();			
@@ -50,8 +48,9 @@ const CollectionOverview: React.FC = () => {
 					gameCompany: "Game",
 				};
 				const potentialCard=skinsFromJson.find(x => Number(x.idx) === Number(id));
+				const usd=await getEthPriceInUSD();
+				console.log(usd);
 				
-
 				
 				if(potentialCard){
 					let card:CartItem = {
@@ -59,7 +58,7 @@ const CollectionOverview: React.FC = () => {
 					image: potentialCard.image,
 					name: potentialCard.name,
 					category: potentialCard.category,
-					market_price:gamePrice? Number(gamePrice):0,
+					market_price: potentialCard.market_price,
 					discount: potentialCard.discount,
 					seller: sellerObj,
 					}

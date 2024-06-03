@@ -93,7 +93,7 @@ function CartSummary() {
 			console.log("your username: ",skin[i].seller.username,"Amount in wei : ",amountInWei,"\nConnect Account :",connectedAccount,"\nGasPrice :",gasPrice,"\nseller:",skin[i].seller.username);
 			const transaction=await skinMarketCon.methods
 			.buyFromGame( skin[i].idx,username).send({from:connectedAccount,value:amountInWei.toString()});
-			console.log("Transactions Hash: ",transaction.transactionHash);
+			console.log(transaction.transactionHash);
 
 
 			

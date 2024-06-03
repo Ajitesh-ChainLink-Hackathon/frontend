@@ -72,7 +72,7 @@ function NavBar() {
 				<img src="/logo.svg" alt="" />
 				<p>SkinSwap</p>
 			</Link>
-			<p className="heading">BUY - SELL</p>
+			<p className="heading">SELL</p>
 
 			<div>
 				{currentUser && <div onClick={handleShowOptions} className="user">

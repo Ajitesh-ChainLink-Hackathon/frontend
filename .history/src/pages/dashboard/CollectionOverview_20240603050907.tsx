@@ -59,7 +59,7 @@ const CollectionOverview: React.FC = () => {
 					image: potentialCard.image,
 					name: potentialCard.name,
 					category: potentialCard.category,
-					market_price:gamePrice? Number(gamePrice):0,
+					market_price:gamePrice? Number(gamePrice)/1000000000000000000:0,
 					discount: potentialCard.discount,
 					seller: sellerObj,
 					}

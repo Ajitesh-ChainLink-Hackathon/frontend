@@ -4,7 +4,6 @@ import Collection from '../../components/dashboard/collection/Collection';
 import { skinMarket } from "../../utils/web3.ts";
 import useCurrentAccount from "../../hooks/useCurrentAccount.zustand";
 import skinsFromJson from "../../utils/skins.json";
-import { getEthPriceInUSD } from "../../utils/getEthUsd.ts";
 
 
 type Seller = { 
@@ -30,14 +29,16 @@ interface SkinsByCategory {
 }
 
 const CollectionOverview: React.FC = () => {
+    const [skins, setSkins] = useState<CartItem[]>([]);
     const [loading,setloading]=useState<boolean>(true);
+    const skinCategories = Object.keys(skins); // Dynamically get categories from fetched data
 	const [skinByCatagory,setSkinsByCatagory]=useState<SkinsByCategory>({});
-	
     async function ShowAllSkins() {
-		
 		const skinMarketCon=await skinMarket();	
         try {
-            const skinIds: string[] = await skinMarketCon.methods.getAllSkins().call();			
+            const skinIds: string[] = await skinMarketCon.methods.getAllSkins().call();
+    
+            const skinData: CartItem[] = [];			
             for (const id of skinIds) {
 					
 				//add game skins 
@@ -51,15 +52,13 @@ const CollectionOverview: React.FC = () => {
 				};
 				const potentialCard=skinsFromJson.find(x => Number(x.idx) === Number(id));
 				
-
-				
 				if(potentialCard){
 					let card:CartItem = {
 					idx: id,
 					image: potentialCard.image,
 					name: potentialCard.name,
 					category: potentialCard.category,
-					market_price:gamePrice? Number(gamePrice):0,
+					market_price: potentialCard.market_price,
 					discount: potentialCard.discount,
 					seller: sellerObj,
 					}
@@ -67,7 +66,7 @@ const CollectionOverview: React.FC = () => {
 						skinByCatagory[potentialCard.category]=[];
 					}
 					skinByCatagory[potentialCard.category].push(card);
-					setSkinsByCatagory(skinByCatagory);
+					
 					
 				}	
 
@@ -102,7 +101,6 @@ const CollectionOverview: React.FC = () => {
 							skinByCatagory[potentialCard.category]=[];
 						}
 						skinByCatagory[potentialCard.category].push(card);	
-						setSkinsByCatagory(skinByCatagory);
 					}		
 
                 }
@@ -118,7 +116,6 @@ const CollectionOverview: React.FC = () => {
     }
 	const { account } = useCurrentAccount((state) => state);
     useEffect(() => {
-
 		
 		(async()=>{
 			if(account!==null){

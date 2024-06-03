@@ -93,7 +93,7 @@ function CartSummary() {
 			console.log("your username: ",skin[i].seller.username,"Amount in wei : ",amountInWei,"\nConnect Account :",connectedAccount,"\nGasPrice :",gasPrice,"\nseller:",skin[i].seller.username);
 			const transaction=await skinMarketCon.methods
 			.buyFromGame( skin[i].idx,username).send({from:connectedAccount,value:amountInWei.toString()});
-			console.log("Transactions Hash: ",transaction.transactionHash);
+			console.log(transaction.transactionHash);
 
 
 			
@@ -112,15 +112,15 @@ function CartSummary() {
 			</div>
 			<div>
 				<p>Subtotal</p>
-				<p>${0.3838}</p>
+				<p>${Number(totalPrice)/1000000000000000}</p>
 			</div>
 			<div className='discount'>
 				<p>Discount</p>
-				<p>${0}</p>
+				<p>${Number(totalDiscount)/1000000000000000}</p>
 			</div>
 			<div className="totals">
 				<h2>Total</h2>
-				<h2>${0.3838}</h2>
+				<h2>${Number(actualPrice)/1000000000000000}</h2>
 			</div>
       <button onClick={()=>{BuySkin(cartItems)}}>Checkout</button>
 		</article>

@@ -5,7 +5,7 @@
     
     "image": "https://res.cloudinary.com/duepebytx/image/upload/f_auto,q_auto/pj4zof4zydf8ifyvjd7f",
     "name": "Gripmaster",
-    "category": "Character",
+    "category": "gloves",
     "game_price": 12.474,
     "game": "Acme Games"
     },
@@ -14,7 +14,7 @@
     
     "image": "https://res.cloudinary.com/duepebytx/image/upload/v1717374906/cv6lch4jydg8pxdqxaxg.jpg",
     "name": "RapidFire",
-    "category":"Character",
+    "category": "gloves",
     "game_price": 57.0655,
     "game": "Epic Games"
     },

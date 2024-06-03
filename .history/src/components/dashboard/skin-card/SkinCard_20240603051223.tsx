@@ -28,7 +28,7 @@ const SkinCard = forwardRef((props: CartItem, ref: LegacyRef<HTMLDivElement>)=> 
 			</div>
 			<img className='skin__img' src={props.image} alt="" />
 			<div className='price'>
-				<h2>${props.market_price*378.38/1000000000000000000}</h2>
+				<h2>${props.market_price*}</h2>
 				<span> -{props.discount}%</span>
 				
 			</div>

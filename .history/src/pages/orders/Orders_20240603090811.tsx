@@ -4,7 +4,7 @@ import NavBar from "../../components/dashboard/navbar/NavBar"
 import OrderItem from "../../components/orders/order-item/OrderItem"
 import OrderSummary from "../../components/orders/order-summary/OrderSummary"
 import TitleHeading from "../../components/title-heading/TitleHeading"
-
+import useOrderItems from "../../hooks/useOrderItems.zustand"
 import SellingModal from "../../components/sell/selling-modal/SellingModal"
 import { useEffect } from "react"
 import {skinOwner,  skinMarket} from "../../utils/web3";
@@ -24,7 +24,7 @@ type OrderItem1 = {
 };
 
 function Orders() {
-  
+  const userOrderItems = useOrderItems(state => state.orderItems)
   const { account } = useCurrentAccount((state) => state);
   const {currentUser} = useCurrentUser(state => state);
   const [displySkins,setdisplaySkins]=useState<OrderItem1[]>([]);

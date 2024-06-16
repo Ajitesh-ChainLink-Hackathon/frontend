@@ -17,7 +17,7 @@ import useCurrentAccount from "./hooks/useCurrentAccount.zustand";
 
 const router = createBrowserRouter([
 	{
-		path: "/",
+		path: "/:username",
 		element: <Dashboard />,
 		children: [
 			{
@@ -31,6 +31,7 @@ const router = createBrowserRouter([
 		],
 	},
 	{
+		path: "/",
 		element: <AuthLayout />,
 		children: [
 			{

@@ -11,6 +11,8 @@ import "https://github.com/Arachnid/solidity-stringutils/blob/master/src/strings
 // OpenZeppelin import
 import "https://github.com/OpenZeppelin/openzeppelin-contracts/blob/master/contracts/utils/Strings.sol";
 
+import "./StringUtils.sol";
+
 interface ISkinOwnership {
     struct SkinOwner {
         string username;
@@ -75,23 +77,18 @@ contract SkinMarket is ChainlinkClient, ConfirmedOwner {
         oracle = _oracle;
 
         // Initial data -all skins costs 1 eth in game
-        uint256 initialPrice = 0.001 ether;
-        for (uint256 i = 1; i <= 30; i++) {
+        uint256 initialPrice = 0.01 ether;
+        for (uint256 i = 1; i <= 50; i++) {
             gameSkinPrices[i] = initialPrice;
             allSkins.push(i);
         }
-        skinOwnership.createUser("Ajitesh");
-        skinOwnership.createUser("Shritesh");
-        skinOwnership.createUser("Abhranil");
-        skinOwnership.createUser("Sebastian");
-        skinOwnership.createUser("Devansh");
-        skinOwnership.createUser("ChainLink");
-        for (uint256 i = 1; i <= 20; i++) {
-            skinOwnership.addSkinToUser("Ajitesh", i);
-            skinOwnership.addSkinToUser("Shritesh", i + 2);
-            skinOwnership.addSkinToUser("Sebastian", i + 3);
-            skinOwnership.addSkinToUser("Devansh", i + 4);
-            skinOwnership.addSkinToUser("Abhranil", i + 5);
+
+        for (uint256 i = 30; i <= 40; i++) {
+            skinOwnership.addSkinToUser("Ajitesh", i + 2);
+            skinOwnership.addSkinToUser("Shritesh", i + 3);
+            skinOwnership.addSkinToUser("Sebastian", i + 4);
+            skinOwnership.addSkinToUser("Devansh", i + 6);
+            skinOwnership.addSkinToUser("Abhranil", i + 7);
             skinOwnership.addSkinToUser("ChainLink", i + 9);
         }
     }
@@ -199,7 +196,7 @@ contract SkinMarket is ChainlinkClient, ConfirmedOwner {
 
         //implement API call to add the skin to the buyer -----> type = BUY
         Chainlink.Request memory req = _buildOperatorRequest(
-            stringToBytes32("1b0de6240c5845f2b104bf81558e5d77"),
+            StringUtils.stringToBytes32("1b0de6240c5845f2b104bf81558e5d77"),
             this.fulfillRequestSuccess.selector
         );
         string[] memory skinIds = new string[](1);
@@ -230,19 +227,33 @@ contract SkinMarket is ChainlinkClient, ConfirmedOwner {
         if (!haveSkin) {
             //implement API call to fetch if user have skin from the database ----> type = CHECK
             Chainlink.Request memory req = _buildOperatorRequest(
-                stringToBytes32("23a55e5987fa46fa9613804675c7126d"),
+                StringUtils.stringToBytes32("23a55e5987fa46fa9613804675c7126d"),
                 this.fulfillRequestCheck.selector
             );
 
             Chainlink._add(req, "username", _userName);
             Chainlink._add(req, "type", "CHECK");
             Chainlink._addInt(req, "skinId", int(skinId));
-            Chainlink._add(req, "walletAddress", toString(_walletAddress));
+            Chainlink._add(
+                req,
+                "walletAddress",
+                StringUtils.toString(_walletAddress)
+            );
             Chainlink._addInt(req, "skinId", int(_price));
             _sendOperatorRequestTo(oracle, req, ORACLE_PAYMENT);
 
             return;
         } else {
+            SkinSeller memory newSeller = SkinSeller({
+                id: skinSellers[skinId].length,
+                userName: _userName,
+                walletAddress: _walletAddress,
+                price: _price,
+                gameCompany: game
+            });
+
+            skinSellers[skinId].push(newSeller);
+
             //if skin have from contract then remove it from skinOwnership
             skinOwnership.removeSkinFromUser(_userName, skinId);
         }
@@ -268,7 +279,7 @@ contract SkinMarket is ChainlinkClient, ConfirmedOwner {
         uint[] memory skinIds = new uint[](s.count(delim) + 1);
         for (uint i = 0; i < parts.length; i++) {
             parts[i] = s.split(delim).toString();
-            skinIds[i] = stringToUint(parts[i]);
+            skinIds[i] = StringUtils.stringToUint(parts[i]);
             if (skinIds[i] == _skinId) haveSkin = true;
         }
         require(haveSkin, "You don't own this skin");
@@ -285,7 +296,7 @@ contract SkinMarket is ChainlinkClient, ConfirmedOwner {
 
         //implement API call to update database to remove the skin from seller -----> type = SELL
         Chainlink.Request memory req = _buildOperatorRequest(
-            stringToBytes32("1b0de6240c5845f2b104bf81558e5d77"),
+            StringUtils.stringToBytes32("1b0de6240c5845f2b104bf81558e5d77"),
             this.fulfillRequestSuccess.selector
         );
 
@@ -302,68 +313,10 @@ contract SkinMarket is ChainlinkClient, ConfirmedOwner {
         bytes32 _requestId,
         string memory _result
     ) public recordChainlinkFulfillment(_requestId) {
-        if (compareStrings(_result, "Success")) emit isSuccess(true, "");
+        if (StringUtils.compareStrings(_result, "Success"))
+            emit isSuccess(true, "");
         else emit isSuccess(false, "Something went wrong!");
-    }
-
-    function stringToBytes32(
-        string memory source
-    ) private pure returns (bytes32 result) {
-        bytes memory tempEmptyStringTest = bytes(source);
-        if (tempEmptyStringTest.length == 0) {
-            return 0x0;
-        }
-
-        assembly {
-            // solhint-disable-line no-inline-assembly
-            result := mload(add(source, 32))
-        }
-    }
-
-    function stringToUint(string memory s) public pure returns (uint) {
-        bytes memory b = bytes(s);
-        uint result = 0;
-        for (uint256 i = 0; i < b.length; i++) {
-            uint256 c = uint256(uint8(b[i]));
-            if (c >= 48 && c <= 57) {
-                result = result * 10 + (c - 48);
-            }
-        }
-        return result;
-    }
-
-    function compareStrings(
-        string memory a,
-        string memory b
-    ) public view returns (bool) {
-        return (keccak256(abi.encodePacked((a))) ==
-            keccak256(abi.encodePacked((b))));
-    }
-
-    function toString(address account) public pure returns (string memory) {
-        return toString(abi.encodePacked(account));
-    }
-
-    function toString(uint256 value) public pure returns (string memory) {
-        return toString(abi.encodePacked(value));
-    }
-
-    function toString(bytes32 value) public pure returns (string memory) {
-        return toString(abi.encodePacked(value));
-    }
-
-    function toString(bytes memory data) public pure returns (string memory) {
-        bytes memory alphabet = "0123456789abcdef";
-
-        bytes memory str = new bytes(2 + data.length * 2);
-        str[0] = "0";
-        str[1] = "x";
-        for (uint i = 0; i < data.length; i++) {
-            str[2 + i * 2] = alphabet[uint(uint8(data[i] >> 4))];
-            str[3 + i * 2] = alphabet[uint(uint8(data[i] & 0x0f))];
-        }
-        return string(str);
     }
 }
 
-// contract address: 0x69Bce34c7Ac7A22A383b32f33e725921b60Dd6dB
+//new contract address : 0x9B4d2b5609Bc13f8419cDE5CD3f66Ee713E77009

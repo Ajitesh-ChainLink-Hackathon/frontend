@@ -9,10 +9,16 @@ function Hero() {
       "idx": "6",
       "image": "https://res.cloudinary.com/duepebytx/image/upload/v1716734240/knife/n2hrhsy3gzu5ktrxa1ix.avif",
       "name": "Valkyrie",
-      "player_name":"",
-      "game":"Default",
-      "game_price":30,
-      "category": "knife"     
+     
+      "category": "knife",
+      
+      "seller": {
+          "id": "28939qq",
+          "username": "Sarah Wilson",
+          "gameCompany": "Riot Games",
+          "price": 6.9432,
+          "walletAddress": "0x0123456789abcdef"
+      }
   })
   }
   return (

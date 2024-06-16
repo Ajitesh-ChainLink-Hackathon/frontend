@@ -12,7 +12,8 @@ function Hero() {
       "player_name":"",
       "game":"Default",
       "game_price":30,
-      "category": "knife"     
+      "category": "knife"
+      
   })
   }
   return (

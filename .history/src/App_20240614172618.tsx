@@ -18,19 +18,6 @@ import useCurrentAccount from "./hooks/useCurrentAccount.zustand";
 const router = createBrowserRouter([
 	{
 		path: "/",
-		element: <Dashboard />,
-		children: [
-			{
-				index: true,
-				element: <CollectionOverview />,
-			},
-			{
-				path: "/dashboard/:category",
-				element: <CollectionCategory />,
-			},
-		],
-	},
-	{
 		element: <AuthLayout />,
 		children: [
 			{
@@ -40,6 +27,20 @@ const router = createBrowserRouter([
 			{
 				path: "/register/*",
 				element: <Register />,
+			},
+		],
+	},
+	{
+		path: "/:username",
+		element: <Dashboard />,
+		children: [
+			{
+				index: true,
+				element: <CollectionOverview />,
+			},
+			{
+				path: "/dashboard/:category",
+				element: <CollectionCategory />,
 			},
 		],
 	},

@@ -1,4 +1,5 @@
 import { CartItem } from '../hooks/useCartItems.zustand';
+import { usdPrice } from './getEthUsd';
 
 export function calculateDiscountedPrice(
 	originalPrice: number,
@@ -16,7 +17,7 @@ export function calculateDiscountedPrice(
 export const addZero = (value: number) => (value < 10 ? `0${value}` : value);
 
 export const totalPriceWithoutDiscount = (item: CartItem[]) => {
-	return item.reduce((total, item) => total + item.seller.price, 0).toFixed(2);
+	return item.reduce((total, item) => total + item.seller.price*(usdPrice!==null?Number(usdPrice):10000000)/1000000000000000000, 0).toFixed(2);
 };
 
 export const totalDiscountedPrice = (item: CartItem[]) => {

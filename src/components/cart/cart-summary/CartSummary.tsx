@@ -2,6 +2,7 @@ import useCartItems, { CartItem } from '../../../hooks/useCartItems.zustand';
 import { addZero, totalDiscountedPrice, totalPriceWithDiscount, totalPriceWithoutDiscount } from '../../../utils/utils';
 import './style.scss';
 import { skinMarket,getAccounts,Utils } from '../../../utils/web3';
+import { usdPrice } from '../../../utils/getEthUsd';
 
 
 function CartSummary() {
@@ -94,8 +95,6 @@ function CartSummary() {
 			const transaction=await skinMarketCon.methods
 			.buyFromGame( skin[i].idx,username).send({from:connectedAccount,value:amountInWei.toString()});
 			console.log("Transactions Hash: ",transaction.transactionHash);
-
-
 			
 		   }
 		}
@@ -112,7 +111,7 @@ function CartSummary() {
 			</div>
 			<div>
 				<p>Subtotal</p>
-				<p>${0.3838}</p>
+				<p>${totalPrice}</p>
 			</div>
 			<div className='discount'>
 				<p>Discount</p>
@@ -120,7 +119,7 @@ function CartSummary() {
 			</div>
 			<div className="totals">
 				<h2>Total</h2>
-				<h2>${0.3838}</h2>
+				<h2>${totalPrice}</h2>
 			</div>
       <button onClick={()=>{BuySkin(cartItems)}}>Checkout</button>
 		</article>

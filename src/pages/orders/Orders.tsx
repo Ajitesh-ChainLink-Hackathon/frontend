@@ -11,6 +11,8 @@ import {skinOwner,  skinMarket} from "../../utils/web3";
 import useCurrentUser from "../../hooks/useCurrentUser.zustand";
 import useCurrentAccount from "../../hooks/useCurrentAccount.zustand";
 import skinCards from "../../utils/skinCards.json";
+
+import skins from "../../utils/skins.json";
 import { useState } from "react";
 
 type OrderItem1 = {
@@ -22,12 +24,13 @@ type OrderItem1 = {
     game_price: number;
     game: string;
 };
-
+export let numberOfSkin:Number|undefined;
 function Orders() {
   
   const { account } = useCurrentAccount((state) => state);
   const {currentUser} = useCurrentUser(state => state);
   const [displySkins,setdisplaySkins]=useState<OrderItem1[]>([]);
+  
   
   useEffect(()=>{
 	(async () => {
@@ -42,10 +45,17 @@ function Orders() {
 			const t:number[] = await skinOwnerCon.methods
 						.getUserSkins(currentUser.name)
 						.call();
-			const filteredAndMappedSkins = skinCards.skins
-			.filter((x) => t.some((y)=>y==parseInt(x.idx)))
+			const filteredAndMappedSkins = skins
+			//skinCards.skins
+			//skins me hi game price fetch karna jyda better hai
+			.filter((x) => t.some((y)=>y==x.idx))
 			.map((x) => ({
-				...x,
+				idx: x.idx.toString(),
+				image: x.image,
+				name: x.name,
+				category: x.category,
+				game_price: x.market_price,
+				game: "Call of Duty",//change game______________________________
 				player_name:'Ajitesh'//should be currentUser.username
 			}));
 			console.log("filter skins ;",filteredAndMappedSkins);

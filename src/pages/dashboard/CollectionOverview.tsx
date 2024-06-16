@@ -4,15 +4,15 @@ import Collection from '../../components/dashboard/collection/Collection';
 import { skinMarket } from "../../utils/web3.ts";
 import useCurrentAccount from "../../hooks/useCurrentAccount.zustand";
 import skinsFromJson from "../../utils/skins.json";
+
 import { getEthPriceInUSD } from "../../utils/getEthUsd.ts";
 
-
 type Seller = { 
-	id: string;
-	username: string;
-	gameCompany: string;
-	price: number;
-	walletAddress: string;
+    id: string;
+    username: string;
+    gameCompany: string;
+    price: number;
+    walletAddress: string;
 };
 
 type CartItem = {
@@ -30,53 +30,53 @@ interface SkinsByCategory {
 }
 
 const CollectionOverview: React.FC = () => {
-    const [loading,setloading]=useState<boolean>(true);
-	const [skinByCatagory,setSkinsByCatagory]=useState<SkinsByCategory>({});
-	
-    async function ShowAllSkins() {
-		
-		const skinMarketCon=await skinMarket();	
+    
+    const [skinByCategory, setSkinsByCategory] = useState<SkinsByCategory>({});
+    const { account } = useCurrentAccount((state) => state);
+
+    const addSkinToCategory = (category: string, skin: CartItem) => {
+        setSkinsByCategory(prevState => {
+            const newCategory = prevState[category] ? [...prevState[category], skin] : [skin];
+            return { ...prevState, [category]: newCategory };
+        });
+    };
+
+    const ShowAllSkins = async () => {
+        const skinMarketCon = await skinMarket();
         try {
-            const skinIds: string[] = await skinMarketCon.methods.getAllSkins().call();			
+            const skinIds: string[] = await skinMarketCon.methods.getAllSkins().call();
             for (const id of skinIds) {
-					
-				//add game skins 
-				const gamePrice=await skinMarketCon.methods.getSkinPriceFromGame(id).call();
-				const sellerObj: Seller = {
-					id: "0",
-					username: "Game",
-					walletAddress: "Game",
-					price: gamePrice ? Number(gamePrice) :0,
-					gameCompany: "Game",
-				};
-				const potentialCard=skinsFromJson.find(x => Number(x.idx) === Number(id));
-				
+               
 
-				
-				if(potentialCard){
-					let card:CartItem = {
-					idx: id,
-					image: potentialCard.image,
-					name: potentialCard.name,
-					category: potentialCard.category,
-					market_price:gamePrice? Number(gamePrice):0,
-					discount: potentialCard.discount,
-					seller: sellerObj,
-					}
-					if(skinByCatagory[potentialCard.category]==null){
-						skinByCatagory[potentialCard.category]=[];
-					}
-					skinByCatagory[potentialCard.category].push(card);
-					setSkinsByCatagory(skinByCatagory);
-					
-				}	
+                // Add game skins 
+                const gamePrice = await skinMarketCon.methods.getSkinPriceFromGame(id).call();
+				//cards me hi getSkinPriceFromGame karna padega
+                const sellerObj: Seller = {
+                    id: "0",
+                    username: "Game",
+                    walletAddress: "Game",
+                    price: gamePrice ? Number(gamePrice) : 0,
+                    gameCompany: "Game",
+                };
+                const potentialCard = skinsFromJson.find(x => Number(x.idx) === Number(id));
 
+                if (potentialCard) {
+                    let card: CartItem = {
+                        idx: id,
+                        image: potentialCard.image,
+                        name: potentialCard.name,
+                        category: potentialCard.category,
+                        market_price: gamePrice ? Number(gamePrice) : 0,
+                        discount: potentialCard.discount,
+                        seller: sellerObj,
+                    };
+                    addSkinToCategory(potentialCard.category, card);
+                }
 
-				//sell by someone else 
+                // Sell by someone else 
                 const sellersOfSkin: Seller[][] = await skinMarketCon.methods.getSellers(id).call();
-				console.log("Seller of skins:",sellersOfSkin);
-                // Loop through sellersOfSkin array and create seller objects
-                for (const seller of sellersOfSkin) {	
+                console.log("Seller of skins:", sellersOfSkin);
+                for (const seller of sellersOfSkin) {
                     const sellerObj: Seller = {
                         id: seller[0].toString(),
                         username: seller[1].toString(),
@@ -84,68 +84,51 @@ const CollectionOverview: React.FC = () => {
                         price: parseFloat(seller[3].toString()),
                         gameCompany: seller[4].toString(),
                     };
-					console.log("Card render horahe");
-                    const potentialCard=skinsFromJson.find(x => Number(x.idx) === Number(id));
-					
-					if(potentialCard){
-							
-						let card:CartItem= {
-						idx: id,
-						image: potentialCard.image,
-						name: potentialCard.name,
-						category: potentialCard.category,
-						market_price: potentialCard.market_price,
-						discount: potentialCard.discount,
-						seller: sellerObj,
-						}
-						if(skinByCatagory[potentialCard.category]==null){
-							skinByCatagory[potentialCard.category]=[];
-						}
-						skinByCatagory[potentialCard.category].push(card);	
-						setSkinsByCatagory(skinByCatagory);
-					}		
-
+                    const potentialCard = skinsFromJson.find(x => Number(x.idx) === Number(id));
+                    if (potentialCard) {
+                        let card: CartItem = {
+                            idx: id,
+                            image: potentialCard.image,
+                            name: potentialCard.name,
+                            category: potentialCard.category,
+                            market_price:  gamePrice ? Number(gamePrice) : 0,
+                            discount: potentialCard.discount,
+                            seller: sellerObj,
+                        };
+                        addSkinToCategory(potentialCard.category, card);
+                    }
                 }
 
+                
             }
-			
-			setSkinsByCatagory(skinByCatagory);
-            setloading(false);
         } catch (error) {
             console.error("Error fetching skins:", error);
-            setloading(false);
+            
         }
-    }
-	const { account } = useCurrentAccount((state) => state);
-    useEffect(() => {
+    };
 
-		
-		(async()=>{
-			if(account!==null){
-				ShowAllSkins();
-			}			
-		}
-		)();	
+    useEffect(() => {
+        if (account !== null) {
+			getEthPriceInUSD();
+            ShowAllSkins();
+        }
     }, [account]);
 
     return (
         <div className='collection__overview'>
             <h1>Skin Collections</h1>
-            {loading ? (
-                <p>Loading...</p>
-            ) : (
-				Object.keys(skinByCatagory).map((category, index) => (
-					<Collection
-						link={`/dashboard/${category}`}
-						icon={`/icons/${category}.svg`}
-						title={category}
-						skins={skinByCatagory[category]}
-						key={index}
-					/>
-				))
-            )}
+            {Object.keys(skinByCategory).map((category, index) => (
+                <Collection
+                    link={`/dashboard/${category}`}
+                    icon={`/icons/${category}.svg`}
+                    title={category}
+                    skins={skinByCategory[category]}
+                    key={index}
+                />
+            ))}
+           
         </div>
     );
-}
+};
 
 export default CollectionOverview;

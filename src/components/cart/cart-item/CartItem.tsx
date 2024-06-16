@@ -1,5 +1,6 @@
 import './style.scss';
 import useCartItems from '../../../hooks/useCartItems.zustand';
+import { usdPrice } from '../../../utils/getEthUsd';
 
 type Seller = { 
 	username: string;
@@ -39,7 +40,7 @@ function CartItem(props: CartItemProps) {
 			<p className="category">{props.category}</p>
 			<div className="price">
 				<h2>
-					${0.3838} <span>-{props.discount}%</span>
+					${props.seller.price *(usdPrice?Number(usdPrice):0)/1000000000000000000} <span>-{props.discount}%</span>
 				</h2>
 				<p>Market Price: ${2}</p>
 			</div>

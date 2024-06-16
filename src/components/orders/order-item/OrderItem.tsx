@@ -38,7 +38,7 @@ function OrderItem(props: OrderItem) {
 				<h2>
 					${props.game_price} 
 				</h2>
-				<p>{props.player_name}</p>
+				<p>{props.game}</p>
 			</div>
 			<div>
 				<button onClick={handleClick} className="sell__btn">

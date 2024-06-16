@@ -1,19 +1,14 @@
-import useSellingItems from "../../../hooks/useSellingItems.zustand"
+
+import { useNavigate } from "react-router-dom";
 import "./style.scss"
 
 function Hero() {
-  const setNewSellingItem = useSellingItems(state => state.setNewSellingItem)
+ 
+  const navigate = useNavigate();
 
   const handleClick =()=> {
-    setNewSellingItem({
-      "idx": "6",
-      "image": "https://res.cloudinary.com/duepebytx/image/upload/v1716734240/knife/n2hrhsy3gzu5ktrxa1ix.avif",
-      "name": "Valkyrie",
-      "player_name":"",
-      "game":"Default",
-      "game_price":30,
-      "category": "knife"     
-  })
+  navigate('/orders');
+  
   }
   return (
     <div className="hero__section" id="home">

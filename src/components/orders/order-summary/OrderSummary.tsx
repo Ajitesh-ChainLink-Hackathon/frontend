@@ -1,6 +1,6 @@
 
 import useOrderItems from '../../../hooks/useOrderItems.zustand';
-// import { addZero, totalDiscountedPrice, totalPriceWithDiscount, totalPriceWithoutDiscount } from '../../../utils/utils';
+ import { addZero, totalDiscountedPrice, totalPriceWithDiscount, totalPriceWithoutDiscount } from '../../../utils/utils';
 import './style.scss';
 
 function OrderSummary() {
@@ -13,8 +13,7 @@ function OrderSummary() {
 			<h2>Order Summary</h2>
 			<div>
 				<p>Total Skins</p>
-				{/* <p>{addZero(orderItems.length)}</p> */}
-				<p>10</p>
+				<p>{addZero(orderItems.length)}</p>
 			</div>
 			<div>
 				<p>Subtotal</p>

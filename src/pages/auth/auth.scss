@@ -234,3 +234,45 @@ $bh: #04413c;
 		}
 	}
 }
+
+
+
+
+$main-color: #5e5b5b;
+
+.register_but { 
+	width:100%;
+	align-items:center;
+	padding: 1px;
+	cursor: pointer;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: .5rem;
+		transition: background 0.3s ease;
+		letter-spacing: 1px;
+		font-size: 0.75rem;
+		font-weight: bolder;
+		color: aliceblue;
+		font-family: "krona";
+		border-radius: 0.5rem;
+		border: 0;
+		background-color: $main-color;
+		height: 2.7rem + 0.2rem;
+		box-shadow: 0px 5px 10px rgba(19, 17, 17, 0.445);
+
+      img {
+         width: 1.2rem;
+      }
+
+		&:active {
+			background-color: darken($main-color, 0.5);
+		}
+      &:disabled {
+         filter: opacity(0.55);
+         cursor: not-allowed;
+      }
+	
+
+	
+}

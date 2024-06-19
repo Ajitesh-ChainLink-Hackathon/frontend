@@ -2,7 +2,6 @@ import useCartItems, { CartItem } from '../../../hooks/useCartItems.zustand';
 import { addZero, totalDiscountedPrice, totalPriceWithDiscount, totalPriceWithoutDiscount } from '../../../utils/utils';
 import './style.scss';
 import { skinMarket,getAccounts,Utils } from '../../../utils/web3';
-import { usdPrice } from '../../../utils/getEthUsd';
 
 
 function CartSummary() {

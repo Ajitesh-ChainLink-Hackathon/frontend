@@ -40,7 +40,10 @@ function AuthButtons({ isLoading, children, goggleAuth, src, isDisabled, handleG
 					/>
 				</button>
 			)}
+
 		</div>
+
+
 	);
 }
 

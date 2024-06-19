@@ -1,10 +1,11 @@
 import { create } from 'zustand';
 
-
 export type UserProps = {
    name: string;
    email: string;
    password: string;
+   account: string;
+
 }
 
 interface CurrentUserState {
@@ -18,9 +19,10 @@ interface CurrentUserState {
 
 const initialState = {
    currentUser :{
-    name: "Ajitesh",//To  change 
+    name: "Shritesh",//To  change 
     email: "ajitesh.jam@gmail.com",
-    password: "ChainLink"
+    password: "ChainLink",
+    account: ""
  } ,
    sideBar: false,
    loginModal: false

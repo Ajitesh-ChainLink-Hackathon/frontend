@@ -1,8 +1,13 @@
 import FormInput from "../../components/authentication/form-input/FormInput";
 import AuthButtons from "../../components/authentication/auth-buttons/AuthButtons";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { UserProps } from "../../hooks/useCurrentUser.zustand";
+import "./auth.scss";
+import useCurrentUser from "../../hooks/useCurrentUser.zustand";
+import useCurrentAccount from "../../hooks/useCurrentAccount.zustand";
+
+
 
 type PageProps = {
    newUser: UserProps & {confirm_password: string};
@@ -11,25 +16,29 @@ type PageProps = {
    handleChange: (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => void;
 }
 
-function SecondRegPage({handleChange, handleSubmit, newUser, isLoading}:PageProps) {
-   // const navigation = useNavigation();
-   // console.log(newUser)
+function SecondRegPage({handleChange, handleSubmit, newUser}:PageProps) {
 
+   // const navigation = useNavigation();
+   
+   const navigate=useNavigate();
+   let {currentUser}=useCurrentUser((state)=>state);
+   let {account}=useCurrentAccount((state)=>state);
+   
    const [policy, setPolicy] = useState(false);
    const changePolicy =()=> {
-      setPolicy(!policy)
+	setPolicy(!policy);
    }
+
+   function registerDone(){
+	console.log("regDone user : ",newUser);
+	currentUser=newUser;
+	currentUser.account=account?.account.toString();
+	console.log("current : ",currentUser);
+	navigate(`/${currentUser.name}`);
+   }
+  
 	return (
 		<form onSubmit={handleSubmit}>
-			<FormInput
-				name="confirm_password"
-				type="password"
-				label
-				id="confirm_password"
-				handleChange={handleChange}
-				value={newUser.confirm_password}
-				required
-			/>
 			<FormInput
 				name="password"
 				type="password"
@@ -40,6 +49,17 @@ function SecondRegPage({handleChange, handleSubmit, newUser, isLoading}:PageProp
 				eyeicon
 				required
 			/>
+			<FormInput
+				name="confirm_password"
+				type="password"
+				label
+				id="confirm_password"
+				handleChange={handleChange}
+				value={newUser.confirm_password}
+				required
+			/>
+		
+
             <input
                type="radio"
                className="policy"
@@ -55,13 +75,14 @@ function SecondRegPage({handleChange, handleSubmit, newUser, isLoading}:PageProp
                our <Link to="/">privacy policy</Link>
             </label>
 			
-			<AuthButtons
+			{/* <AuthButtons
 				isLoading={isLoading}
 				src="arrow_right"
             isDisabled={!policy}
-			>
-				Register
-			</AuthButtons>
+			>Register
+			</AuthButtons> */}
+			<button className="register_but" onClick={registerDone}>Register</button>
+
 		</form>
 	);
 }

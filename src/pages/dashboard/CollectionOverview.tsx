@@ -4,8 +4,10 @@ import Collection from '../../components/dashboard/collection/Collection';
 import { skinMarket } from "../../utils/web3.ts";
 import useCurrentAccount from "../../hooks/useCurrentAccount.zustand";
 import skinsFromJson from "../../utils/skins.json";
+import { discountPercent } from "../../utils/utils.ts";
 
 import { getEthPriceInUSD } from "../../utils/getEthUsd.ts";
+import { ERR_FORMATTERS } from "web3";
 
 type Seller = { 
     id: string;
@@ -43,6 +45,7 @@ const CollectionOverview: React.FC = () => {
 
     const ShowAllSkins = async () => {
         const skinMarketCon = await skinMarket();
+		
         try {
             const skinIds: string[] = await skinMarketCon.methods.getAllSkins().call();
             for (const id of skinIds) {
@@ -59,15 +62,15 @@ const CollectionOverview: React.FC = () => {
                     gameCompany: "Game",
                 };
                 const potentialCard = skinsFromJson.find(x => Number(x.idx) === Number(id));
-
                 if (potentialCard) {
+					
                     let card: CartItem = {
                         idx: id,
                         image: potentialCard.image,
                         name: potentialCard.name,
                         category: potentialCard.category,
                         market_price: gamePrice ? Number(gamePrice) : 0,
-                        discount: potentialCard.discount,
+                        discount: 0,
                         seller: sellerObj,
                     };
                     addSkinToCategory(potentialCard.category, card);
@@ -86,13 +89,14 @@ const CollectionOverview: React.FC = () => {
                     };
                     const potentialCard = skinsFromJson.find(x => Number(x.idx) === Number(id));
                     if (potentialCard) {
+						const discount=await discountPercent(gamePrice ? Number(gamePrice) : 0, sellerObj.price);
                         let card: CartItem = {
                             idx: id,
                             image: potentialCard.image,
                             name: potentialCard.name,
                             category: potentialCard.category,
                             market_price:  gamePrice ? Number(gamePrice) : 0,
-                            discount: potentialCard.discount,
+                            discount: discount,
                             seller: sellerObj,
                         };
                         addSkinToCategory(potentialCard.category, card);

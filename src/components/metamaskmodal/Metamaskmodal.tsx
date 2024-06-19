@@ -3,6 +3,7 @@ import "./style.scss";
 import { Fragment } from "react/jsx-runtime";
 import { getAccounts } from "../../utils/web3";
 import useCurrentAccount from "../../hooks/useCurrentAccount.zustand";
+import useCurrentUser from "../../hooks/useCurrentUser.zustand";
 
 const MetaMaskModal: React.FC = () => {
 	const { account, setAccount } = useCurrentAccount((state) => state);
@@ -10,9 +11,11 @@ const MetaMaskModal: React.FC = () => {
 	const [modalIsOpen, setModalIsOpen] = useState(true);
 	const [errorMessage, setErrorMessage] = useState<string | null>(null);
 
-	useEffect(() => {
-		if (account != null) setModalIsOpen(false);
-	});
+	const { currentUser } = useCurrentUser((state) => state);
+
+	// useEffect(() => {
+	// 	if (currentUser?.account!=null) setModalIsOpen(false);
+	// });
 
 	const closeModal = () => {
 		setModalIsOpen(false);
@@ -28,6 +31,10 @@ const MetaMaskModal: React.FC = () => {
 			setErrorMessage(`User denied account access: ${error}`);
 		}
 	};
+	// const closeModalByClose=()=>{
+	// 	alert("Please connect to MetaMask ");
+	// 	setModalIsOpen(true);
+	// }
 
 	return (
 		modalIsOpen && (
@@ -47,7 +54,7 @@ const MetaMaskModal: React.FC = () => {
 					{errorMessage && (
 						<p style={{ color: "red" }}>{errorMessage}</p>
 					)}
-					<button onClick={closeModal}>Close</button>
+					{/* <button onClick={closeModalByClose}>Close</button> */}
 				</div>
 			</Fragment>
 		)

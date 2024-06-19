@@ -72,16 +72,16 @@
 // export default SkinCard;
 
 
-import React, { forwardRef, LegacyRef, useEffect, useState } from 'react';
+import { forwardRef, LegacyRef, useEffect, useState } from 'react';
 import './style.scss';
 import useCartItems, { CartItem } from '../../../hooks/useCartItems.zustand';
-import { calculateDiscountedPrice } from '../../../utils/utils';
+// import { calculateDiscountedPrice } from '../../../utils/utils';
 import showToast from '../../../utils/showToast';
 import { usdPrice } from '../../../utils/getEthUsd';
 
 const SkinCard = forwardRef((props: CartItem, ref: LegacyRef<HTMLDivElement>) => {
     const addToCart = useCartItems(state => state.addCartItem);
-    const discountedPrice = calculateDiscountedPrice(props.seller.price, props.discount);
+   // const discountedPrice = calculateDiscountedPrice(props.seller.price, props.discount);
 	
 
     const addSkinToCart = () => {

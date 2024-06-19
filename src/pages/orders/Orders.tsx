@@ -10,7 +10,6 @@ import { useEffect } from "react"
 import {skinOwner,  skinMarket} from "../../utils/web3";
 import useCurrentUser from "../../hooks/useCurrentUser.zustand";
 import useCurrentAccount from "../../hooks/useCurrentAccount.zustand";
-import skinCards from "../../utils/skinCards.json";
 
 import skins from "../../utils/skins.json";
 import { useState } from "react";
@@ -30,6 +29,8 @@ function Orders() {
   const { account } = useCurrentAccount((state) => state);
   const {currentUser} = useCurrentUser(state => state);
   const [displySkins,setdisplaySkins]=useState<OrderItem1[]>([]);
+
+
   
   
   useEffect(()=>{
@@ -56,7 +57,8 @@ function Orders() {
 				category: x.category,
 				game_price: x.market_price,
 				game: "Call of Duty",//change game______________________________
-				player_name:'Ajitesh'//should be currentUser.username
+				player_name:currentUser.name?currentUser.name:"NOT DEFINE",
+				//should be currentUser.username
 			}));
 			console.log("filter skins ;",filteredAndMappedSkins);
 			setdisplaySkins(filteredAndMappedSkins);		

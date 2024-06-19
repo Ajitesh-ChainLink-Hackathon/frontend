@@ -1,5 +1,6 @@
 import { CartItem } from '../hooks/useCartItems.zustand';
 import { usdPrice } from './getEthUsd';
+import { skinMarket } from './web3';
 
 export function calculateDiscountedPrice(
 	originalPrice: number,
@@ -13,6 +14,18 @@ export function calculateDiscountedPrice(
 
 	return discountedPrice.toFixed(2);
 }
+
+export async function discountPercent(
+	originalPriceValue:number,
+	discountedPrice:number
+	){
+	// const skinMarketCon=await skinMarket();
+	// const gamePrice = await skinMarketCon.methods.getSkinPriceFromGame(item.idx).call();
+	// const discountedPrice=Number(item.seller.price);
+	// const originalPriceValue=gamePrice?Number(gamePrice):0;
+	return ((originalPriceValue-discountedPrice)/originalPriceValue)*100
+}
+
 
 export const addZero = (value: number) => (value < 10 ? `0${value}` : value);
 

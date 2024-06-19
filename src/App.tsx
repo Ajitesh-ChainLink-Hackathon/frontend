@@ -14,10 +14,25 @@ import { Toaster } from "react-hot-toast";
 import Selling from "./pages/selling/Selling";
 import MetaMaskModal from "./components/metamaskmodal/Metamaskmodal";
 import useCurrentAccount from "./hooks/useCurrentAccount.zustand";
+import useCurrentUser from "./hooks/useCurrentUser.zustand";
 
 const router = createBrowserRouter([
+	// {
+	// 	path: "/",
+	// 	element: <Dashboard />,
+	// 	children: [
+	// 		{
+	// 			index: true,
+	// 			element: <CollectionOverview />,
+	// 		},
+	// 		{
+	// 			path: "/dashboard/:category",
+	// 			element: <CollectionCategory />,
+	// 		},
+	// 	],
+	// },
 	{
-		path: "/",
+		path: "/:username",
 		element: <Dashboard />,
 		children: [
 			{
@@ -25,10 +40,11 @@ const router = createBrowserRouter([
 				element: <CollectionOverview />,
 			},
 			{
-				path: "/dashboard/:category",
+				path: "/:username/dashboard/:category",
 				element: <CollectionCategory />,
 			},
 		],
+
 	},
 	{
 		element: <AuthLayout />,
@@ -59,11 +75,14 @@ const router = createBrowserRouter([
 
 function App() {
 	const { account } = useCurrentAccount((state) => state);
+	const {currentUser}=useCurrentUser(((state)=>state));
 	const [modalIsOpen, setModalIsOpen] = useState(account == null);
 
 	useEffect(() => {
-		if (account != null) setModalIsOpen(false);
+	if (account != null) setModalIsOpen(false);
+		console.log("App ka account : ",account,"\nApp ka user: ",currentUser);
 	}, [account]);
+
 
 	return (
 		<Fragment>
